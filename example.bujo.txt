@@ -1,0 +1,59 @@
+Week Name
+
+Sun
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Mon
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Tue
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Wed
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Thu
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Fri
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+Sat
+max tasks
+Task: name, description, weekday, completed/not completed
+
+max events
+Event: name, description, weekday, start time, duration
+(possibly more tasks/events)
+
+
