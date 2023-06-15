@@ -1,0 +1,9 @@
+Name:
+Max tasks: 5
+Max events: 5
+Day: Sunday
+Tasks:
+Name: walk dog, Description: walk dog, Day of week: Sunday, Completed: false
+Events:
+Name: walk dog, Description: walk dog, Day of week: Sunday, Start time: 3:00, Duration: 20
+Day: Monday

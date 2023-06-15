@@ -4,10 +4,12 @@ module cs3500.pa05 {
 
     requires org.controlsfx.controls;
 
-    opens cs3500.pa05 to javafx.fxml;
+    opens cs3500 to javafx.fxml;
+    exports cs3500;
     exports cs3500.pa05;
-    exports cs3500.pa05.controller;
     exports cs3500.pa05.model;
     exports cs3500.pa05.view;
+    opens cs3500.pa05 to javafx.fxml;
+    exports cs3500.pa05.controller;
     opens cs3500.pa05.controller to javafx.fxml;
 }
