@@ -1,5 +1,8 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.json.JsonDay;
+import cs3500.pa05.json.JsonEvent;
+import cs3500.pa05.json.JsonTask;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -29,22 +32,20 @@ public class Day {
     return this.events;
   }
 
-  public void initializeDayTasks(String line) {
-    Pattern pattern = Pattern.compile("\\[\\[(.*?)]]");
+  public JsonDay dayToJson() {
+    List<JsonTask> jsonTasks = new ArrayList<>();
+    List<JsonEvent> jsonEvents = new ArrayList<>();
 
+    for (Task t : this.tasks) {
+      JsonTask jsonTask = t.taskToJson();
+      jsonTasks.add(jsonTask);
+    }
 
-    int indexStartName = line.indexOf("Name: ");
-    int indexEndName = line.indexOf(", Description: ");
-    String name = line.substring(indexStartName, indexEndName);
+    for (Event e : this.events) {
+      JsonEvent jsonEvent = e.eventToJson();
+      jsonEvents.add(jsonEvent);
+    }
 
-    int indexStartName = line.indexOf("Description: ");
-    int indexEndName = line.indexOf(", Description: ");
-    String name = line.substring(indexStartName, indexEndName);
-
-
-    DayOfWeek dayOfWeek = DayOfWeek.valueOf(dayOfWeekString);
-
-    Task newTask = new Task(dayOfWeek, description, name);
-
+    return new JsonDay(this.day.name(), jsonTasks, jsonEvents);
   }
 }

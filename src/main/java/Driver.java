@@ -1,5 +1,5 @@
 import cs3500.pa05.controller.Controller;
-import cs3500.pa05.controller.ControllerImpl;
+import cs3500.pa05.controller.WelcomeController;
 import cs3500.pa05.view.GraphicalView;
 import cs3500.pa05.view.View;
 import javafx.application.Application;
@@ -14,9 +14,8 @@ public class Driver extends Application {
   @Override
   public void start(Stage stage) throws Exception {
 
-    WamBoard board = new BoardImpl();
-    Controller controller = new ControllerImpl(board);
-    View view = new GraphicalView(controller);
+    Controller controller = new WelcomeController();
+    View view = new GraphicalView(controller, "welcomePage.fxml");
 
     try {
       stage.setScene(view.load());

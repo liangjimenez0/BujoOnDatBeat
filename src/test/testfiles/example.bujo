@@ -1,0 +1,150 @@
+{
+    "Max Tasks": "3",
+    "Max Events": "4",
+    "Week": {
+        "Days" : [
+            {
+                "Name": "Sunday",
+                "Tasks": [
+                    {
+                        "Name": "walk dog",
+                        "Description": "go to fens with spot",
+                        "Day of Week": "SUNDAY",
+                        "Completed": "true"
+                    },
+                    {
+                        "Name": "do PA05",
+                        "Description": "pray to the gods we get this done",
+                        "Day of Week": "SUNDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {
+                        "Name": "dinner at IV",
+                        "Description": "meet friends for dinner",
+                        "Day of Week": "SUNDAY",
+                        "Start Time": "0",
+                        "Duration": 120
+                    }
+                ]
+            },
+            {
+                "Name": "Monday",
+                "Tasks": [
+                    {
+                        "Name": "do laundry",
+                        "Description": "",
+                        "Day of Week": "MONDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {
+                        "Name": "shopping",
+                        "Description": "go to newbury",
+                        "Day of Week": "MONDAY",
+                        "Start Time": "0",
+                        "Duration": 180
+                    }
+                ]
+            },
+            {
+                "Name": "Tuesday",
+                "Tasks": [
+                    {}
+                ],
+                "Events": [
+                    {
+                        "Name": "OOD lab",
+                        "Description": "hurtig 129",
+                        "Day of Week": "TUESDAY",
+                        "Start Time": "0",
+                        "Duration": 100
+                    }
+                ]
+            },
+            {
+                "Name": "Wednesday",
+                "Tasks": [
+                    {
+                        "Name": "take meds",
+                        "Description": "take with water after breakfast",
+                        "Day of Week": "WEDNESDAY",
+                        "Completed": "true"
+                    },
+                    {
+                        "Name": "go to whole foods",
+                        "Description": "need milk eggs and butter",
+                        "Day of Week": "WEDNESDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {
+                        "Name": "cook dinner",
+                        "Description": "dinner at liangs",
+                        "Day of Week": "WEDNESDAY",
+                        "Start Time": "0",
+                        "Duration": 60
+                    }
+                ]
+            },
+            {
+                "Name": "Thursday",
+                "Tasks": [
+                    {
+                        "Name": "buy ticket home",
+                        "Description": "sale on jetblue!",
+                        "Day of Week": "THURSDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {}
+                ]
+            },
+            {
+                "Name": "Friday",
+                "Tasks": [
+                    {
+                        "Name": "submit math hw",
+                        "Description": "",
+                        "Day of Week": "FRIDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {
+                        "Name": "pick up sister from school",
+                        "Description": "",
+                        "Day of Week": "FRIDAY",
+                        "Start Time": "0",
+                        "Duration": 10
+                    },
+                    {
+                        "Name": "go out",
+                        "Description": "DTD hosting",
+                        "Day of Week": "FRIDAY",
+                        "Start Time": "0",
+                        "Duration": 180
+                    }
+                ]
+            },
+            {
+                "Name": "Saturday",
+                "Tasks": [
+                    {
+                        "Name": "submit housing app",
+                        "Description": "go to housing portal",
+                        "Day of Week": "SATURDAY",
+                        "Completed": "false"
+                    }
+                ],
+                "Events": [
+                    {}
+                ]
+            }
+        ]
+    }
+}

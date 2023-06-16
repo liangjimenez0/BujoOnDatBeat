@@ -9,9 +9,9 @@ public class GraphicalView implements View {
 
   private final FXMLLoader loader;
 
-  public GraphicalView(Controller controller) {
+  public GraphicalView(Controller controller, String fxmlFileName) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("bulletjournal.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource(fxmlFileName));
 
     this.loader.setController(controller);
   }

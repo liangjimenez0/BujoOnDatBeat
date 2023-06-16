@@ -1,5 +1,7 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.json.JsonBujoFile;
+import cs3500.pa05.json.JsonWeek;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -7,44 +9,24 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class CreateNewFile {
-  public void createNewFile(Week week, String fileName) {
-    try {
-      StringBuilder builder = new StringBuilder();
+  public void createNewFile(Week week, String fileName) throws IOException {
+    StringBuilder builder = new StringBuilder();
 
-      builder.append("Max tasks: ").append(week.getMaxTasks()).append(System.lineSeparator());
-      builder.append("Max events: ").append(week.getMaxEvents()).append(System.lineSeparator());
+    JsonWeek jsonWeek = week.weekToJson();
+    JsonBujoFile jsonBujoFile = new JsonBujoFile(week.getMaxTasks(), week.getMaxEvents(), jsonWeek);
 
-      for (Day d : week.getDays()) {
-        builder.append("Day: ").append(d.getDayOfWeek()).append(System.lineSeparator());
+    builder.append(jsonBujoFile);
 
-        builder.append("Tasks: ").append(System.lineSeparator());
+    File bujoFile = new File(fileName);
+    Scanner input = new Scanner(builder.toString());
+    BufferedWriter writer = new BufferedWriter(new FileWriter(bujoFile));
 
-            for (Task t : d.getTasks()) {
-              builder.append(t.taskInStringForm()).append(System.lineSeparator());
-            }
+    while (input.hasNextLine()) {
+      String line = input.nextLine();
 
-        builder.append("Events: ").append(System.lineSeparator());
-
-            for (Event e : d.getEvents()) {
-              builder.append(e.eventInStringForm()).append(System.lineSeparator());
-            }
-
-      }
-
-      File bujoFile = new File(fileName);
-      Scanner input = new Scanner(builder.toString());
-      BufferedWriter writer = new BufferedWriter(new FileWriter(bujoFile));
-
-      while (input.hasNextLine()) {
-        String line = input.nextLine();
-
-        writer.write(line + System.lineSeparator());
-      }
-
-      writer.close();
-
-    } catch (IOException e) {
-      e.printStackTrace();
+      writer.write(line + System.lineSeparator());
     }
+
+    writer.close();
   }
 }

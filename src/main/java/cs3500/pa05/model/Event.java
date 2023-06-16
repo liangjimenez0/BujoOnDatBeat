@@ -1,5 +1,8 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.json.JsonEvent;
+import cs3500.pa05.json.JsonTask;
+
 public class Event extends Widget {
 
   private long startTime;
@@ -11,15 +14,8 @@ public class Event extends Widget {
     this.duration = duration;
   }
 
-  public StringBuilder eventInStringForm() {
-    StringBuilder builder = new StringBuilder();
-
-    builder.append("Name: ").append(this.nameOfTask).append(", ");
-    builder.append("Description: ").append(this.description).append(", ");
-    builder.append("Day of week: ").append(this.day).append(", ");
-    builder.append("Start time: ").append(this.startTime).append(", ");
-    builder.append("Duration: ").append(this.duration).append(", ");
-
-    return builder;
+  public JsonEvent eventToJson() {
+    return new JsonEvent(this.nameOfTask, this.description, this.day, this.startTime,
+        this.duration);
   }
 }
