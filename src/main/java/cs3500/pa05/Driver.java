@@ -1,3 +1,5 @@
+package cs3500.pa05;
+
 import cs3500.pa05.controller.Controller;
 import cs3500.pa05.controller.WelcomeController;
 import cs3500.pa05.view.GraphicalView;

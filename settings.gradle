@@ -1,4 +1,2 @@
 rootProject.name = 'pa05-template'
-include 'src:test:testfiles'
-findProject(':src:test:testfiles')?.name = 'testfiles'
 
