@@ -6,11 +6,18 @@ import cs3500.pa05.view.View;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Represents the abstracted code from controller that switches scenes on a JavaFX stage
+ */
 public abstract class AbstractController implements Controller {
 
   private Week currentWeek;
   Button createNewFile;
 
+  /**
+   * @param controller is the given Controller that handles the switching of scenes on a stage
+   * @param fxmlFileName is the file name of the given JavaFX file
+   */
   public void switchScene(Controller controller, String fxmlFileName) {
     Stage stage = (Stage) createNewFile.getScene().getWindow();
     View view = new GraphicalView(controller, fxmlFileName);
@@ -21,6 +28,9 @@ public abstract class AbstractController implements Controller {
     controller.run();
   }
 
+  /**
+   * Initializes a Java Journal
+   */
   public abstract void run();
 
 }

@@ -15,22 +15,22 @@ import org.junit.jupiter.api.Test;
  * Represents the testing for the Day class.
  */
 class DayTest {
-  Day mon;
-  Day tues;
-  Day wed;
-  Day thurs;
-  Day fri;
-  Day sat;
-  Day sun;
-  List<Task> taskList = new ArrayList<>();
-  Task laundry;
-  Task study;
-  List<Event> eventList = new ArrayList<>();
-  Event dinner;
-  Event birthday;
-  JsonDay jsonMon;
-  JsonDay jsonTues;
-  JsonDay jsonFri;
+  private Day mon;
+  private Day tues;
+  private Day wed;
+  private Day thurs;
+  private Day fri;
+  private Day sat;
+  private Day sun;
+  private final List<Task> taskList = new ArrayList<>();
+  private Task laundry;
+  private Task study;
+  private final List<Event> eventList = new ArrayList<>();
+  private Event dinner;
+  private Event birthday;
+  private JsonDay jsonMon;
+  private JsonDay jsonTues;
+  private JsonDay jsonFri;
 
   /**
    * Called before each test method that initializes objects used during testing.
@@ -129,7 +129,6 @@ class DayTest {
     assertTrue(this.jsonTues.tasks().contains(new JsonTask(
         "study for exam", "study", DayOfWeek.TUESDAY, false)));
     assertEquals("FRIDAY", this.jsonFri.name());
-
     assertTrue(this.jsonFri.events().contains(
         new JsonEvent("dinner with fam", "dinner", DayOfWeek.FRIDAY, 1800L, 120)));
   }

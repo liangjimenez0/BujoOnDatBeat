@@ -1,10 +1,9 @@
 package cs3500.pa05.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,23 +11,15 @@ import org.junit.jupiter.api.Test;
  * The testing class for reading a Bujo file and extracting information from that file.
  */
 class ReadFileTest {
-  ReadFile testRead;
-  Week week;
-  List<Day> allDays;
-  List<Task> allTasks;
-  List<Event> allEvents;
-  int maxTasks;
-  int maxEvents;
+  private ReadFile testRead;
+  private int maxTasks;
+  private int maxEvents;
 
   @BeforeEach
   public void setup() {
-      this.allDays = new ArrayList<>();
-      this.allTasks = new ArrayList<>();
-      this.allEvents = new ArrayList<>();
-      this.maxTasks = 5;
-      this.maxEvents = 5;
-  this.week = new Week(this.maxTasks, this.maxEvents);
-  this.testRead = new ReadFile(new File("src/test/testfiles/example.bujo"));
+    this.maxTasks = 5;
+    this.maxEvents = 5;
+    this.testRead = new ReadFile(new File("src/test/testfiles/readFileTestInput.bujo"));
   }
 
   @Test

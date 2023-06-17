@@ -5,14 +5,21 @@ import cs3500.pa05.json.JsonWeek;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a week with fields of days, tasks, events, and max amounts for both
+ */
 public class Week {
 
-  List<Day> allDays;
-  List<Task> allTasks;
-  List<Event> allEvents;
-  int maxTasks;
-  int maxEvents;
+  private final List<Day> allDays;
+  private final List<Task> allTasks;
+  private final List<Event> allEvents;
+  private final int maxTasks;
+  private final int maxEvents;
 
+  /**
+   * @param maxTasks is the maximum number of tasks a user can have in a week
+   * @param maxEvents is the maximum number of events a user can have in a week
+   */
   public Week(int maxTasks, int maxEvents) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
@@ -23,6 +30,10 @@ public class Week {
     initializeDays(maxTasks, maxEvents);
   }
 
+  /**
+   * @param maxTasks is the maximum number of tasks a user can have in a week
+   * @param maxEvents is the maximum number of events a user can have in a week
+   */
   public void initializeDays(int maxTasks, int maxEvents) {
     Day sunday = new Day(DayOfWeek.SUNDAY);
     Day monday = new Day(DayOfWeek.MONDAY);
@@ -45,14 +56,23 @@ public class Week {
     return this.allDays;
   }
 
+  /**
+   * @return the maximum number of tasks this user can have for a week
+   */
   public int getMaxTasks() {
     return this.maxTasks;
   }
 
+  /**
+   * @return the maximum number of events this user can have for a week
+   */
   public int getMaxEvents() {
     return this.maxEvents;
   }
 
+  /**
+   * @return a JsonWeek which turns this week to a JsonWeek record
+   */
   public JsonWeek weekToJson() {
     List<JsonDay> jsonDays = new ArrayList<>();
 

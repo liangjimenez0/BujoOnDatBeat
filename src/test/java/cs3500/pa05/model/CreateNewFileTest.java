@@ -32,7 +32,7 @@ class CreateNewFileTest {
   @BeforeEach
   public void setup() {
     this.testCreateFile = new CreateNewFile();
-    this.maxTasks= 3;
+    this.maxTasks = 3;
     this.maxEvents = 5;
     this.jsonDay = new JsonDay("Monday", this.taskList, this.eventList);
     this.jsonDayList.add(this.jsonDay);
@@ -42,12 +42,14 @@ class CreateNewFileTest {
 
 
   /**
-   * Testing the method createNewFile that writes the appropriate Bujo file contents to the given file.
+   * Testing the method createNewFile that writes the appropriate Bujo file contents
+   * to the given file.
    */
   @Test
   void createNewFile() {
     try {
-      this.testCreateFile.createNewFile(this.week, "src/test/testfiles/bujotestfile1.bujo");
+      this.testCreateFile.createNewFile(this.exampleWeek,
+          "src/test/testfiles/createFileTestOutput.bujo");
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

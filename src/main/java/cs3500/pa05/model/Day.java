@@ -5,14 +5,14 @@ import cs3500.pa05.json.JsonEvent;
 import cs3500.pa05.json.JsonTask;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Represents a Day with tasks or events occurring on this day
  */
 public class Day {
-
-  DayOfWeek day;
-  List<Task> tasks;
-  List<Event> events;
+  private DayOfWeek day;
+  private List<Task> tasks;
+  private List<Event> events;
 
   /**
    * @param day is the given weekday Enum
