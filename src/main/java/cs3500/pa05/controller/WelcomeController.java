@@ -34,29 +34,4 @@ public class WelcomeController extends AbstractController {
     openExistingFile.setOnAction(e -> switchScene(openExistingFile, new OpenExistingFileController(),
         "openExistingFile.fxml"));
   }
-
-  /**
-   * This handles the user button press to "create a new file".
-   *
-   * @throws IOException when this method is interrupted
-   */
-  private void processCreateNewFile() throws IOException {
-
-//    switchScene("createNewFile.fxml");
-//
-//    int maxTasks = Integer.parseInt(maxTasksInput.getText());
-//    int maxEvents = Integer.parseInt(maxEventsInput.getText());
-//    String fileName = fileNameInput.getText();
-//
-//    this.currentWeek = new Week(maxTasks, maxEvents);
-//    new CreateNewFile().createNewFile(this.currentWeek, fileName);
-//    weekToGraphicalView();
-  }
-
-  /**
-   * Uses the data from a Week object and creates a JavaFX scene from the data
-   */
-  private void weekToGraphicalView() {
-
-  }
 }

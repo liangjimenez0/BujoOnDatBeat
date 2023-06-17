@@ -23,13 +23,22 @@ public class CreateNewFileController extends AbstractController {
   private Week currentWeek;
 
   @FXML
-  private Button submit = new Button();
+  private Button submitButton;
+
+  @FXML
+  private Button backButton;
 
   /**
    * Runs the creation of a file with a week's information as a JavaFX scene
    */
   @Override
   public void run() {
+    backButton.setOnAction(e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
+
+    submitButton.setOnAction(e -> createNewFile());
+  }
+
+  private void createNewFile() {
     int maxTasks = Integer.parseInt(maxTasksInput.getText());
     int maxEvents = Integer.parseInt(maxEventsInput.getText());
     String fileName = fileNameInput.getText();
@@ -42,6 +51,6 @@ public class CreateNewFileController extends AbstractController {
       throw new RuntimeException(e);
     }
 
-    submit.setOnAction(e -> switchScene(new WeekViewController(), "weekView.fxml"));
+    switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 }

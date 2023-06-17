@@ -13,22 +13,19 @@ import javafx.stage.Stage;
 public abstract class AbstractController implements Controller {
   private Week currentWeek;
 
-  @FXML
-  Button createNewFile;
-
   /**
    * @param controller is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file
    */
-  public void switchScene(Controller controller, String fxmlFileName) {
-    Stage stage = (Stage) createNewFile.getScene().getWindow();
+  public void switchScene(Button button, Controller controller, String fxmlFileName) {
+    Stage stage = (Stage) button.getScene().getWindow();
     View view = new GraphicalView(controller, fxmlFileName);
 
     stage.setScene(view.load());
-    view.load();
-    stage.show();
 
     controller.run();
+
+    stage.show();
   }
 
   /**
