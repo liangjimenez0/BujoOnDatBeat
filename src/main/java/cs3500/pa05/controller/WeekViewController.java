@@ -18,9 +18,80 @@ import javafx.stage.Stage;
  * Handles interaction with the week view between the user and the model representation
  */
 public class WeekViewController extends AbstractController {
+  private File weekBujoFile;
 
-//  @FXML
-//  private Button viewMenu;
+  private Week week;
+
+  @FXML
+  private HBox eventsHBoxSun;
+
+  @FXML
+  private HBox tasksHBoxSun;
+
+  @FXML
+  private HBox eventsHBoxMon;
+
+  @FXML
+  private HBox tasksHBoxMon;
+
+  @FXML
+  private HBox eventsHBoxTue;
+
+  @FXML
+  private HBox tasksHBoxTue;
+
+  @FXML
+  private HBox eventsHBoxWed;
+
+  @FXML
+  private HBox tasksHBoxWed;
+
+  @FXML
+  private HBox eventsHBoxThu;
+
+  @FXML
+  private HBox tasksHBoxThu;
+
+  @FXML
+  private HBox eventsHBoxFri;
+
+  @FXML
+  private HBox tasksHBoxFri;
+
+  @FXML
+  private HBox eventsHBoxSat;
+
+  @FXML
+  private HBox tasksHBoxSat;
+
+  @FXML
+  private MenuItem saveItem;
+
+  @FXML
+  private MenuItem openExistingItem;
+
+  @FXML
+  private MenuItem newTask;
+
+  @FXML
+  private MenuItem newEvent;
+
+  @FXML
+  private MenuItem newWeek;
+
+  @FXML
+  private MenuItem expandTaskQueue;
+
+  @FXML
+  private Button done;
+
+  private Stage stage;
+
+  private Popup createNewTaskPopup = new Popup();
+
+  public WeekViewController(Week week) {
+    this.week = week;
+  }
 
   /**
    * Runs the JavaFX scene based on a week's data of tasks and events

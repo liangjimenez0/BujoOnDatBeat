@@ -12,13 +12,13 @@ import javafx.scene.control.TextField;
  */
 public class CreateNewFileController extends AbstractController {
   @FXML
-  private TextField maxTasksInput = new TextField();
+  private TextField maxTasksInput;
 
   @FXML
-  private TextField maxEventsInput = new TextField();
+  private TextField maxEventsInput;
 
   @FXML
-  private TextField fileNameInput = new TextField();
+  private TextField fileNameInput;
 
   private Week currentWeek;
 

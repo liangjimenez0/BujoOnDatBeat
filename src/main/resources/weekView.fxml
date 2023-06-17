@@ -23,8 +23,8 @@
                         <graphic>
                            <MenuButton fx:id="fileMenu" mnemonicParsing="false" text="file">
                              <items>
-                               <MenuItem fx:id="saveButton" mnemonicParsing="false" text="save current project" />
-                               <MenuItem fx:id="openExistingButton" mnemonicParsing="false" text="open exisiting project" />
+                               <MenuItem fx:id="saveItem" mnemonicParsing="false" text="save current project" />
+                               <MenuItem fx:id="openExistingItem" mnemonicParsing="false" text="open exisiting project" />
                              </items>
                            </MenuButton>
                         </graphic>
@@ -44,7 +44,7 @@
                         <graphic>
                            <MenuButton fx:id="viewMenu" mnemonicParsing="false" text="view">
                               <items>
-                                 <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
+                                 <MenuItem fx:id="expandTaskQueue" mnemonicParsing="false" text="expand task view" />
                               </items>
                            </MenuButton>
                         </graphic>
