@@ -21,7 +21,6 @@ public class GraphicalView implements View {
   public GraphicalView(Controller controller, String fxmlFileName) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource(fxmlFileName));
-
     this.loader.setController(controller);
   }
 

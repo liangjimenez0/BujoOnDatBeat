@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="371.0" prefWidth="622.0">
+      <children>
+         <DialogPane layoutX="61.0" layoutY="34.0" prefHeight="500.0" prefWidth="500.0">
+            <content>
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <children>
+                     <HBox fx:id="nameHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="eventName" text="name: " />
+                           <TextField fx:id="userEventName" />
+                        </children>
+                     </HBox>
+                     <HBox fx:id="dayHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="eventDay" text="day: " />
+                           <TextField fx:id="userEventDay" />
+                        </children>
+                     </HBox>
+                     <HBox fx:id="descriptionHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="eventDescription" text="description: " />
+                           <TextField fx:id="userEventDescription" />
+                        </children>
+                     </HBox>
+                     <HBox fx:id="startTimeHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="eventStart" text="start time: " />
+                           <TextField fx:id="userEventStart" />
+                        </children>
+                     </HBox>
+                     <HBox fx:id="durationHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="eventDuration" text="duration: " />
+                           <TextField fx:id="userEventDuration" />
+                        </children>
+                     </HBox>
+                     <Button fx:id="doneButton" mnemonicParsing="false" text="done" />
+                  </children>
+               </VBox>
+            </content>
+            <header>
+               <Label alignment="CENTER" contentDisplay="CENTER" text="create new event" textAlignment="CENTER">
+                  <font>
+                     <Font size="44.0" />
+                  </font>
+               </Label>
+            </header>
+         </DialogPane>
+      </children></AnchorPane>
+</Scene>
