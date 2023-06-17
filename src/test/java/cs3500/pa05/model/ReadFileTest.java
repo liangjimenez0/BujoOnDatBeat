@@ -15,6 +15,9 @@ class ReadFileTest {
   private int maxTasks;
   private int maxEvents;
 
+  /**
+   * Initializes objects before each test
+   */
   @BeforeEach
   public void setup() {
     this.maxTasks = 5;
@@ -22,6 +25,9 @@ class ReadFileTest {
     this.testRead = new ReadFile(new File("src/test/testfiles/readFileTestInput.bujo"));
   }
 
+  /**
+   * Represents the testing for processing a Bujo file
+   */
   @Test
   void processFile() {
     Week fileData = this.testRead.processFile();

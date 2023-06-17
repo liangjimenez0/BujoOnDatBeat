@@ -36,6 +36,7 @@ public class WelcomeController extends AbstractController {
    * @throws IOException when this method is interrupted
    */
   private void processCreateNewFile() throws IOException {
+
 //    switchScene("createNewFile.fxml");
 //
 //    int maxTasks = Integer.parseInt(maxTasksInput.getText());
