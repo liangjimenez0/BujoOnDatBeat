@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -13,193 +14,285 @@
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="632.0" prefWidth="953.0">
-      <children>
-         <BorderPane prefHeight="633.0" prefWidth="954.0">
-            <top>
-               <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
-                 <menus>
-                   <Menu mnemonicParsing="false">
-                        <graphic>
-                           <MenuButton fx:id="fileMenu" mnemonicParsing="false" text="file">
-                             <items>
-                               <MenuItem fx:id="saveItem" mnemonicParsing="false" text="save current project" />
-                               <MenuItem fx:id="openExistingItem" mnemonicParsing="false" text="open exisiting project" />
-                             </items>
-                           </MenuButton>
-                        </graphic>
-                   </Menu>
-                     <Menu mnemonicParsing="false">
-                        <graphic>
-                           <MenuButton fx:id="editMenu" mnemonicParsing="false" text="edit">
-                             <items>
-                               <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
-                               <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
-                               <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
-                             </items>
-                           </MenuButton>
-                        </graphic>
-                     </Menu>
-                     <Menu mnemonicParsing="false">
-                        <graphic>
-                           <MenuButton fx:id="viewMenu" mnemonicParsing="false" text="view">
-                              <items>
-                                 <MenuItem fx:id="expandTaskQueue" mnemonicParsing="false" text="expand task view" />
-                              </items>
-                           </MenuButton>
-                        </graphic>
-                     </Menu>
-                 </menus>
-               </MenuBar>
-            </top>
-            <center>
-               <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <Label fx:id="bujoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="227.0" text="your bullet journal">
-                        <font>
-                           <Font size="28.0" />
-                        </font>
-                     </Label>
-                     <HBox fx:id="weekHBox" alignment="CENTER" prefHeight="540.0" prefWidth="954.0">
-                        <children>
-                           <VBox fx:id="sundayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="sunday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="sunLabel" alignment="CENTER" contentDisplay="CENTER" text="Sunday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxSun" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksSun" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxSun" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsSun" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="mondayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="monday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="monLabel" alignment="CENTER" contentDisplay="CENTER" text="Monday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxMon" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksMon" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxMon" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsMon" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="tuesdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="tuesday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tueLabel" alignment="CENTER" contentDisplay="CENTER" text="Tuesday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxTue" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksTue" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxTue" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsTue" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="wednesdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="wednesday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="wedLabel" alignment="CENTER" contentDisplay="CENTER" text="Wednesday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxWed" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksWed" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxWed" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsWed" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="thursdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="thursday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="thuLabel" alignment="CENTER" contentDisplay="CENTER" text="Thursday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxThu" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksThu" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxThu" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsThu" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="fridayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
-                              <children>
-                                 <HBox fx:id="friday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="friLabel" alignment="CENTER" contentDisplay="CENTER" text="Friday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxFri" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksFri" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxFri" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsFri" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                           <VBox fx:id="saturdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:#000000">
-                              <children>
-                                 <HBox fx:id="saturday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="satLabel" alignment="CENTER" contentDisplay="CENTER" text="Saturday" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="tasksHBoxSat" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="tasksSat" alignment="CENTER" contentDisplay="CENTER" text="Tasks:" />
-                                    </children>
-                                 </HBox>
-                                 <HBox fx:id="eventsHBoxSat" alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                       <Label fx:id="eventsSat" alignment="CENTER" contentDisplay="CENTER" text="Events:" />
-                                    </children>
-                                 </HBox>
-                              </children>
-                           </VBox>
-                        </children>
-                     </HBox>
-                  </children>
-               </VBox>
-            </center>
-         </BorderPane>
-      </children></AnchorPane>
+   <root>
+      <AnchorPane prefHeight="919.0" prefWidth="1452.0">
+         <children>
+            <BorderPane prefHeight="919.0" prefWidth="1492.0">
+               <top>
+                  <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1494.0" BorderPane.alignment="CENTER">
+                     <menus>
+                        <Menu mnemonicParsing="false">
+                           <graphic>
+                              <MenuButton fx:id="fileMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="file">
+                                 <items>
+                                    <MenuItem fx:id="saveButton" mnemonicParsing="false" text="save current project" />
+                                    <MenuItem fx:id="openExistingButton" mnemonicParsing="false" text="open exisiting project" />
+                                 </items>
+                                 <font>
+                                    <Font name="Avenir Book" size="13.0" />
+                                 </font>
+                              </MenuButton>
+                           </graphic>
+                        </Menu>
+                        <Menu mnemonicParsing="false">
+                           <graphic>
+                              <MenuButton fx:id="editMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="edit">
+                                 <items>
+                                    <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
+                                    <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
+                                    <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
+                                 </items>
+                                 <font>
+                                    <Font name="Avenir Book" size="13.0" />
+                                 </font>
+                              </MenuButton>
+                           </graphic>
+                        </Menu>
+                        <Menu mnemonicParsing="false">
+                           <graphic>
+                              <MenuButton fx:id="viewMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="view">
+                                 <items>
+                                    <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
+                                 </items>
+                                 <font>
+                                    <Font name="Avenir Book" size="13.0" />
+                                 </font>
+                              </MenuButton>
+                           </graphic>
+                        </Menu>
+                     </menus>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </MenuBar>
+               </top>
+               <center>
+                  <VBox alignment="TOP_CENTER" prefHeight="968.0" prefWidth="1150.0" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="bujoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="364.0" text="welcome to your bullet journal" textAlignment="CENTER">
+                           <font>
+                              <Font name="Avenir Book" size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="weekHBox" alignment="CENTER_RIGHT" prefHeight="684.0" prefWidth="1258.0" spacing="20.0">
+                           <children>
+                              <VBox prefHeight="645.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="sunday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="sunTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="sunEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="monday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="monTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="monEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="tuesday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="tuesTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="tuesEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="672.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="wednesday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="wedTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="wedEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="183.0" style="-fx-background-color: #73A9AD;" text="thursday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="thursTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="thursEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="602.0" prefWidth="159.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #73A9AD;" text="friday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="friTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="friEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="189.0" style="-fx-background-color: #73A9AD;" text="saturday" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="satTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <Label prefHeight="33.0" prefWidth="121.0" text="events:">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <VBox fx:id="satEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="40.0" />
+                     </padding>
+                  </VBox>
+               </center>
+               <left>
+                  <VBox prefHeight="1021.0" prefWidth="234.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="255.0" style="-fx-background-color: #73A9AD;" text="all tasks" textAlignment="CENTER">
+                           <font>
+                              <Font name="Avenir Book" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <VBox fx:id="allTasksBox" prefHeight="821.0" prefWidth="234.0" />
+                     </children>
+                  </VBox>
+               </left>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </root>
 </Scene>

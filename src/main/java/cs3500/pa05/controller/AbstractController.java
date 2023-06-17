@@ -5,6 +5,7 @@ import cs3500.pa05.view.GraphicalView;
 import cs3500.pa05.view.View;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
 /**
@@ -17,8 +18,10 @@ public abstract class AbstractController implements Controller {
    * @param controller is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file
    */
-  public void switchScene(Button button, Controller controller, String fxmlFileName) {
-    Stage stage = (Stage) button.getScene().getWindow();
+  public void switchScene(Control control, Controller controller, String fxmlFileName) {
+
+    Stage stage = (Stage) control.getScene().getWindow();
+
     View view = new GraphicalView(controller, fxmlFileName);
 
     stage.setScene(view.load());
