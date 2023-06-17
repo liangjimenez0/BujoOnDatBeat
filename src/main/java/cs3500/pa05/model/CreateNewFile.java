@@ -1,6 +1,7 @@
 package cs3500.pa05.model;
 
 import cs3500.pa05.json.JsonBujoFile;
+import cs3500.pa05.json.JsonUtils;
 import cs3500.pa05.json.JsonWeek;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,7 +24,7 @@ public class CreateNewFile {
     JsonWeek jsonWeek = week.weekToJson();
     JsonBujoFile jsonBujoFile = new JsonBujoFile(week.getMaxTasks(), week.getMaxEvents(), jsonWeek);
 
-    builder.append(jsonBujoFile);
+    builder.append(JsonUtils.serializeRecord(jsonBujoFile).toPrettyString());
 
     File bujoFile = new File(fileName);
     Scanner input = new Scanner(builder.toString());

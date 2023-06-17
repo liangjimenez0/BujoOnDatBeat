@@ -10,13 +10,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Handles interaction between the user and the model in the welcome scene.
+ */
 public class WelcomeController extends AbstractController {
 
-  Week currentWeek;
+  private Week currentWeek;
   @FXML
-  private Button createNewFile, openExistingFile;
+  private Button createNewFile = new Button();
+  private Button openExistingFile = new Button();
 
-
+  /**
+   * Initializes a welcome page scene on the Java Journal
+   */
   @Override
   public void run() {
     createNewFile.setOnAction(e -> switchScene(new CreateNewFileController(),

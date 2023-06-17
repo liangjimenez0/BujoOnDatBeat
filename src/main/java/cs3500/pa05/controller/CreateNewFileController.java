@@ -7,14 +7,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class CreateNewFileController extends AbstractController{
+/**
+ * The controller that handles new file creation
+ */
+public class CreateNewFileController extends AbstractController {
 
   @FXML
-  private TextField maxTasksInput, maxEventsInput, fileNameInput;
+  private TextField maxTasksInput = new TextField();
+  private TextField maxEventsInput = new TextField();
+  private TextField fileNameInput = new TextField();
+
   private Week currentWeek;
-  @FXML
-  private Button submit;
 
+  @FXML
+  private Button submit = new Button();
+
+  /**
+   * Runs the creation of a file with a week's information as a JavaFX scene
+   */
   @Override
   public void run() {
     int maxTasks = Integer.parseInt(maxTasksInput.getText());

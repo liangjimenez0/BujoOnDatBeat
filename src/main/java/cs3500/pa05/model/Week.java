@@ -4,6 +4,7 @@ import cs3500.pa05.json.JsonDay;
 import cs3500.pa05.json.JsonWeek;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Represents a week with fields of days, tasks, events, and max amounts for both
@@ -52,6 +53,22 @@ public class Week {
     allDays.add(saturday);
   }
 
+  /**
+   * @param day is the given day that is to be returned
+   * @return the day from this week's list of days
+   */
+  public Day getDay(DayOfWeek day) {
+    for (Day currDay : allDays) {
+      if (currDay.getDayOfWeek() == day) {
+        return currDay;
+      }
+    }
+    throw new NoSuchElementException("this day is not in the week");
+  }
+
+  /**
+   * @return a list of days from this week
+   */
   public List<Day> getDays() {
     return this.allDays;
   }

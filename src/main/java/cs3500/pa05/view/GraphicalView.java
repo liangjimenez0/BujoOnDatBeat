@@ -5,10 +5,19 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents a graphical view of a bullet journal.
+ */
 public class GraphicalView implements View {
 
   private final FXMLLoader loader;
 
+  /**
+   * Initializes a Graphical view from an FXML file.
+   *
+   * @param controller the interactions for this view
+   * @param fxmlFileName the file with the view
+   */
   public GraphicalView(Controller controller, String fxmlFileName) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource(fxmlFileName));
