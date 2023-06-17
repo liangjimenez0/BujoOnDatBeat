@@ -66,7 +66,7 @@ public class WeekViewController extends AbstractController {
   private MenuItem saveItem;
 
   @FXML
-  private MenuItem openExistingItem;
+  private MenuItem openExistingButton;
 
   @FXML
   private MenuItem newTask;
@@ -81,9 +81,10 @@ public class WeekViewController extends AbstractController {
   private MenuItem expandTaskQueue;
 
   @FXML
-  private Button done;
+  private Button newTaskDone;
 
-  private Stage stage;
+  @FXML
+  private Button buttonDone;
 
   private Popup createNewTaskPopup = new Popup();
 
@@ -101,10 +102,11 @@ public class WeekViewController extends AbstractController {
     convertWeekEventsToGui();
 
     // saves file
-    saveItem.setOnAction(e -> newFileCreation());
+    saveButton.setOnAction(e -> newFileCreation());
 
-    // opens an exisiting file and updates week
-    openExistingItem.setOnAction(e -> switchScene(done, new OpenExistingFileController(), "openExistingFile.fxml"));
+    // opens an existing file and updates week
+    openExistingButton.setOnAction(e -> switchScene(this.menuBar,
+        new OpenExistingFileController(), "openExistingFile.fxml"));
 
     // create new task
     this.newTask.setOnAction(e -> makeTaskPopup());
@@ -115,7 +117,7 @@ public class WeekViewController extends AbstractController {
 
       Scene s = loader.load();
       this.createNewTaskPopup.getContent().add(s.getRoot());
-      this.newTask.setOnAction(e -> this.createNewTaskPopup.hide());
+      this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
 
     } catch (IOException e) {
       throw new RuntimeException();
