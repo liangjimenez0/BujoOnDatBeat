@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class WelcomeController extends AbstractController {
 
   private Week currentWeek;
+
   @FXML
   private Button createNewFile;
 
