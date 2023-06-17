@@ -3,6 +3,7 @@ package cs3500.pa05.controller;
 import cs3500.pa05.model.Week;
 import cs3500.pa05.view.GraphicalView;
 import cs3500.pa05.view.View;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -10,8 +11,9 @@ import javafx.stage.Stage;
  * Represents the abstracted code from controller that switches scenes on a JavaFX stage
  */
 public abstract class AbstractController implements Controller {
-
   private Week currentWeek;
+
+  @FXML
   Button createNewFile;
 
   /**
@@ -23,6 +25,7 @@ public abstract class AbstractController implements Controller {
     View view = new GraphicalView(controller, fxmlFileName);
 
     stage.setScene(view.load());
+    view.load();
     stage.show();
 
     controller.run();
@@ -32,5 +35,4 @@ public abstract class AbstractController implements Controller {
    * Initializes a Java Journal
    */
   public abstract void run();
-
 }

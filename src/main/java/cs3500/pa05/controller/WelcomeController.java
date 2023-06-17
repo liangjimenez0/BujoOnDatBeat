@@ -17,17 +17,21 @@ public class WelcomeController extends AbstractController {
 
   private Week currentWeek;
   @FXML
-  private Button createNewFile = new Button();
-  private Button openExistingFile = new Button();
+  private Button createNewFile;
+
+  @FXML
+  private Button openExistingFile;
+
 
   /**
    * Initializes a welcome page scene on the Java Journal
    */
   @Override
   public void run() {
-    createNewFile.setOnAction(e -> switchScene(new CreateNewFileController(),
-        "src/main/resources/welcomePage.fxml"));
-    openExistingFile.setOnAction(e -> switchScene(new WeekViewController(), "weekView.fxml"));
+    createNewFile.setOnAction(e -> switchScene(new WeekViewController(),
+        "weekView.fxml"));
+
+    //openExistingFile.setOnAction(e -> switchScene(new WeekViewController(), "weekView.fxml"));
   }
 
   /**

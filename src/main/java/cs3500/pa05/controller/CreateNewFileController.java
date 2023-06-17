@@ -11,10 +11,13 @@ import javafx.scene.control.TextField;
  * The controller that handles new file creation
  */
 public class CreateNewFileController extends AbstractController {
-
   @FXML
   private TextField maxTasksInput = new TextField();
+
+  @FXML
   private TextField maxEventsInput = new TextField();
+
+  @FXML
   private TextField fileNameInput = new TextField();
 
   private Week currentWeek;
@@ -41,5 +44,4 @@ public class CreateNewFileController extends AbstractController {
 
     submit.setOnAction(e -> switchScene(new WeekViewController(), "weekView.fxml"));
   }
-
 }

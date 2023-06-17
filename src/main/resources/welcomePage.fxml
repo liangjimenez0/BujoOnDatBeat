@@ -13,17 +13,17 @@
       <children>
          <VBox alignment="CENTER" layoutX="322.0" layoutY="220.0" prefHeight="358.0" prefWidth="446.0" spacing="20.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="94.0" prefWidth="426.0" text="welcome to your bullet journal" textAlignment="CENTER">
+               <Label fx:id="welcomeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="94.0" prefWidth="426.0" text="welcome to your bullet journal" textAlignment="CENTER">
                   <font>
                      <Font name="Avenir Book" size="24.0" />
                   </font>
                </Label>
-               <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: DBDFAA;" text="create new file">
+               <Button fx:id="createNewFile" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: DBDFAA;" text="create new file">
                   <font>
                      <Font name="Avenir Book" size="13.0" />
                   </font>
                </Button>
-               <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: DBDFAA;" text="open existing file">
+               <Button fx:id="openExistingFile" mnemonicParsing="false" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: DBDFAA;" text="open existing file">
                   <font>
                      <Font name="Avenir Book" size="13.0" />
                   </font>

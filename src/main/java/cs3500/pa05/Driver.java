@@ -28,7 +28,6 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-
     Controller controller = new WelcomeController();
     View view = new GraphicalView(controller, "welcomePage.fxml");
 
