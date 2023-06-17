@@ -63,7 +63,7 @@ public class WeekViewController extends AbstractController {
   private MenuBar menuBar;
 
   @FXML
-  private MenuItem saveItem;
+  private MenuItem saveButton;
 
   @FXML
   private MenuItem openExistingButton;
@@ -78,7 +78,7 @@ public class WeekViewController extends AbstractController {
   private MenuItem newWeek;
 
   @FXML
-  private MenuItem expandTaskQueue;
+  private MenuItem expandTaskQueueButton;
 
   @FXML
   private Button newTaskDone;
@@ -87,6 +87,7 @@ public class WeekViewController extends AbstractController {
   private Button buttonDone;
 
   private Popup createNewTaskPopup = new Popup();
+  private Popup createNewEventPopup = new Popup();
 
   public WeekViewController(Week week) {
     this.week = week;
@@ -115,9 +116,24 @@ public class WeekViewController extends AbstractController {
 
     try {
 
-      Scene s = loader.load();
+      Scene s = taskLoader.load();
       this.createNewTaskPopup.getContent().add(s.getRoot());
       this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
+
+    } catch (IOException e) {
+      throw new RuntimeException();
+    }
+
+    // create new event
+    this.newEvent.setOnAction(e -> makeEventPopup());
+    FXMLLoader eventLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewEvent.fxml"));
+    eventLoader.setController(this);
+
+    try {
+
+      Scene s = eventLoader.load();
+      this.createNewEventPopup.getContent().add(s.getRoot());
+      this.buttonDone.setOnAction(e -> this.createNewEventPopup.hide());
 
     } catch (IOException e) {
       throw new RuntimeException();
@@ -206,7 +222,13 @@ public class WeekViewController extends AbstractController {
 
 
   private void makeTaskPopup() {
-    createNewTaskPopup.show(this.stage);
+    // this needs to be less ghetto
+    createNewTaskPopup.show(this.menuBar.getScene().getWindow());
+  }
+
+  private void makeEventPopup() {
+    // this needs to be less ghetto
+    createNewEventPopup.show(this.menuBar.getScene().getWindow());
   }
 
 
