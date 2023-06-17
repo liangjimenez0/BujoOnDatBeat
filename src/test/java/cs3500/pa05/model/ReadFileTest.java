@@ -8,6 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * The testing class for reading a Bujo file and extracting information from that file.
+ */
 class ReadFileTest {
   ReadFile testRead;
   Week week;
@@ -34,5 +37,7 @@ class ReadFileTest {
     assertEquals(7, fileData.getDays().size());
     assertEquals(4, fileData.getMaxEvents());
     assertEquals(3, fileData.getMaxTasks());
+    assertThrows(RuntimeException.class,
+        () -> new ReadFile(new File("fakeFile")));
   }
 }

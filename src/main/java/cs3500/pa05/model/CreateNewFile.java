@@ -8,7 +8,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Represents the class that creates a new Bujo file based on a week's information
+ */
 public class CreateNewFile {
+  /**
+   * @param week is the given week that is to be converted to a Bujo file
+   * @param fileName is the given file name of where the Bujo file contents will be outputted in
+   * @throws IOException when this method gets interrupted
+   */
   public void createNewFile(Week week, String fileName) throws IOException {
     StringBuilder builder = new StringBuilder();
 

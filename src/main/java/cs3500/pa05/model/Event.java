@@ -3,6 +3,9 @@ package cs3500.pa05.model;
 import cs3500.pa05.json.JsonEvent;
 import cs3500.pa05.json.JsonTask;
 
+/**
+ * Represents an event that can occur on a week day
+ */
 public class Event extends Widget {
 
   private long startTime;

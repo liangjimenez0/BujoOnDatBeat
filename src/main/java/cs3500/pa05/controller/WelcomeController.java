@@ -19,7 +19,8 @@ public class WelcomeController extends AbstractController {
 
   @Override
   public void run() {
-    createNewFile.setOnAction(e -> switchScene(new CreateNewFileController(), "welcomePage.fxml"));
+    createNewFile.setOnAction(e -> switchScene(new CreateNewFileController(),
+        "src/main/resources/welcomePage.fxml"));
     openExistingFile.setOnAction(e -> switchScene(new WeekViewController(), "weekView.fxml"));
   }
 

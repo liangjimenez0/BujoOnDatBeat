@@ -19,7 +19,7 @@ public class ReadFile {
   private JsonNode node;
   private JsonBujoFile jsonBujoFile;
 
-  ReadFile(File file) {
+  public ReadFile(File file) {
     this.file = file;
 
     try {
