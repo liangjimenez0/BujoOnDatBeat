@@ -30,29 +30,21 @@
                         </graphic>
                    </Menu>
                      <Menu mnemonicParsing="false">
-                       <items>
-                         <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
-                           <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
-                           <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
-                       </items>
                         <graphic>
                            <MenuButton fx:id="editMenu" mnemonicParsing="false" text="edit">
                              <items>
-                               <MenuItem mnemonicParsing="false" text="Action 1" />
-                               <MenuItem mnemonicParsing="false" text="Action 2" />
+                               <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
+                               <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
+                               <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
                              </items>
                            </MenuButton>
                         </graphic>
                      </Menu>
                      <Menu mnemonicParsing="false">
-                        <items>
-                           <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
-                        </items>
                         <graphic>
-                           <MenuButton fx:id="viewMenu" mnemonicParsing="false" text="edit">
+                           <MenuButton fx:id="viewMenu" mnemonicParsing="false" text="view">
                               <items>
-                                 <MenuItem mnemonicParsing="false" text="Action 1" />
-                                 <MenuItem mnemonicParsing="false" text="Action 2" />
+                                 <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
                               </items>
                            </MenuButton>
                         </graphic>
@@ -70,7 +62,7 @@
                      </Label>
                      <HBox fx:id="weekHBox" alignment="CENTER" prefHeight="540.0" prefWidth="954.0">
                         <children>
-                           <VBox fx:id="sundayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="sundayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="sunday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -89,7 +81,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="mondayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="mondayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="monday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -108,7 +100,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="tuesdayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="tuesdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="tuesday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -127,7 +119,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="wednesdayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="wednesdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="wednesday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -146,7 +138,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="thursdayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="thursdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="thursday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -165,7 +157,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="fridayBox" style="-fx-border-color:black" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="fridayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:black">
                               <children>
                                  <HBox fx:id="friday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
@@ -184,7 +176,7 @@
                                  </HBox>
                               </children>
                            </VBox>
-                           <VBox fx:id="saturdayBox" style="-fx-border-color:#000000" prefHeight="200.0" prefWidth="100.0">
+                           <VBox fx:id="saturdayBox" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color:#000000">
                               <children>
                                  <HBox fx:id="saturday" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
