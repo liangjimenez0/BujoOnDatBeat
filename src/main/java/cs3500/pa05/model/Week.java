@@ -100,4 +100,14 @@ public class Week {
 
     return new JsonWeek(jsonDays);
   }
+
+  public void accumulateTasks() {
+    for (Day d : this.allDays) {
+      allTasks.addAll(d.getTasks());
+    }
+  }
+
+  public List<Task> getAllTasks() {
+    return this.allTasks;
+  }
 }

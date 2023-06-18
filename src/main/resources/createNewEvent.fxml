@@ -11,53 +11,108 @@
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="371.0" prefWidth="622.0">
+   <AnchorPane prefHeight="512.0" prefWidth="640.0">
       <children>
-         <DialogPane layoutX="61.0" layoutY="34.0" prefHeight="500.0" prefWidth="500.0">
-            <content>
-               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <DialogPane layoutX="70.0" layoutY="38.0" prefHeight="500.0" prefWidth="500.0">
+            <header>
+               <HBox prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <HBox fx:id="nameHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <VBox alignment="CENTER" prefHeight="100.0" prefWidth="505.0">
+                        <children>
+                           <Label fx:id="createNewEventHeader" text="create new event">
+                              <font>
+                                 <Font size="44.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </header>
+         </DialogPane>
+         <VBox layoutX="70.0" layoutY="132.0" prefHeight="337.0" prefWidth="500.0">
+            <children>
+               <HBox prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox prefHeight="26.0" prefWidth="88.0">
                         <children>
                            <Label fx:id="eventName" text="name: " />
+                        </children>
+                     </HBox>
+                     <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="129.0">
+                        <children>
                            <TextField fx:id="userEventName" />
                         </children>
                      </HBox>
-                     <HBox fx:id="dayHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  </children>
+               </HBox>
+               <HBox layoutX="21.0" layoutY="21.0" prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox prefHeight="65.0" prefWidth="105.0">
                         <children>
-                           <Label fx:id="eventDay" text="day: " />
+                           <Label fx:id="eventDay" text="day of week: " />
+                        </children>
+                     </HBox>
+                     <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="129.0">
+                        <children>
                            <TextField fx:id="userEventDay" />
                         </children>
                      </HBox>
-                     <HBox fx:id="descriptionHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  </children>
+               </HBox>
+               <HBox layoutX="21.0" layoutY="86.0" prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox prefHeight="65.0" prefWidth="105.0">
                         <children>
                            <Label fx:id="eventDescription" text="description: " />
-                           <TextField fx:id="userEventDescription" />
                         </children>
                      </HBox>
-                     <HBox fx:id="startTimeHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="129.0">
                         <children>
-                           <Label fx:id="eventStart" text="start time: " />
-                           <TextField fx:id="userEventStart" />
+                           <TextField fx:id="userDescription" />
                         </children>
                      </HBox>
-                     <HBox fx:id="durationHbox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  </children>
+               </HBox>
+               <HBox layoutX="21.0" layoutY="151.0" prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox prefHeight="67.0" prefWidth="72.0">
+                        <children>
+                           <Label fx:id="eventStartTime" text="start time: " />
+                        </children>
+                     </HBox>
+                     <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="129.0">
+                        <children>
+                           <TextField fx:id="userStartTime" />
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+               <HBox layoutX="21.0" layoutY="151.0" prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox prefHeight="67.0" prefWidth="72.0">
                         <children>
                            <Label fx:id="eventDuration" text="duration: " />
-                           <TextField fx:id="userEventDuration" />
                         </children>
                      </HBox>
-                     <Button fx:id="doneButton" mnemonicParsing="false" text="done" />
+                     <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="129.0">
+                        <children>
+                           <TextField fx:id="userDuration" />
+                        </children>
+                     </HBox>
                   </children>
-               </VBox>
-            </content>
-            <header>
-               <Label alignment="CENTER" contentDisplay="CENTER" text="create new event" textAlignment="CENTER">
-                  <font>
-                     <Font size="44.0" />
-                  </font>
-               </Label>
-            </header>
-         </DialogPane>
+               </HBox>
+               <HBox layoutX="21.0" layoutY="216.0" prefHeight="65.0" prefWidth="373.0">
+                  <children>
+                     <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="481.0">
+                        <children>
+                           <Button fx:id="newEventDone" mnemonicParsing="false" text="done" />
+                        </children>
+                     </HBox>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
       </children></AnchorPane>
 </Scene>
+

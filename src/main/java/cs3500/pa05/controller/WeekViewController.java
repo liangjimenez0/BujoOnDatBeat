@@ -8,6 +8,7 @@ import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.NoSuchElementException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -101,6 +102,7 @@ public class WeekViewController extends AbstractController {
 
     convertWeekTasksToGui();
     convertWeekEventsToGui();
+    //createTaskQueue();
 
     // saves file
     saveButton.setOnAction(e -> newFileCreation());
@@ -138,6 +140,48 @@ public class WeekViewController extends AbstractController {
     } catch (IOException e) {
       throw new RuntimeException();
     }
+  }
+
+
+  private void taskCreation() {
+    FXMLLoader taskLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewTask.fxml"));
+    taskLoader.setController(this);
+
+    try {
+      Scene s = taskLoader.load();
+      this.createNewTaskPopup.getContent().add(s.getRoot());
+
+      this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
+      //this.newTaskDone.setOnAction(e -> convertWeekTasksToGui());
+
+    } catch (IOException e) {
+      throw new RuntimeException();
+    }
+  }
+
+
+  private void eventCreation() {
+    FXMLLoader eventLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewEvent.fxml"));
+    eventLoader.setController(this);
+
+    try {
+      Scene s = eventLoader.load();
+      this.createNewEventPopup.getContent().add(s.getRoot());
+      this.newEventDone.setOnAction(e -> this.createNewEventPopup.hide());
+      // this.newTaskDone.setOnAction(e -> convertWeekEventsToGui());
+
+    } catch (IOException e) {
+      throw new RuntimeException();
+    }
+  }
+
+
+
+
+  private void createTaskQueue() {
+    this.week.accumulateTasks();
+
+    List<Task> allTasks = this.week.getAllTasks();
   }
 
   private void convertWeekTasksToGui() {
