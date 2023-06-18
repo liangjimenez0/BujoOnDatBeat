@@ -88,6 +88,7 @@ public class WeekViewController extends AbstractController {
   private Button buttonDone;
 
   private Popup createNewTaskPopup = new Popup();
+
   private Popup createNewEventPopup = new Popup();
 
   public WeekViewController(Week week) {
@@ -99,7 +100,6 @@ public class WeekViewController extends AbstractController {
    */
   @Override
   public void run() {
-
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     //createTaskQueue();
@@ -113,18 +113,7 @@ public class WeekViewController extends AbstractController {
 
     // create new task
     this.newTask.setOnAction(e -> makeTaskPopup());
-    FXMLLoader taskLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewTask.fxml"));
-    taskLoader.setController(this);
-
-    try {
-
-      Scene s = taskLoader.load();
-      this.createNewTaskPopup.getContent().add(s.getRoot());
-      this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
-
-    } catch (IOException e) {
-      throw new RuntimeException();
-    }
+    taskCreation();
 
     // create new event
     this.newEvent.setOnAction(e -> makeEventPopup());
@@ -255,6 +244,11 @@ public class WeekViewController extends AbstractController {
   }
 
 
+
+
+
+
+
   private void makeTaskPopup() {
     // this needs to be less ghetto
     createNewTaskPopup.show(this.menuBar.getScene().getWindow());
@@ -276,5 +270,4 @@ public class WeekViewController extends AbstractController {
       throw new NoSuchElementException("this bujo file cannot be saved with the given file path");
     }
   }
-
 }
