@@ -129,7 +129,6 @@ public class WeekViewController extends AbstractController {
     try {
       Scene s = taskLoader.load();
       this.createNewTaskPopup.getContent().add(s.getRoot());
-
       this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
       //this.newTaskDone.setOnAction(e -> convertWeekTasksToGui());
 
@@ -249,15 +248,8 @@ public class WeekViewController extends AbstractController {
 
 
 
-  private void makeTaskPopup() {
-    // this needs to be less ghetto
-    createNewTaskPopup.show(this.menuBar.getScene().getWindow());
-  }
 
-  private void makeEventPopup() {
-    // this needs to be less ghetto
-    createNewEventPopup.show(this.menuBar.getScene().getWindow());
-  }
+
 
 
   /**
