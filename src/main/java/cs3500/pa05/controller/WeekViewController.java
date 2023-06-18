@@ -89,7 +89,6 @@ public class WeekViewController extends AbstractController {
 
   private Popup createNewTaskPopup = new Popup();
 
-  private Popup createNewEventPopup = new Popup();
 
   public WeekViewController(Week week) {
     this.week = week;
@@ -116,9 +115,8 @@ public class WeekViewController extends AbstractController {
     taskCreation();
 
     // create new event
-    this.newEvent.setOnAction(e -> makeEventPopup());
-    eventCreation();
-
+    this.newEvent.setOnAction(e -> switchScene(this.menuBar,
+        new CreateNewEventController(this.menuBar), "createNewEvent.fxml"));
   }
 
 
@@ -131,22 +129,6 @@ public class WeekViewController extends AbstractController {
       this.createNewTaskPopup.getContent().add(s.getRoot());
       this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
       //this.newTaskDone.setOnAction(e -> convertWeekTasksToGui());
-
-    } catch (IOException e) {
-      throw new RuntimeException();
-    }
-  }
-
-
-  private void eventCreation() {
-    FXMLLoader eventLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewEvent.fxml"));
-    eventLoader.setController(this);
-
-    try {
-      Scene s = eventLoader.load();
-      this.createNewEventPopup.getContent().add(s.getRoot());
-      this.newEventDone.setOnAction(e -> this.createNewEventPopup.hide());
-      // this.newTaskDone.setOnAction(e -> convertWeekEventsToGui());
 
     } catch (IOException e) {
       throw new RuntimeException();
@@ -245,7 +227,9 @@ public class WeekViewController extends AbstractController {
 
 
 
-
+  private void makeTaskPopup() {
+    createNewTaskPopup.show(this.menuBar.getScene().getWindow());
+  }
 
 
 
