@@ -3,24 +3,22 @@ package cs3500.pa05.controller;
 import cs3500.pa05.model.CreateNewFile;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
-import cs3500.pa05.model.Week;
-import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Event;
+import cs3500.pa05.model.Task;
+import cs3500.pa05.model.Week;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 /**
  * Handles interaction with the week view between the user and the model representation
@@ -89,6 +87,12 @@ public class WeekViewController extends AbstractController {
 
   private Popup createNewTaskPopup = new Popup();
 
+  private Popup createNewEventPopup = new Popup();
+
+  private CreateNewTaskController taskController;
+
+  @FXML
+  private TextField userTaskName;
 
   public WeekViewController(Week week) {
     this.week = week;
@@ -99,9 +103,9 @@ public class WeekViewController extends AbstractController {
    */
   @Override
   public void run() {
+    createTaskQueue();
     convertWeekTasksToGui();
-    convertWeekEventsToGui();
-    //createTaskQueue();
+    convertWeekTasksToGui();
 
     // saves file
     saveButton.setOnAction(e -> newFileCreation());
@@ -110,37 +114,23 @@ public class WeekViewController extends AbstractController {
     openExistingButton.setOnAction(e -> switchScene(this.menuBar,
         new OpenExistingFileController(), "openExistingFile.fxml"));
 
-    // create new task
-    this.newTask.setOnAction(e -> makeTaskPopup());
-    taskCreation();
 
-    // create new event
-    this.newEvent.setOnAction(e -> switchScene(this.menuBar,
-        new CreateNewEventController(this.menuBar), "createNewEvent.fxml"));
+    // create a new task popup
+    CreateNewTaskController taskControl = new CreateNewTaskController(this.menuBar);
+    this.newTask.setOnAction(e ->
+      switchScene(this.menuBar, taskControl, "createNewTask.fxml"));
+    this.week.getAllTasks().add(taskControl.getNewlyCreatedTask());
+
+
+    // create new event popup
+    CreateNewEventController eventControl = new CreateNewEventController(this.menuBar);
+    this.newEvent.setOnAction(e -> switchScene(this.menuBar, eventControl, "createNewEvent.fxml"));
+    this.week.getAllEvents().add(eventControl.getNewlyCreatedEvent());
   }
-
-
-  private void taskCreation() {
-    FXMLLoader taskLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewTask.fxml"));
-    taskLoader.setController(this);
-
-    try {
-      Scene s = taskLoader.load();
-      this.createNewTaskPopup.getContent().add(s.getRoot());
-      this.newTaskDone.setOnAction(e -> this.createNewTaskPopup.hide());
-      //this.newTaskDone.setOnAction(e -> convertWeekTasksToGui());
-
-    } catch (IOException e) {
-      throw new RuntimeException();
-    }
-  }
-
-
 
 
   private void createTaskQueue() {
     this.week.accumulateTasks();
-
     List<Task> allTasks = this.week.getAllTasks();
   }
 
@@ -176,7 +166,7 @@ public class WeekViewController extends AbstractController {
 
   private HBox createNewTask(Task t) {
 
-   // @FXML
+    // @FXML
     HBox taskBox = new HBox();
     CheckBox taskName = new CheckBox();
     Button viewButton = new Button();
@@ -223,17 +213,6 @@ public class WeekViewController extends AbstractController {
     //returning something random so the code can compile
     return new HBox();
   }
-
-
-
-
-  private void makeTaskPopup() {
-    createNewTaskPopup.show(this.menuBar.getScene().getWindow());
-  }
-
-
-
-
 
 
   /**

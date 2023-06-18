@@ -112,4 +112,6 @@ public class Week {
   public List<Task> getAllTasks() {
     return this.allTasks;
   }
+
+  public List<Event> getAllEvents() { return this.allEvents; }
 }
