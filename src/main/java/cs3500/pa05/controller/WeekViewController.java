@@ -128,18 +128,8 @@ public class WeekViewController extends AbstractController {
 
     // create new event
     this.newEvent.setOnAction(e -> makeEventPopup());
-    FXMLLoader eventLoader = new FXMLLoader(getClass().getClassLoader().getResource("createNewEvent.fxml"));
-    eventLoader.setController(this);
+    eventCreation();
 
-    try {
-
-      Scene s = eventLoader.load();
-      this.createNewEventPopup.getContent().add(s.getRoot());
-      this.buttonDone.setOnAction(e -> this.createNewEventPopup.hide());
-
-    } catch (IOException e) {
-      throw new RuntimeException();
-    }
   }
 
 
