@@ -85,7 +85,7 @@ public class WeekViewController extends AbstractController {
   private Button newTaskDone;
 
   @FXML
-  private Button buttonDone;
+  private Button newEventDone;
 
   private Popup createNewTaskPopup = new Popup();
 
