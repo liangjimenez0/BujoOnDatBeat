@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -18,54 +20,6 @@
       <AnchorPane prefHeight="919.0" prefWidth="1452.0">
          <children>
             <BorderPane prefHeight="919.0" prefWidth="1492.0">
-               <top>
-                  <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1494.0" BorderPane.alignment="CENTER">
-                     <menus>
-                        <Menu mnemonicParsing="false">
-                           <graphic>
-                              <MenuButton fx:id="fileMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="file">
-                                 <items>
-                                    <MenuItem fx:id="saveButton" mnemonicParsing="false" text="save current project" />
-                                    <MenuItem fx:id="openExistingButton" mnemonicParsing="false" text="open exisiting project" />
-                                 </items>
-                                 <font>
-                                    <Font name="Avenir Book" size="13.0" />
-                                 </font>
-                              </MenuButton>
-                           </graphic>
-                        </Menu>
-                        <Menu mnemonicParsing="false">
-                           <graphic>
-                              <MenuButton fx:id="editMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="edit">
-                                 <items>
-                                    <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
-                                    <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
-                                    <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
-                                 </items>
-                                 <font>
-                                    <Font name="Avenir Book" size="13.0" />
-                                 </font>
-                              </MenuButton>
-                           </graphic>
-                        </Menu>
-                        <Menu mnemonicParsing="false">
-                           <graphic>
-                              <MenuButton fx:id="viewMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="view">
-                                 <items>
-                                    <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
-                                 </items>
-                                 <font>
-                                    <Font name="Avenir Book" size="13.0" />
-                                 </font>
-                              </MenuButton>
-                           </graphic>
-                        </Menu>
-                     </menus>
-                     <padding>
-                        <Insets top="6.0" />
-                     </padding>
-                  </MenuBar>
-               </top>
                <center>
                   <VBox alignment="TOP_CENTER" prefHeight="968.0" prefWidth="1150.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <children>
@@ -83,7 +37,7 @@
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label prefHeight="33.0" prefWidth="121.0" text="tasks:">
+                                    <Label prefHeight="28.0" prefWidth="121.0" text="tasks:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -101,6 +55,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="sunEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="sunProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
@@ -128,6 +104,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="monEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="monProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
@@ -155,6 +153,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="tuesEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="tuesProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="672.0" prefWidth="160.0" style="-fx-border-color:black">
@@ -182,6 +202,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="wedEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="wedProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
@@ -209,6 +251,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="thursEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="thursProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="159.0" style="-fx-border-color:black">
@@ -236,6 +300,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="friEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="friProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
@@ -263,6 +349,28 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="satEventsBox" prefHeight="296.0" prefWidth="158.0" />
+                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Avenir Book" size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ProgressBar fx:id="satProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <padding>
+                                          <Insets left="3.0" right="3.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" />
+                                       </VBox.margin>
+                                    </ProgressBar>
                                  </children>
                               </VBox>
                            </children>
@@ -291,6 +399,58 @@
                      </children>
                   </VBox>
                </left>
+               <top>
+                  <HBox prefHeight="50.0" prefWidth="1492.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1620.0">
+                           <menus>
+                              <Menu mnemonicParsing="false">
+                                 <graphic>
+                                    <MenuButton fx:id="fileMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="file">
+                                       <items>
+                                          <MenuItem fx:id="saveButton" mnemonicParsing="false" text="save current project" />
+                                          <MenuItem fx:id="openExistingButton" mnemonicParsing="false" text="open exisiting project" />
+                                       </items>
+                                       <font>
+                                          <Font name="Avenir Book" size="13.0" />
+                                       </font>
+                                    </MenuButton>
+                                 </graphic>
+                              </Menu>
+                              <Menu mnemonicParsing="false">
+                                 <graphic>
+                                    <MenuButton fx:id="editMenu" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="edit">
+                                       <items>
+                                          <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
+                                          <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
+                                          <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
+                                       </items>
+                                       <font>
+                                          <Font name="Avenir Book" size="13.0" />
+                                       </font>
+                                    </MenuButton>
+                                 </graphic>
+                              </Menu>
+                              <Menu mnemonicParsing="false">
+                                 <graphic>
+                                    <MenuButton fx:id="viewMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="view">
+                                       <items>
+                                          <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
+                                       </items>
+                                       <font>
+                                          <Font name="Avenir Book" size="13.0" />
+                                       </font>
+                                    </MenuButton>
+                                 </graphic>
+                              </Menu>
+                           </menus>
+                           <padding>
+                              <Insets top="6.0" />
+                           </padding>
+                        </MenuBar>
+                     </children>
+                  </HBox>
+               </top>
             </BorderPane>
          </children>
       </AnchorPane>

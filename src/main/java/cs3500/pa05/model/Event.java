@@ -25,6 +25,12 @@ public class Event extends Widget {
     this.duration = duration;
   }
 
+  public Event(String nameOfEvent, DayOfWeek day, long startTime, int duration) {
+    super(day, nameOfEvent);
+    this.startTime = startTime;
+    this.duration = duration;
+  }
+
   /**
    * @return a JsonEvent with this event's information as it's data
    */
@@ -32,4 +38,5 @@ public class Event extends Widget {
     return new JsonEvent(this.nameOfTask, this.description, this.day, this.startTime,
         this.duration);
   }
+
 }

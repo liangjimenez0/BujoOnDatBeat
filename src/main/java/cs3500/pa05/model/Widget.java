@@ -14,9 +14,22 @@ public abstract class Widget {
    * @param nameOfTask is the name of this task
    * @param description is a short description of this widget
    */
-  public Widget(DayOfWeek day, String nameOfTask, String description) {
+  public Widget(String nameOfTask, DayOfWeek day, String description) {
     this.day = day;
     this.nameOfTask = nameOfTask;
     this.description = description;
+  }
+
+  public Widget(String nameOfTask, DayOfWeek day) {
+    this.day = day;
+    this.nameOfTask = nameOfTask;
+  }
+
+  public DayOfWeek getDay() {
+    return this.day;
+  }
+
+  public String getName() {
+    return this.nameOfTask;
   }
 }

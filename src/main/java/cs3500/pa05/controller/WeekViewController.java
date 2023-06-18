@@ -18,6 +18,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Popup;
 
 /**
@@ -29,68 +31,24 @@ public class WeekViewController extends AbstractController {
   private Week week;
 
   @FXML
-  private VBox sunTasksBox;
-  @FXML
-  private VBox sunEventsBox;
-  @FXML
-  private VBox monTasksBox;
-  @FXML
-  private VBox monEventsBox;
-  @FXML
-  private VBox tuesTasksBox;
-  @FXML
-  private VBox tuesEventsBox;
-  @FXML
-  private VBox wedTasksBox;
-  @FXML
-  private VBox wedEventsBox;
-  @FXML
-  private VBox thursTasksBox;
-  @FXML
-  private VBox thursEventsBox;
-  @FXML
-  private VBox friTasksBox;
-  @FXML
-  private VBox friEventsBox;
-  @FXML
-  private VBox satTasksBox;
-
-  @FXML
-  private VBox satEventsBox;
-
+  private VBox sunTasksBox, sunEventsBox, monTasksBox, monEventsBox, tuesTasksBox, tuesEventsBox,
+      wedTasksBox, wedEventsBox, thursTasksBox, thursEventsBox, friTasksBox, friEventsBox,
+      satTasksBox, satEventsBox, allTasksBox;
   @FXML
   private MenuBar menuBar;
-
   @FXML
   private MenuItem saveButton;
-
   @FXML
   private MenuItem openExistingButton;
-
   @FXML
   private MenuItem newTask;
-
   @FXML
   private MenuItem newEvent;
-
   @FXML
   private MenuItem newWeek;
-
   @FXML
   private MenuItem expandTaskQueueButton;
-
-  @FXML
-  private Button newTaskDone;
-
-  @FXML
-  private Button newEventDone;
-
-  private Popup createNewTaskPopup = new Popup();
-
-  private Popup createNewEventPopup = new Popup();
-
   private CreateNewTaskController taskController;
-
   @FXML
   private TextField userTaskName;
 
@@ -103,35 +61,61 @@ public class WeekViewController extends AbstractController {
    */
   @Override
   public void run() {
+
     createTaskQueue();
     convertWeekTasksToGui();
-    convertWeekTasksToGui();
+    convertWeekEventsToGui();
 
-    // saves file
     saveButton.setOnAction(e -> newFileCreation());
 
-    // opens an existing file and updates week
     openExistingButton.setOnAction(e -> switchScene(this.menuBar,
         new OpenExistingFileController(), "openExistingFile.fxml"));
 
+    newTask.setOnAction(e ->
+        switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml"));
 
-    // create a new task popup
-    CreateNewTaskController taskControl = new CreateNewTaskController(this.menuBar);
-    this.newTask.setOnAction(e ->
-      switchScene(this.menuBar, taskControl, "createNewTask.fxml"));
-    this.week.getAllTasks().add(taskControl.getNewlyCreatedTask());
+    newEvent.setOnAction(
+        e -> switchScene(this.menuBar, new CreateNewEventController(this.week),
+            "createNewEvent.fxml"));
 
-
-    // create new event popup
-    CreateNewEventController eventControl = new CreateNewEventController(this.menuBar);
-    this.newEvent.setOnAction(e -> switchScene(this.menuBar, eventControl, "createNewEvent.fxml"));
-    this.week.getAllEvents().add(eventControl.getNewlyCreatedEvent());
+    newWeek.setOnAction(
+        e -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
   }
 
 
   private void createTaskQueue() {
     this.week.accumulateTasks();
     List<Task> allTasks = this.week.getAllTasks();
+
+    allTasksBox.getChildren().clear();
+
+    for (Task t : allTasks) {
+      CheckBox taskCheckBox = convertTaskToGui(t);
+      allTasksBox.getChildren().add(taskCheckBox);
+    }
+  }
+
+  private CheckBox convertTaskToGui(Task t) {
+
+    CheckBox checkBox = new CheckBox();
+    String taskName = t.getName();
+    Font font = Font.font("Avenir Book",
+        FontWeight.NORMAL, 13);
+
+    if (t.getCompleted()) {
+      checkBox.setSelected(true);
+    }
+
+    checkBox.setText(taskName);
+    checkBox.setFont(font);
+    checkBox.setPrefWidth(234);
+    checkBox.setMinHeight(35);
+    checkBox.setMaxHeight(70);
+    checkBox.wrapTextProperty().setValue(true);
+    checkBox.setStyle("-fx-alignment: LEFT;");
+    checkBox.setStyle("-fx-background-color: #F5F0BB; ");
+
+    return checkBox;
   }
 
   private void convertWeekTasksToGui() {
@@ -139,43 +123,48 @@ public class WeekViewController extends AbstractController {
     for (Day d : this.week.getDays()) {
       for (Task t : d.getTasks()) {
         if (d.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           sunTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           monTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           tuesTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           wedTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           thursTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           friTasksBox.getChildren().add(taskBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
-          HBox taskBox = createNewTask(t);
+          Button taskBox = createNewTask(t);
           satTasksBox.getChildren().add(taskBox);
         }
       }
     }
   }
 
-  private HBox createNewTask(Task t) {
+  private Button createNewTask(Task t) {
+    Button taskButton = new Button();
+    Font font = Font.font("Avenir Book",
+        FontWeight.NORMAL, 13);
 
-    // @FXML
-    HBox taskBox = new HBox();
-    CheckBox taskName = new CheckBox();
-    Button viewButton = new Button();
+    taskButton.setText("- " + t.getName());
+    taskButton.setFont(font);
+    taskButton.setOnAction(
+        e -> switchScene(taskButton, new ViewTaskController(t), "viewTask.fxml"));
+    taskButton.wrapTextProperty().setValue(true);
+    taskButton.setPrefWidth(169);
+    taskButton.setMinHeight(26);
+    taskButton.setMaxHeight(50);
+    taskButton.setStyle("-fx-alignment: LEFT;");
+    taskButton.setStyle("-fx-background-color: #DBDFAA; ");
 
-    taskBox.getChildren().add(taskName);
-    taskBox.getChildren().add(viewButton);
-
-    //returning something random so the code can compile
-    return taskBox;
+    return taskButton;
   }
 
   private void convertWeekEventsToGui() {
@@ -184,34 +173,48 @@ public class WeekViewController extends AbstractController {
 
       for (Event e : d.getEvents()) {
         if (d.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           sunEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           monEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           tuesEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           wedEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           thursEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           friEventsBox.getChildren().add(eventBox);
         } else if (d.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
-          HBox eventBox = createNewEvent(e);
+          Button eventBox = createNewEvent(e);
           satEventsBox.getChildren().add(eventBox);
         }
       }
     }
   }
 
-  private HBox createNewEvent(Event e) {
-    //returning something random so the code can compile
-    return new HBox();
+  private Button createNewEvent(Event e) {
+    Button eventButton = new Button();
+    Font font = Font.font("Avenir Book",
+        FontWeight.NORMAL, 13);
+
+    eventButton.setText("- " + e.getName());
+    eventButton.setFont(font);
+    eventButton.setOnAction(
+        event -> switchScene(eventButton, new ViewEventController(e), "eventTask.fxml"));
+    eventButton.wrapTextProperty().setValue(true);
+    eventButton.setPrefWidth(169);
+    eventButton.setMinHeight(26);
+    eventButton.setMaxHeight(50);
+    eventButton.setStyle("-fx-alignment: LEFT;");
+    eventButton.setStyle("-fx-background-color: #B3C890; ");
+
+    return eventButton;
   }
 
 
