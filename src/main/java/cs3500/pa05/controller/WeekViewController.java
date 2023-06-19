@@ -71,15 +71,21 @@ public class WeekViewController extends AbstractController {
     checkIfUserMarkedAsCompleted();
     updateProgressBars();
 
+    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
     saveButton.setOnAction(e -> newFileCreation());
 
+    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
+        KeyCombination.SHORTCUT_DOWN));
     openExistingButton.setOnAction(e -> switchScene(this.menuBar,
         new OpenExistingFileController(), "openExistingFile.fxml"));
 
+    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
     newTask.setOnAction(e -> newTask());
 
+    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
     newEvent.setOnAction(e -> newEvent());
 
+    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
     newWeek.setOnAction(
         e -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
   }

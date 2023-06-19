@@ -4,32 +4,71 @@
   "Week" : {
     "Days" : [ {
       "Name" : "SUNDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
+      "Tasks" : [ {
+        "Name" : "take meds",
+        "Description" : "take my pills",
+        "Day of Week" : "SUNDAY",
+        "Completed" : false
+      } ],
+      "Events" : [ {
+        "Name" : "wedding",
+        "Description" : "sister's wedding",
+        "Day of Week" : "SUNDAY",
+        "Start Time" : 1200,
+        "Duration" : 120
+      } ]
     }, {
       "Name" : "MONDAY",
-      "Tasks" : [ ],
+      "Tasks" : [ {
+        "Name" : "cook",
+        "Description" : "cook with the fam",
+        "Day of Week" : "MONDAY",
+        "Completed" : false
+      } ],
       "Events" : [ ]
     }, {
       "Name" : "TUESDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "club meeting",
+        "Description" : "go to cheese club meeting",
+        "Day of Week" : "TUESDAY",
+        "Start Time" : 2000,
+        "Duration" : 129
+      } ]
     }, {
       "Name" : "WEDNESDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "final exam",
+        "Description" : "take my math final exam",
+        "Day of Week" : "WEDNESDAY",
+        "Start Time" : 9000,
+        "Duration" : 60
+      } ]
     }, {
       "Name" : "THURSDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     }, {
       "Name" : "FRIDAY",
-      "Tasks" : [ ],
+      "Tasks" : [ {
+        "Name" : "clean",
+        "Description" : "clean the house",
+        "Day of Week" : "FRIDAY",
+        "Completed" : false
+      } ],
       "Events" : [ ]
     }, {
       "Name" : "SATURDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "birthday",
+        "Description" : "birthday party with grammy",
+        "Day of Week" : "SATURDAY",
+        "Start Time" : 1000,
+        "Duration" : 120
+      } ]
     } ]
   }
 }

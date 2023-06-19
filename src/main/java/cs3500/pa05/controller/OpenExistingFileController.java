@@ -39,7 +39,7 @@ public class OpenExistingFileController extends AbstractController{
     if (!fileName.endsWith("bujo")) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
-    } else if (new ReadFile(file).processFile() != null ) {
+    } else if (new ReadFile(file).processFile() == null ) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
     } else {
