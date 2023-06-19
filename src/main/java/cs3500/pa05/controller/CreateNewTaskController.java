@@ -19,7 +19,7 @@ public class CreateNewTaskController extends AbstractController {
   @FXML
   private TextArea userTaskDescription;
   @FXML
-  private Button newTaskDone;
+  private Button newTaskDone, backToWeekView;
 
   private Week currentWeek;
 
@@ -38,12 +38,15 @@ public class CreateNewTaskController extends AbstractController {
    */
   public void run() {
     newTaskDone.setOnAction(e -> createNewTask());
+    backToWeekView.setOnAction(e -> switchScene(newTaskDone,
+        new WeekViewController(this.currentWeek), "weekView.fxml"));
   }
 
   /**
    * Creates a new task from the inputted information.
    */
   private void createNewTask() {
+
     String taskName = userTaskName.getText();
     DayOfWeek weekday = DayOfWeek.valueOf(userTaskDay.getText().toUpperCase());
     Task newTask;

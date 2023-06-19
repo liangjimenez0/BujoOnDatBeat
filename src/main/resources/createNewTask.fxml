@@ -93,14 +93,32 @@
                               <Insets left="20.0" />
                            </padding>
                         </HBox>
-                        <Button fx:id="newTaskDone" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="done" textAlignment="RIGHT">
-                           <font>
-                              <Font name="Avenir Book" size="13.0" />
-                           </font>
+                        <HBox layoutX="10.0" layoutY="104.0" prefHeight="27.0" prefWidth="458.0" spacing="20.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <children>
+                              <Button fx:id="backToWeekView" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: #73A9AD;" text="back" textAlignment="RIGHT">
+                                 <font>
+                                    <Font name="Avenir Book" size="13.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="newTaskDone" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="done" textAlignment="RIGHT">
+                                 <font>
+                                    <Font name="Avenir Book" size="13.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="300.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
                            <VBox.margin>
-                              <Insets left="400.0" />
+                              <Insets bottom="10.0" top="30.0" />
                            </VBox.margin>
-                        </Button>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

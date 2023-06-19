@@ -20,7 +20,7 @@ public class CreateNewEventController extends AbstractController {
   private TextArea userEventDescription;
 
   @FXML
-  private Button newEventDone;
+  private Button newEventDone, backToWeekView;
 
   private Week currentWeek;
 
@@ -38,6 +38,8 @@ public class CreateNewEventController extends AbstractController {
    */
   public void run() {
     newEventDone.setOnAction(e -> createNewEvent());
+    backToWeekView.setOnAction(e -> switchScene(newEventDone,
+        new WeekViewController(this.currentWeek), "weekView.fxml"));
   }
 
   /**

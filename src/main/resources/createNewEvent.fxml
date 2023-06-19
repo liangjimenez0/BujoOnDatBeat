@@ -136,16 +136,31 @@
                            <Insets left="20.0" />
                         </padding>
                      </HBox>
+                  </children>
+               </VBox>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Button fx:id="backToWeekView" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="53.0" style="-fx-background-color: #73A9AD;" text="back">
+                        <font>
+                           <Font name="Avenir Book" size="13.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Button>
                      <Button fx:id="newEventDone" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="53.0" style="-fx-background-color: #73A9AD;" text="done">
                         <font>
                            <Font name="Avenir Book" size="13.0" />
                         </font>
-                        <VBox.margin>
-                           <Insets left="400.0" />
-                        </VBox.margin>
+                        <HBox.margin>
+                           <Insets left="337.0" />
+                        </HBox.margin>
                      </Button>
                   </children>
-               </VBox>
+                  <VBox.margin>
+                     <Insets top="20.0" />
+                  </VBox.margin>
+               </HBox>
             </children>
          </VBox>
       </children></AnchorPane>
