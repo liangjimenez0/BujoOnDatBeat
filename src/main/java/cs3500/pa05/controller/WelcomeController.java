@@ -7,9 +7,6 @@ import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 
 /**
  * Handles interaction between the user and the model in the welcome scene.

@@ -35,14 +35,29 @@ public abstract class Widget {
 
   public String getDescription() { return this.description; }
 
+  /**
+   * Updates the name of this widget.
+   *
+   * @param name the new name
+   */
   public void changeName(String name) {
     this.name = name;
   }
 
+  /**
+   * Updates the day of this widget.
+   *
+   * @param day the new day
+   */
   public void changeDay(DayOfWeek day) {
     this.day = day;
   }
 
+  /**
+   * Updates the description of this widget.
+   *
+   * @param description the new description
+   */
   public void changeDescription(String description) {
     this.description = description;
   }

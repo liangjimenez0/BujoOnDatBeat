@@ -104,6 +104,11 @@ public class Week {
     return new JsonWeek(jsonDays);
   }
 
+  /**
+   * Gets all the tasks in this week.
+   *
+   * @return the list of all tasks in this week.
+   */
   public List<Task> getAllTasks() {
     allTasks = new ArrayList<>();
 
@@ -124,6 +129,11 @@ public class Week {
     return allEvents;
   }
 
+  /**
+   * Gets the name of this week.
+   *
+   * @return the name of this week
+   */
   public String getName() {
     return this.name;
   }

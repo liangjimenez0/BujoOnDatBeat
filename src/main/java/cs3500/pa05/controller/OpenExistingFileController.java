@@ -18,6 +18,9 @@ public class OpenExistingFileController extends AbstractController{
 
   private Week currentWeek;
 
+  /**
+   * Handles what happens when the buttons on this scene are clicked.
+   */
   public void run(){
     backButton.setOnAction(e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
 

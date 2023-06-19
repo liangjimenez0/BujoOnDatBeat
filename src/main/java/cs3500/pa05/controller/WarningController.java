@@ -11,10 +11,18 @@ public class WarningController extends AbstractController {
 
   Week week;
 
+  /**
+   * Initializes an object that can display a warning to the user.
+   *
+   * @param week the week to check for different warnings needed to be displayed.
+   */
   public WarningController(Week week) {
     this.week = week;
   }
 
+  /**
+   * Handles when to display warnings for certain buttons clicked.
+   */
   @Override
   public void run() {
     exitButton.setOnAction(

@@ -4,16 +4,14 @@ import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
-import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Popup;
 
+/**
+ * Handles the creation of a new task.
+ */
 public class CreateNewTaskController extends AbstractController {
   @FXML
   private TextField userTaskName, userTaskDay;
@@ -30,6 +28,9 @@ public class CreateNewTaskController extends AbstractController {
   }
 
 
+  /**
+   * Handles creating a new task when the user presses the done button.
+   */
   public void run() {
     newTaskDone.setOnAction(e -> createNewTask());
   }
@@ -40,14 +41,18 @@ public class CreateNewTaskController extends AbstractController {
     Task newTask;
 
     if (userTaskDescription.getText() != null) {
-      String taskDescription = userTaskDescription.getText();
-      newTask = new Task(taskName, weekday, taskDescription);
-    } else {
-      newTask = new Task(taskName, weekday);
+      for (Day day : this.currentWeek.getDays()) {
+        if (day.getDayOfWeek() == weekday) {
+          if (day.getTasks().size() + 1 > this.currentWeek.getMaxTasks()) {
+            switchScene(newTaskDone, new WarningController(this.currentWeek), "warningScreen.fxml");
+          } else {
+            String taskDescription = userTaskDescription.getText();
+            newTask = new Task(taskName, weekday, taskDescription);
+            addTaskToWeek(newTask);
+          }
+        }
+      }
     }
-
-    addTaskToWeek(newTask);
-
     switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 

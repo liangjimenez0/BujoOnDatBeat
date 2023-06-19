@@ -40,6 +40,7 @@ public class WeekViewController extends AbstractController {
       satTasksBox, satEventsBox, allTasksBox;
   @FXML
   private MenuBar menuBar;
+
   @FXML
   private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek;
   private CreateNewTaskController taskController;
@@ -53,6 +54,7 @@ public class WeekViewController extends AbstractController {
 
   public WeekViewController(Week week) {
     this.week = week;
+
   }
 
   /**
@@ -60,6 +62,7 @@ public class WeekViewController extends AbstractController {
    */
   @Override
   public void run() {
+    this.menuBar.getScene().getWindow().centerOnScreen();
     updateProgressBars();
     createTaskQueue();
     convertWeekTasksToGui();
@@ -97,23 +100,11 @@ public class WeekViewController extends AbstractController {
   }
 
   private void newTask() {
-    List<Task> allTasks = this.week.getAllTasks();
-
-    if (allTasks.size() < this.week.getMaxTasks()) {
-      switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml");
-    } else {
-      switchScene(this.menuBar, new WarningController(this.week), "warningScreen.fxml");
-    }
+    switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml");
   }
 
   private void newEvent() {
-    List<Event> allEvents = this.week.getAllEvents();
-
-    if (allEvents.size() < this.week.getMaxTasks()) {
-      switchScene(this.menuBar, new CreateNewEventController(this.week), "createNewEvent.fxml");
-    } else {
-      switchScene(this.menuBar, new WarningController(this.week), "warningScreen.fxml");
-    }
+    switchScene(this.menuBar, new CreateNewEventController(this.week), "createNewEvent.fxml");
   }
 
 
@@ -297,15 +288,21 @@ public class WeekViewController extends AbstractController {
 
 
   private void settingShortcuts() {
-    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
-        this::newFileCreation);
-    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN),
-        () -> switchScene(this.menuBar, new OpenExistingFileController(), "openExistingFile.fxml"));
-    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN),
-        this::newEvent);
-    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN),
-        this::newTask);
-    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN),
-        () -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
+            this::newFileCreation);
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN),
+            () -> switchScene(this.menuBar, new OpenExistingFileController(),
+                "openExistingFile.fxml"));
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN),
+            this::newEvent);
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN),
+            this::newTask);
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN),
+            () -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
   }
 }

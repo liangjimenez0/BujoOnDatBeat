@@ -69,6 +69,8 @@ public class ReadFile {
   }
 
   /**
+   * Initializes the tasks from the file for a day.
+   *
    * @param jsonDay is the given JsonDay
    * @param day     is the week day that these tasks occur on
    */
@@ -86,6 +88,8 @@ public class ReadFile {
   }
 
   /**
+   * Initializes the events from the file for a day.
+   *
    * @param jsonDay is the given JsonDay
    * @param day     is the week day that these events occur on
    */

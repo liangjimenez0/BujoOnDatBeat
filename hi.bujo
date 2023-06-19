@@ -1,6 +1,6 @@
 {
-  "Max Tasks" : 3,
-  "Max Events" : 3,
+  "Max Tasks" : 1,
+  "Max Events" : 1,
   "Week" : {
     "Days" : [ {
       "Name" : "SUNDAY",

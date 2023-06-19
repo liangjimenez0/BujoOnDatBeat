@@ -14,6 +14,8 @@ import java.util.Scanner;
  */
 public class CreateNewFile {
   /**
+   * Initializes an object that can create a new file.
+   *
    * @param week is the given week that is to be converted to a Bujo file
    * @param fileName is the given file name of where the Bujo file contents will be outputted in
    * @throws IOException when this method gets interrupted

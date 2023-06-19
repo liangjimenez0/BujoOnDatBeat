@@ -94,7 +94,7 @@ public class Day {
     if (this.tasks.size() == 0) {
       return 0;
     } else {
-      return numOfCompletedTasks / this.tasks.size();
+      return (numOfCompletedTasks * .10) / (this.tasks.size() * .10);
     }
   }
 }
