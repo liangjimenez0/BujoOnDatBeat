@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -44,6 +45,11 @@ public class WeekViewController extends AbstractController {
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
+  @FXML
+  private ProgressBar sunProgressBar, monProgressBar, tuesProgressBar, wedProgressBar,
+      thursProgressBar,
+      friProgressBar, satProgressBar;
+  private List<CheckBox> allCheckBoxes = new ArrayList<>();
 
   public WeekViewController(Week week) {
     this.week = week;
@@ -54,7 +60,7 @@ public class WeekViewController extends AbstractController {
    */
   @Override
   public void run() {
-
+    updateProgressBars();
     createTaskQueue();
     convertWeekTasksToGui();
     convertWeekEventsToGui();
@@ -68,12 +74,36 @@ public class WeekViewController extends AbstractController {
 
     newTask.setOnAction(e -> newTask());
 
-    newEvent.setOnAction(
-        e -> switchScene(this.menuBar, new CreateNewEventController(this.week),
-            "createNewEvent.fxml"));
+    newEvent.setOnAction(e -> newEvent());
 
     newWeek.setOnAction(
         e -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
+  }
+
+  private void checkIfUserMarkedAsCompleted() {
+    if (allCheckBoxes.size() > 0) {
+      for (CheckBox c : allCheckBoxes) {
+        if (c.isSelected()) {
+          for (Day d : this.week.getDays()) {
+            for (Task t : d.getTasks()) {
+              if (c.getText().equals(t.getName())) {
+                t.changeCompleted(true);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  private void newTask() {
+    List<Task> allTasks = this.week.getAllTasks();
+
+    if (allTasks.size() < this.week.getMaxTasks()) {
+      switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml");
+    } else {
+      switchScene(this.menuBar, new WarningController(this.week), "warningScreen.fxml");
+    }
   }
 
   private void newEvent() {
@@ -99,6 +129,7 @@ public class WeekViewController extends AbstractController {
     }
   }
 
+
   private CheckBox convertTaskToGui(Task t) {
 
     CheckBox checkBox = new CheckBox();
@@ -118,7 +149,7 @@ public class WeekViewController extends AbstractController {
     checkBox.wrapTextProperty().setValue(true);
     checkBox.setTextAlignment(TextAlignment.LEFT);
     checkBox.setStyle("-fx-background-color: #F5F0BB; ");
-
+    checkBox.setStyle("-fx-padding: 0 0 0 10;");
     return checkBox;
   }
 
@@ -241,5 +272,40 @@ public class WeekViewController extends AbstractController {
     } catch (IOException e) {
       throw new NoSuchElementException("this bujo file cannot be saved with the given file path");
     }
+  }
+
+
+  private void updateProgressBars() {
+    for (Day day : this.week.getDays()) {
+      if (day.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        this.sunProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+        this.monProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+        this.tuesProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+        this.wedProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+        this.thursProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+        this.friProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (day.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+        this.satProgressBar.setProgress(day.taskCompletionPercentage());
+      }
+    }
+  }
+
+
+  private void settingShortcuts() {
+    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
+        this::newFileCreation);
+    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.O, KeyCombination.SHORTCUT_DOWN),
+        () -> switchScene(this.menuBar, new OpenExistingFileController(), "openExistingFile.fxml"));
+    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN),
+        this::newEvent);
+    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN),
+        this::newTask);
+    this.menuBar.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN),
+        () -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
   }
 }

@@ -78,4 +78,23 @@ public class Day {
 
     return new JsonDay(this.day.name(), jsonTasks, jsonEvents);
   }
+
+
+  /**
+   * @return the percentage of completed tasks from this day
+   */
+  public int taskCompletionPercentage() {
+    int numOfCompletedTasks = 0;
+    for (Task t : this.tasks) {
+      if (t.getCompleted()) {
+        numOfCompletedTasks += 1;
+      }
+    }
+
+    if (this.tasks.size() == 0) {
+      return 0;
+    } else {
+      return numOfCompletedTasks / this.tasks.size();
+    }
+  }
 }

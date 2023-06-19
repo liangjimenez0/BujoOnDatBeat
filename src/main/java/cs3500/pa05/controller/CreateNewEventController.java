@@ -61,7 +61,6 @@ public class CreateNewEventController extends AbstractController {
       if (newEvent.getDay().equals(d.getDayOfWeek())) {
         d.getEvents().add(newEvent);
       }
-
     }
   }
 }
