@@ -1,6 +1,14 @@
 package cs3500.pa05.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import cs3500.pa05.json.JsonBujoFile;
+import cs3500.pa05.json.JsonUtils;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,6 +50,8 @@ class CreateNewFileTest {
   private final Event exampleEventSat = new Event("this is an event", DayOfWeek.SATURDAY,
       "this must be completed", 0, 20);
 
+  private StringBuilder expectedOutputBuilder;
+
   /**
    * Called before each test method that initializes objects used during testing.
    */
@@ -66,6 +76,11 @@ class CreateNewFileTest {
     this.exampleWeek.getDay(DayOfWeek.THURSDAY).addToEvent(exampleEventThu);
     this.exampleWeek.getDay(DayOfWeek.FRIDAY).addToEvent(exampleEventFri);
     this.exampleWeek.getDay(DayOfWeek.SATURDAY).addToEvent(exampleEventSat);
+
+    JsonBujoFile jsonBujoFile = new JsonBujoFile(maxTasks, maxEvents, exampleWeek.weekToJson());
+    JsonNode nodeBujo = JsonUtils.serializeRecord(jsonBujoFile);
+    String expecOut = nodeBujo.toPrettyString();
+    expectedOutputBuilder = new StringBuilder(expecOut);
   }
 
 
@@ -78,6 +93,16 @@ class CreateNewFileTest {
     try {
       this.testCreateFile.createNewFile(this.exampleWeek,
           "src/test/testfiles/createFileTestOutput.bujo");
+
+      // tests that the expected outputs are displayed.
+      BufferedReader expectedOutput =
+          new BufferedReader(new FileReader("src/test/testfiles/createFileTestOutput.bujo"));
+      BufferedReader actualOutput = new BufferedReader(new StringReader(expectedOutputBuilder.toString()));
+      
+      while (expectedOutput.ready() && actualOutput.ready()) {
+        assertEquals(expectedOutput.readLine(), actualOutput.readLine());
+      }
+
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

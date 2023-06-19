@@ -99,9 +99,11 @@ public class WeekViewController extends AbstractController {
 
     newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
     newTask.setOnAction(e -> newTask());
+    newTaskButton.setOnAction(e -> newTask());
 
     newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
     newEvent.setOnAction(e -> newEvent());
+    newEventButton.setOnAction(e -> newEvent());
 
     newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
     newWeek.setOnAction(
