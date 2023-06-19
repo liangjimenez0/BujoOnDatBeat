@@ -63,12 +63,13 @@ public class WeekViewController extends AbstractController {
   @Override
   public void run() {
     this.menuBar.getScene().getWindow().centerOnScreen();
+    settingShortcuts();
     updateProgressBars();
     createTaskQueue();
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     checkIfUserMarkedAsCompleted();
-    settingShortcuts();
+    updateProgressBars();
 
     saveButton.setOnAction(e -> newFileCreation());
 

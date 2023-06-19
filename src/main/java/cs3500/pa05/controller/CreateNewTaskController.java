@@ -60,11 +60,11 @@ public class CreateNewTaskController extends AbstractController {
             String taskDescription = userTaskDescription.getText();
             newTask = new Task(taskName, weekday, taskDescription);
             addTaskToWeek(newTask);
+            switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
           }
         }
       }
     }
-    switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 
   /**

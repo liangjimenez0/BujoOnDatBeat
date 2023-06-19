@@ -36,8 +36,15 @@ public class OpenExistingFileController extends AbstractController{
     String fileName = fileNameInput.getText();
     File file = new File(fileName);
 
-    this.currentWeek = new ReadFile(file).processFile();
-
-    switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+    if (!fileName.endsWith("bujo")) {
+      switchScene(submitButton, new WarningController(this.currentWeek),
+          "invalidFileWarning.fxml");
+    } else if (new ReadFile(file).processFile() != null ) {
+      switchScene(submitButton, new WarningController(this.currentWeek),
+          "invalidFileWarning.fxml");
+    } else {
+      this.currentWeek = new ReadFile(file).processFile();
+      switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+    }
   }
 }

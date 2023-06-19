@@ -1,0 +1,35 @@
+{
+  "Max Tasks" : 1,
+  "Max Events" : 1,
+  "Week" : {
+    "Days" : [ {
+      "Name" : "SUNDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "MONDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "TUESDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "WEDNESDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "THURSDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "FRIDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "SATURDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    } ]
+  }
+}

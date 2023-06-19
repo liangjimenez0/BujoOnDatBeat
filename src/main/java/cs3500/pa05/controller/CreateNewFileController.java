@@ -43,14 +43,17 @@ public class CreateNewFileController extends AbstractController {
     int maxEvents = Integer.parseInt(maxEventsInput.getText());
     String fileName = fileNameInput.getText();
 
-    this.currentWeek = new Week(maxTasks, maxEvents, fileName);
-
-    try {
-      new CreateNewFile().createNewFile(this.currentWeek, fileName);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
+    if (!fileName.endsWith("bujo")) {
+      switchScene(submitButton, new WarningController(this.currentWeek),
+          "invalidFileWarning.fxml");
+    } else {
+      this.currentWeek = new Week(maxTasks, maxEvents, fileName);
+      try {
+        new CreateNewFile().createNewFile(this.currentWeek, fileName);
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
     }
-
-    switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 }

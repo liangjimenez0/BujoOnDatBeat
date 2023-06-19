@@ -63,11 +63,11 @@ public class CreateNewEventController extends AbstractController {
             newEvent =
                 new Event(eventName, weekday, eventDescription, eventStartTime, eventDuration);
             addEventToWeek(newEvent);
+            switchScene(newEventDone, new WeekViewController(this.currentWeek), "weekView.fxml");
           }
         }
       }
     }
-    switchScene(newEventDone, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 
   /**

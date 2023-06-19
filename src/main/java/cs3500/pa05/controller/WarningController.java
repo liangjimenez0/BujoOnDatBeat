@@ -3,6 +3,7 @@ package cs3500.pa05.controller;
 import cs3500.pa05.model.Week;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 
 /**
  * Handles the display of a warning to the user
@@ -10,7 +11,10 @@ import javafx.scene.control.Button;
 public class WarningController extends AbstractController {
 
   @FXML
-  Button exitButton;
+  Button exitButton, leaveErrorScreen;
+
+  @FXML
+  HBox fileWarningHbox;
 
   Week week;
 
@@ -28,7 +32,12 @@ public class WarningController extends AbstractController {
    */
   @Override
   public void run() {
-    exitButton.setOnAction(
-        e -> switchScene(exitButton, new WeekViewController(this.week), "weekView.fxml"));
+    if (this.leaveErrorScreen != null) {
+      leaveErrorScreen.setOnAction(
+          e -> switchScene(leaveErrorScreen, new WelcomeController(), "welcomePage.fxml"));
+    } else if (this.exitButton != null) {
+      exitButton.setOnAction(
+          e -> switchScene(exitButton, new WeekViewController(this.week), "weekView.fxml"));
+    }
   }
 }
