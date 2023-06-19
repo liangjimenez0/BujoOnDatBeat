@@ -39,21 +39,32 @@ public class CreateNewFileController extends AbstractController {
   }
 
   private void createNewFile() {
-    int maxTasks = Integer.parseInt(maxTasksInput.getText());
-    int maxEvents = Integer.parseInt(maxEventsInput.getText());
-    String fileName = fileNameInput.getText();
-
-    if (!fileName.endsWith("bujo")) {
+    int maxTasks;
+    int maxEvents;
+    try {
+      maxTasks = Integer.parseInt(maxTasksInput.getText());
+      maxEvents = Integer.parseInt(maxEventsInput.getText());
+      String fileName = fileNameInput.getText();
+      if (!fileName.endsWith("bujo")) {
+        switchScene(submitButton, new WarningController(this.currentWeek),
+            "invalidFileWarning.fxml");
+      } else if (maxTasks < 0 || maxEvents < 0) {
+        switchScene(submitButton, new WarningController(this.currentWeek),
+            "invalidFileWarning.fxml");
+      } else {
+        maxTasks = Integer.parseInt(maxTasksInput.getText());
+        maxEvents = Integer.parseInt(maxEventsInput.getText());
+        this.currentWeek = new Week(maxTasks, maxEvents, fileName);
+        try {
+          new CreateNewFile().createNewFile(this.currentWeek, fileName);
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+        switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+      }
+    } catch (NumberFormatException e) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
-    } else {
-      this.currentWeek = new Week(maxTasks, maxEvents, fileName);
-      try {
-        new CreateNewFile().createNewFile(this.currentWeek, fileName);
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-      switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
     }
   }
 }

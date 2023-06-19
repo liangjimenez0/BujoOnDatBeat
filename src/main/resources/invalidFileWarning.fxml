@@ -13,7 +13,7 @@
       <children>
          <HBox fx:id="fileWarningHbox" alignment="CENTER" layoutY="-2.0" prefHeight="604.0" prefWidth="1087.0">
             <children>
-               <Text fx:id="warningText" strokeType="OUTSIDE" strokeWidth="0.0" text="whoops! you've entered in an invalid file path for your bujo file, try again with a valid bujo file :) " textAlignment="CENTER" wrappingWidth="691.3236694335938">
+               <Text fx:id="warningText" strokeType="OUTSIDE" strokeWidth="0.0" text="whoops! you've entered in an invalid file path for your bujo file or invalid values for your maximum tasks/events, try again with valid inputs :) " textAlignment="CENTER" wrappingWidth="691.3236694335938">
                   <font>
                      <Font name="Avenir Book" size="42.0" />
                   </font>
@@ -23,7 +23,7 @@
                </Text>
             </children>
          </HBox>
-         <HBox alignment="TOP_CENTER" layoutY="471.0" prefHeight="350.0" prefWidth="1091.0">
+         <HBox alignment="TOP_CENTER" layoutY="537.0" prefHeight="284.0" prefWidth="1091.0">
             <children>
                <Button fx:id="leaveErrorScreen" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="got it">
                   <font>

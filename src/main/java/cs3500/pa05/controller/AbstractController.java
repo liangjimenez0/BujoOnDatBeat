@@ -19,7 +19,7 @@ public abstract class AbstractController implements Controller {
   public void switchScene(Control control, Controller controller, String fxmlFileName) {
 
     Stage stage = (Stage) control.getScene().getWindow();
-    stage.fullScreenProperty();
+    stage.centerOnScreen();
 
     View view = new GraphicalView(controller, fxmlFileName);
 
