@@ -23,6 +23,11 @@ public class CreateNewTaskController extends AbstractController {
 
   private Week currentWeek;
 
+  /**
+   * Initializes an object that can create a new task within the given week.
+   *
+   * @param currentWeek the week to be updated with the new task created
+   */
   public CreateNewTaskController(Week currentWeek) {
     this.currentWeek = currentWeek;
   }
@@ -35,6 +40,9 @@ public class CreateNewTaskController extends AbstractController {
     newTaskDone.setOnAction(e -> createNewTask());
   }
 
+  /**
+   * Creates a new task from the inputted information.
+   */
   private void createNewTask() {
     String taskName = userTaskName.getText();
     DayOfWeek weekday = DayOfWeek.valueOf(userTaskDay.getText().toUpperCase());
@@ -56,6 +64,11 @@ public class CreateNewTaskController extends AbstractController {
     switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 
+  /**
+   * Adds a given task to the correct day in the week.
+   *
+   * @param newTask the task to be added to the week.
+   */
   private void addTaskToWeek(Task newTask) {
 
     for (Day d : this.currentWeek.getDays()) {
@@ -65,6 +78,5 @@ public class CreateNewTaskController extends AbstractController {
       }
 
     }
-
   }
 }

@@ -22,6 +22,8 @@ public class ReadFile {
   private final JsonBujoFile jsonBujoFile;
 
   /**
+   * Initializes an object that can read a given file
+   *
    * @param file is the given file that is to be scanned and read from
    */
   public ReadFile(File file) {
@@ -36,6 +38,8 @@ public class ReadFile {
   }
 
   /**
+   * Processes the given file to a bujo
+   *
    * @return a week with the data pulled from file object in this class
    */
   public Week processFile() {

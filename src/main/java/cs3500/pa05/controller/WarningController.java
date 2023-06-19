@@ -4,6 +4,9 @@ import cs3500.pa05.model.Week;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Handles the display of a warning to the user
+ */
 public class WarningController extends AbstractController {
 
   @FXML

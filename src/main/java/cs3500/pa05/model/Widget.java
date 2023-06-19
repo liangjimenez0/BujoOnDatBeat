@@ -10,6 +10,8 @@ public abstract class Widget {
   public String description;
 
   /**
+   * Initializes a widget object with a description.
+   *
    * @param day is the week day that this occurs on
    * @param name is the name of this task
    * @param description is a short description of this widget
@@ -20,20 +22,48 @@ public abstract class Widget {
     this.description = description;
   }
 
+  /**
+   * Initializes a widget object without a description.
+   *
+   * @param day is the week day that this occurs on
+   * @param name is the name of this task
+   */
   public Widget(DayOfWeek day, String name) {
     this.day = day;
     this.name = name;
   }
 
+  /**
+   * Gets the day of this widget.
+   *
+   * @return the day this widget is associated with
+   */
   public DayOfWeek getDay() {
     return this.day;
   }
 
+  /**
+   * Gets the name of this widget.
+   *
+   * @return the name of this widget
+   */
   public String getName() {
     return this.name;
   }
 
-  public String getDescription() { return this.description; }
+  /**
+   * Gets the description of this widget
+   *
+   * @return the description
+   */
+  public String getDescription() {
+    if (this.description != null) {
+      return this.description;
+    }
+    else {
+      return "";
+    }
+  }
 
   /**
    * Updates the name of this widget.

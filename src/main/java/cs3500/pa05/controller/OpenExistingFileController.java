@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Handles opening of a given file to the view.
+ */
 public class OpenExistingFileController extends AbstractController{
-
   @FXML
   private TextField fileNameInput;
   @FXML
@@ -27,6 +29,9 @@ public class OpenExistingFileController extends AbstractController{
     submitButton.setOnAction(e -> processFile());
   }
 
+  /**
+   * Takes the inputted information and loads the given file into the view.
+   */
   private void processFile() {
     String fileName = fileNameInput.getText();
     File file = new File(fileName);

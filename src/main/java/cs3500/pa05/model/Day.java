@@ -15,6 +15,8 @@ public class Day {
   private List<Event> events;
 
   /**
+   * Initializes a day
+   *
    * @param day is the given weekday Enum
    */
   public Day(DayOfWeek day) {
@@ -24,6 +26,8 @@ public class Day {
   }
 
   /**
+   * Gets the day of the week
+   *
    * @return The weekday this day is assigned to
    */
   public DayOfWeek getDayOfWeek() {
@@ -31,6 +35,8 @@ public class Day {
   }
 
   /**
+   * Gets all the tasks in this day
+   *
    * @return This day's list of tasks
    */
   public List<Task> getTasks() {
@@ -38,6 +44,8 @@ public class Day {
   }
 
   /**
+   * Gets all the events in this day
+   *
    * @return This day's list of events
    */
   public List<Event> getEvents() {
@@ -45,6 +53,8 @@ public class Day {
   }
 
   /**
+   * Adds a task to this day's tasks
+   *
    * @param given Task that is added to this day's list of tasks
    */
   public void addToTask(Task given) {
@@ -52,6 +62,8 @@ public class Day {
   }
 
   /**
+   * Adds an event to this day's events
+   *
    * @param given Event that is added to this day's list of events
    */
   public void addToEvent(Event given) {
@@ -59,6 +71,8 @@ public class Day {
   }
 
   /**
+   * Converts this day to a JsonDay record.
+   *
    * @return A JsonDay record that represents the weekday, list of tasks,
    * and events as a Json record
    */
@@ -81,6 +95,8 @@ public class Day {
 
 
   /**
+   * Computes the percentage of tasks completed compared to total tasks.
+   *
    * @return the percentage of completed tasks from this day
    */
   public double taskCompletionPercentage() {

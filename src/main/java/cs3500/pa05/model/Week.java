@@ -19,6 +19,8 @@ public class Week {
   private final int maxEvents;
 
   /**
+   * Initializes a week object.
+   *
    * @param maxTasks is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
    */
@@ -34,10 +36,12 @@ public class Week {
   }
 
   /**
+   * Initializes all the days to empty days.
+   *
    * @param maxTasks is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
    */
-  public void initializeDays(int maxTasks, int maxEvents) {
+  private void initializeDays(int maxTasks, int maxEvents) {
     Day sunday = new Day(DayOfWeek.SUNDAY);
     Day monday = new Day(DayOfWeek.MONDAY);
     Day tuesday = new Day(DayOfWeek.TUESDAY);
@@ -57,6 +61,8 @@ public class Week {
 
 
   /**
+   * Gets the day object from a given day of week.
+   *
    * @param day is the given day that is to be returned
    * @return the day from this week's list of days
    */
@@ -70,6 +76,8 @@ public class Week {
   }
 
   /**
+   * Gets the days in this week.
+   *
    * @return a list of days from this week
    */
   public List<Day> getDays() {
@@ -77,6 +85,8 @@ public class Week {
   }
 
   /**
+   * Gets the max tasks for this week.
+   *
    * @return the maximum number of tasks this user can have for a week
    */
   public int getMaxTasks() {
@@ -84,6 +94,8 @@ public class Week {
   }
 
   /**
+   * Gets the max events for this week.
+   *
    * @return the maximum number of events this user can have for a week
    */
   public int getMaxEvents() {
@@ -91,6 +103,8 @@ public class Week {
   }
 
   /**
+   * Converts this week to a JsonWeek record.
+   *
    * @return a JsonWeek which turns this week to a JsonWeek record
    */
   public JsonWeek weekToJson() {
@@ -119,6 +133,11 @@ public class Week {
     return allTasks;
   }
 
+  /**
+   * Gets all the events in this week.
+   *
+   * @return the list of all events in this week.
+   */
   public List<Event> getAllEvents() {
     allEvents = new ArrayList<>();
 

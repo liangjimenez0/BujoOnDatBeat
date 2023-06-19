@@ -1,10 +1,6 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.model.CreateNewFile;
 import cs3500.pa05.model.Week;
-import cs3500.pa05.view.GraphicalView;
-import cs3500.pa05.view.View;
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -20,6 +16,7 @@ public class WelcomeController extends AbstractController {
 
   @FXML
   private Button openExistingFile;
+
   /**
    * Initializes a welcome page scene on the Java Journal
    */

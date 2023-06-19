@@ -1,7 +1,6 @@
 package cs3500.pa05.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 
 /**
  * @param maxTasks is the maximum number of tasks a user can have in a Bujo file.

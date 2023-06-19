@@ -24,14 +24,25 @@ public class CreateNewEventController extends AbstractController {
 
   private Week currentWeek;
 
+  /**
+   * Initializes an object that can create a new event within the given week.
+   *
+   * @param currentWeek the week to be updated with the new event created
+   */
   public CreateNewEventController(Week currentWeek) {
     this.currentWeek = currentWeek;
   }
 
+  /**
+   * Handles creating a new event when the user presses the done button.
+   */
   public void run() {
     newEventDone.setOnAction(e -> createNewEvent());
   }
 
+  /**
+   * Creates a new event from the inputted information.
+   */
   private void createNewEvent() {
     String eventName = userEventName.getText();
     DayOfWeek weekday = DayOfWeek.valueOf(userEventDay.getText().toUpperCase());
@@ -57,6 +68,11 @@ public class CreateNewEventController extends AbstractController {
     switchScene(newEventDone, new WeekViewController(this.currentWeek), "weekView.fxml");
   }
 
+  /**
+   * Adds a given event to the correct day in the week.
+   *
+   * @param newEvent the event to be added to the week.
+   */
   private void addEventToWeek(Event newEvent) {
 
     for (Day d : this.currentWeek.getDays()) {
