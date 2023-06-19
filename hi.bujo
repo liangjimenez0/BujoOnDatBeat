@@ -13,7 +13,13 @@
     }, {
       "Name" : "TUESDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "party",
+        "Description" : "description",
+        "Day of Week" : "TUESDAY",
+        "Start Time" : 1000,
+        "Duration" : 60
+      } ]
     }, {
       "Name" : "WEDNESDAY",
       "Tasks" : [ ],

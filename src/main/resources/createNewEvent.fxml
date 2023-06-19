@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <AnchorPane prefHeight="919.0" prefWidth="1452.0">
+   <AnchorPane prefHeight="850.0" prefWidth="1452.0">
       <children>
-         <VBox layoutX="486.0" layoutY="279.0" prefHeight="338.0" prefWidth="471.0" spacing="30.0">
+         <VBox layoutX="486.0" layoutY="250.0" prefHeight="338.0" prefWidth="471.0" spacing="30.0">
             <children>
                <Label fx:id="createNewEventHeader" alignment="CENTER" contentDisplay="CENTER" prefHeight="123.0" prefWidth="500.0" text="create new event" textAlignment="CENTER">
                   <font>

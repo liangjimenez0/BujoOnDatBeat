@@ -52,8 +52,6 @@ public class ViewEventController extends AbstractController {
           e.changeDay(DayOfWeek.valueOf(userEventDay.getText().toUpperCase()));
         }
 
-
-
       }
 
     }
