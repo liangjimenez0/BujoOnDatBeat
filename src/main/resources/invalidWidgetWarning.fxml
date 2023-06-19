@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="810.0" prefWidth="1037.0">
+      <children>
+         <HBox alignment="BOTTOM_CENTER" prefHeight="454.0" prefWidth="1037.0">
+            <children>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="oopsie! you've entered in invalid values for this new task/event. please try again!" textAlignment="CENTER" wrappingWidth="862.0449600219727">
+                  <font>
+                     <Font name="Avenir Book" size="47.0" />
+                  </font>
+               </Text>
+            </children>
+         </HBox>
+         <HBox alignment="TOP_CENTER" layoutY="540.0" prefHeight="299.0" prefWidth="1029.0">
+            <children>
+               <Button fx:id="invalidWidgetDone" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" text="got it" />
+            </children>
+         </HBox>
+      </children></AnchorPane>
+</Scene>

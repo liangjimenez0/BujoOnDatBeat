@@ -84,6 +84,17 @@ public class Week {
     return this.allDays;
   }
 
+  public boolean checkDay(String dayName) {
+    return
+        dayName.equals(DayOfWeek.SUNDAY.name())
+        ||dayName.equals(DayOfWeek.MONDAY.name())
+        ||dayName.equals(DayOfWeek.TUESDAY.name())
+        ||dayName.equals(DayOfWeek.WEDNESDAY.name())
+        ||dayName.equals(DayOfWeek.THURSDAY.name())
+        ||dayName.equals(DayOfWeek.FRIDAY.name())
+        ||dayName.equals(DayOfWeek.SATURDAY.name());
+    }
+
   /**
    * Gets the max tasks for this week.
    *

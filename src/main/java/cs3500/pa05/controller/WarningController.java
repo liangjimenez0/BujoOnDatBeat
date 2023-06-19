@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 public class WarningController extends AbstractController {
 
   @FXML
-  Button exitButton, leaveErrorScreen;
+  Button exitButton, leaveErrorScreen, invalidWidgetDone;
 
   @FXML
   HBox fileWarningHbox;
@@ -38,6 +38,9 @@ public class WarningController extends AbstractController {
     } else if (this.exitButton != null) {
       exitButton.setOnAction(
           e -> switchScene(exitButton, new WeekViewController(this.week), "weekView.fxml"));
+    } else if (this.invalidWidgetDone != null) {
+      invalidWidgetDone.setOnAction(
+          e -> switchScene(invalidWidgetDone, new WeekViewController(this.week), "weekView.fxml"));
     }
   }
 }
