@@ -43,7 +43,7 @@ public class CreateNewFileController extends AbstractController {
     int maxEvents = Integer.parseInt(maxEventsInput.getText());
     String fileName = fileNameInput.getText();
 
-    this.currentWeek = new Week(maxTasks, maxEvents);
+    this.currentWeek = new Week(maxTasks, maxEvents, fileName);
 
     try {
       new CreateNewFile().createNewFile(this.currentWeek, fileName);

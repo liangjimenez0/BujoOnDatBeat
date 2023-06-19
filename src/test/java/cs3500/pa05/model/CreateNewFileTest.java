@@ -50,7 +50,7 @@ class CreateNewFileTest {
     this.testCreateFile = new CreateNewFile();
     this.maxTasks = 3;
     this.maxEvents = 5;
-    this.exampleWeek = new Week(this.maxTasks, this.maxEvents);
+    this.exampleWeek = new Week(this.maxTasks, this.maxEvents, "createFileTestOutput.bujo");
     this.exampleWeek.getDay(DayOfWeek.SUNDAY).addToTask(exampleTaskSunday);
     this.exampleWeek.getDay(DayOfWeek.MONDAY).addToTask(exampleTaskMonday);
     this.exampleWeek.getDay(DayOfWeek.TUESDAY).addToTask(exampleTaskTuesday);

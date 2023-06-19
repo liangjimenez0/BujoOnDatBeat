@@ -431,18 +431,6 @@
                                     </MenuButton>
                                  </graphic>
                               </Menu>
-                              <Menu mnemonicParsing="false">
-                                 <graphic>
-                                    <MenuButton fx:id="viewMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: DBDFAA;" text="view">
-                                       <items>
-                                          <MenuItem fx:id="expandTaskQueueButton" mnemonicParsing="false" text="expand task view" />
-                                       </items>
-                                       <font>
-                                          <Font name="Avenir Book" size="13.0" />
-                                       </font>
-                                    </MenuButton>
-                                 </graphic>
-                              </Menu>
                            </menus>
                            <padding>
                               <Insets top="6.0" />

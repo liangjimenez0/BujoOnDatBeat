@@ -8,6 +8,7 @@ import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import javafx.fxml.FXML;
@@ -16,11 +17,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Popup;
+import javafx.scene.text.TextAlignment;
 
 /**
  * Handles interaction with the week view between the user and the model representation
@@ -37,17 +40,7 @@ public class WeekViewController extends AbstractController {
   @FXML
   private MenuBar menuBar;
   @FXML
-  private MenuItem saveButton;
-  @FXML
-  private MenuItem openExistingButton;
-  @FXML
-  private MenuItem newTask;
-  @FXML
-  private MenuItem newEvent;
-  @FXML
-  private MenuItem newWeek;
-  @FXML
-  private MenuItem expandTaskQueueButton;
+  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek;
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
@@ -65,14 +58,15 @@ public class WeekViewController extends AbstractController {
     createTaskQueue();
     convertWeekTasksToGui();
     convertWeekEventsToGui();
+    checkIfUserMarkedAsCompleted();
+    settingShortcuts();
 
     saveButton.setOnAction(e -> newFileCreation());
 
     openExistingButton.setOnAction(e -> switchScene(this.menuBar,
         new OpenExistingFileController(), "openExistingFile.fxml"));
 
-    newTask.setOnAction(e ->
-        switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml"));
+    newTask.setOnAction(e -> newTask());
 
     newEvent.setOnAction(
         e -> switchScene(this.menuBar, new CreateNewEventController(this.week),
@@ -82,9 +76,18 @@ public class WeekViewController extends AbstractController {
         e -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
   }
 
+  private void newEvent() {
+    List<Event> allEvents = this.week.getAllEvents();
+
+    if (allEvents.size() < this.week.getMaxTasks()) {
+      switchScene(this.menuBar, new CreateNewEventController(this.week), "createNewEvent.fxml");
+    } else {
+      switchScene(this.menuBar, new WarningController(this.week), "warningScreen.fxml");
+    }
+  }
+
 
   private void createTaskQueue() {
-    this.week.accumulateTasks();
     List<Task> allTasks = this.week.getAllTasks();
 
     allTasksBox.getChildren().clear();
@@ -92,6 +95,7 @@ public class WeekViewController extends AbstractController {
     for (Task t : allTasks) {
       CheckBox taskCheckBox = convertTaskToGui(t);
       allTasksBox.getChildren().add(taskCheckBox);
+      allCheckBoxes.add(taskCheckBox);
     }
   }
 
@@ -112,7 +116,7 @@ public class WeekViewController extends AbstractController {
     checkBox.setMinHeight(35);
     checkBox.setMaxHeight(70);
     checkBox.wrapTextProperty().setValue(true);
-    checkBox.setStyle("-fx-alignment: LEFT;");
+    checkBox.setTextAlignment(TextAlignment.LEFT);
     checkBox.setStyle("-fx-background-color: #F5F0BB; ");
 
     return checkBox;
@@ -152,17 +156,22 @@ public class WeekViewController extends AbstractController {
     Button taskButton = new Button();
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
+    String regularButton = "-fx-background-color: #DBDFAA;";
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
 
     taskButton.setText("- " + t.getName());
     taskButton.setFont(font);
     taskButton.setOnAction(
-        e -> switchScene(taskButton, new ViewTaskController(t), "viewTask.fxml"));
+        e -> switchScene(taskButton, new ViewTaskController(t, this.week), "viewTask.fxml"));
     taskButton.wrapTextProperty().setValue(true);
     taskButton.setPrefWidth(169);
     taskButton.setMinHeight(26);
     taskButton.setMaxHeight(50);
-    taskButton.setStyle("-fx-alignment: LEFT;");
-    taskButton.setStyle("-fx-background-color: #DBDFAA; ");
+    taskButton.setTextAlignment(TextAlignment.LEFT);
+    taskButton.setStyle(regularButton);
+    taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
+    taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
 
     return taskButton;
   }
@@ -202,17 +211,22 @@ public class WeekViewController extends AbstractController {
     Button eventButton = new Button();
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
+    String regularButton = "-fx-background-color: #B3C890;";
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
 
     eventButton.setText("- " + e.getName());
     eventButton.setFont(font);
     eventButton.setOnAction(
-        event -> switchScene(eventButton, new ViewEventController(e), "eventTask.fxml"));
+        event -> switchScene(eventButton, new ViewEventController(e, this.week), "viewEvent.fxml"));
     eventButton.wrapTextProperty().setValue(true);
     eventButton.setPrefWidth(169);
     eventButton.setMinHeight(26);
     eventButton.setMaxHeight(50);
-    eventButton.setStyle("-fx-alignment: LEFT;");
+    eventButton.setTextAlignment(TextAlignment.LEFT);
     eventButton.setStyle("-fx-background-color: #B3C890; ");
+    eventButton.setOnMouseEntered(event -> eventButton.setStyle(buttonWhenMouseHovers));
+    eventButton.setOnMouseExited(event -> eventButton.setStyle(regularButton));
 
     return eventButton;
   }
@@ -223,7 +237,7 @@ public class WeekViewController extends AbstractController {
    */
   private void newFileCreation() {
     try {
-      new CreateNewFile().createNewFile(week, weekBujoFile.toString());
+      new CreateNewFile().createNewFile(week, week.getName());
     } catch (IOException e) {
       throw new NoSuchElementException("this bujo file cannot be saved with the given file path");
     }

@@ -11,9 +11,10 @@ import java.util.NoSuchElementException;
  */
 public class Week {
 
+  private String name;
   private final List<Day> allDays;
-  private final List<Task> allTasks;
-  private final List<Event> allEvents;
+  private List<Task> allTasks;
+  private List<Event> allEvents;
   private final int maxTasks;
   private final int maxEvents;
 
@@ -21,12 +22,13 @@ public class Week {
    * @param maxTasks is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
    */
-  public Week(int maxTasks, int maxEvents) {
+  public Week(int maxTasks, int maxEvents, String name) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
     this.allEvents = new ArrayList<>();
     this.maxTasks = maxTasks;
     this.maxEvents = maxEvents;
+    this.name = name;
 
     initializeDays(maxTasks, maxEvents);
   }
@@ -103,15 +105,27 @@ public class Week {
     return new JsonWeek(jsonDays);
   }
 
-  public void accumulateTasks() {
+  public List<Task> getAllTasks() {
+    allTasks = new ArrayList<>();
+
     for (Day d : this.allDays) {
       allTasks.addAll(d.getTasks());
     }
+
+    return allTasks;
   }
 
-  public List<Task> getAllTasks() {
-    return this.allTasks;
+  public List<Event> getAllEvents() {
+    allEvents = new ArrayList<>();
+
+    for (Day d : this.allDays) {
+      allEvents.addAll(d.getEvents());
+    }
+
+    return allEvents;
   }
 
-  public List<Event> getAllEvents() { return this.allEvents; }
+  public String getName() {
+    return this.name;
+  }
 }

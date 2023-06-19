@@ -52,7 +52,7 @@ public class ReadFile {
     int maxTasksNum = jsonBujoFile.maxTasks();
     int maxEventsNum = jsonBujoFile.maxEvents();
 
-    this.week = new Week(maxTasksNum, maxEventsNum);
+    this.week = new Week(maxTasksNum, maxEventsNum, file.getName());
   }
 
   /**

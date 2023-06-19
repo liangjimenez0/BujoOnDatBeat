@@ -60,7 +60,7 @@ public class Day {
 
   /**
    * @return A JsonDay record that represents the weekday, list of tasks,
-   *         and events as a Json record
+   * and events as a Json record
    */
   public JsonDay dayToJson() {
     List<JsonTask> jsonTasks = new ArrayList<>();
