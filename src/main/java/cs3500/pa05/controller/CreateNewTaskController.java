@@ -46,26 +46,25 @@ public class CreateNewTaskController extends AbstractController {
    * Creates a new task from the inputted information.
    */
   private void createNewTask() {
-    String taskName = userTaskName.getText();
     Task newTask;
 
-    if (userTaskDescription.getText() != null) {
-      if (!this.currentWeek.checkDay(userTaskDay.getText().toUpperCase())) {
-        switchScene(newTaskDone, new WarningController(this.currentWeek),
-            "invalidWidgetWarning.fxml");
-      } else {
-        DayOfWeek weekday = DayOfWeek.valueOf(userTaskDay.getText().toUpperCase());
-        for (Day day : this.currentWeek.getDays()) {
-          if (day.getDayOfWeek() == weekday) {
-            if (day.getTasks().size() + 1 > this.currentWeek.getMaxTasks()) {
-              switchScene(newTaskDone, new WarningController(this.currentWeek),
-                  "warningScreen.fxml");
-            } else {
-              String taskDescription = userTaskDescription.getText();
-              newTask = new Task(taskName, weekday, taskDescription);
-              addTaskToWeek(newTask);
-              switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
-            }
+    if (userTaskName.getText().isEmpty() || userTaskDescription.getText().isEmpty()
+        || !this.currentWeek.checkDay(userTaskDay.getText().toUpperCase())) {
+      switchScene(newTaskDone, new WarningController(this.currentWeek),
+          "invalidWidgetWarning.fxml");
+    } else {
+      DayOfWeek weekday = DayOfWeek.valueOf(userTaskDay.getText().toUpperCase());
+      for (Day day : this.currentWeek.getDays()) {
+        if (day.getDayOfWeek() == weekday) {
+          if (day.getTasks().size() + 1 > this.currentWeek.getMaxTasks()) {
+            switchScene(newTaskDone, new WarningController(this.currentWeek),
+                "warningScreen.fxml");
+          } else {
+            String taskName = userTaskName.getText();
+            String taskDescription = userTaskDescription.getText();
+            newTask = new Task(taskName, weekday, taskDescription);
+            addTaskToWeek(newTask);
+            switchScene(newTaskDone, new WeekViewController(this.currentWeek), "weekView.fxml");
           }
         }
       }

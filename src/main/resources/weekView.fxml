@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
@@ -437,7 +438,7 @@
                               <Insets top="6.0" />
                            </padding>
                         </MenuBar>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="315.0" promptText="search for task">
+                        <TextField fx:id="searchBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="315.0" promptText="search for task">
                            <font>
                               <Font name="Avenir Book" size="18.0" />
                            </font>
@@ -445,6 +446,13 @@
                      </children>
                   </HBox>
                </top>
+               <right>
+                  <HBox prefHeight="800.0" prefWidth="133.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ListView fx:id="listOfSearches" prefHeight="205.0" prefWidth="145.0" />
+                     </children>
+                  </HBox>
+               </right>
             </BorderPane>
          </children>
       </AnchorPane>

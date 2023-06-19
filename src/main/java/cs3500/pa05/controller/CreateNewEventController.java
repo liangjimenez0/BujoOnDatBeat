@@ -46,39 +46,36 @@ public class CreateNewEventController extends AbstractController {
    * Creates a new event from the inputted information.
    */
   private void createNewEvent() {
-    String eventName = userEventName.getText();
     Event newEvent;
-
-    try {
-      long eventStartTime = Long.parseLong(userEventStartTime.getText());
-      int eventDuration = Integer.parseInt(userEventDuration.getText());
-      if (userEventDescription.getText() != null) {
-        if (!this.currentWeek.checkDay(userEventDay.getText().toUpperCase())) {
-          switchScene(newEventDone, new WarningController(this.currentWeek),
-              "invalidWidgetWarning.fxml");
-        }
-        DayOfWeek weekday = DayOfWeek.valueOf(userEventDay.getText().toUpperCase());
-        for (Day day : this.currentWeek.getDays()) {
-          if (day.getDayOfWeek() == weekday) {
-            if (day.getEvents().size() + 1 > this.currentWeek.getMaxEvents()) {
-              switchScene(newEventDone, new WarningController(this.currentWeek),
-                  "warningScreen.fxml");
-            } else {
-              String eventDescription = userEventDescription.getText();
-              newEvent =
-                  new Event(eventName, weekday, eventDescription, eventStartTime, eventDuration);
+    if (userEventName.getText().isEmpty() || userEventDescription.getText().isEmpty()
+        || !this.currentWeek.checkDay(userEventDay.getText().toUpperCase())
+        || userEventDuration.getText().isEmpty() || userEventStartTime.getText().isEmpty()) {
+      switchScene(newEventDone, new WarningController(this.currentWeek),
+          "invalidWidgetWarning.fxml");
+    } else {
+      DayOfWeek weekday = DayOfWeek.valueOf(userEventDay.getText().toUpperCase());
+      for (Day day : this.currentWeek.getDays()) {
+        if (day.getDayOfWeek() == weekday) {
+          if (day.getEvents().size() + 1 > this.currentWeek.getMaxEvents()) {
+            switchScene(newEventDone, new WarningController(this.currentWeek),
+                "warningScreen.fxml");
+          } else {
+            try {
+              long eventStartTime = Long.parseLong(userEventStartTime.getText());
+              int eventDuration = Integer.parseInt(userEventDuration.getText());
+              newEvent = new Event(userEventName.getText(), weekday, userEventDescription.getText(),
+                  eventStartTime, eventDuration);
               addEventToWeek(newEvent);
               switchScene(newEventDone, new WeekViewController(this.currentWeek), "weekView.fxml");
+            } catch (NumberFormatException e) {
+              switchScene(newEventDone, new WarningController(this.currentWeek),
+                  "invalidWidgetWarning.fxml");
             }
           }
         }
       }
-    } catch (NumberFormatException e) {
-      switchScene(newEventDone, new WarningController(this.currentWeek),
-          "invalidWidgetWarning.fxml");
     }
   }
-
 
   /**
    * Adds a given event to the correct day in the week.
