@@ -83,7 +83,7 @@ public class Day {
   /**
    * @return the percentage of completed tasks from this day
    */
-  public int taskCompletionPercentage() {
+  public double taskCompletionPercentage() {
     int numOfCompletedTasks = 0;
     for (Task t : this.tasks) {
       if (t.getCompleted()) {

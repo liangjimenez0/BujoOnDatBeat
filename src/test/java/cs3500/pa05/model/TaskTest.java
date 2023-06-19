@@ -31,17 +31,17 @@ class TaskTest {
   void taskToJson() {
     JsonTask jsonLaundry = this.laundry.taskToJson();
     assertEquals(DayOfWeek.MONDAY, jsonLaundry.day());
-    assertEquals("finish laundry", jsonLaundry.name());
-    assertEquals("laundry", jsonLaundry.description());
+    assertEquals("laundry", jsonLaundry.name());
+    assertEquals("finish laundry", jsonLaundry.description());
 
     JsonTask jsonCallFam = this.callFamily.taskToJson();
     assertEquals(DayOfWeek.SUNDAY, jsonCallFam.day());
-    assertEquals("call the fam", jsonCallFam.name());
-    assertEquals("call family", jsonCallFam.description());
+    assertEquals("call family", jsonCallFam.name());
+    assertEquals("call the fam", jsonCallFam.description());
 
     JsonTask jsonClean = this.clean.taskToJson();
     assertEquals(DayOfWeek.THURSDAY, jsonClean.day());
-    assertEquals("clean the house", jsonClean.name());
-    assertEquals("clean", jsonClean.description());
+    assertEquals("clean", jsonClean.name());
+    assertEquals("clean the house", jsonClean.description());
   }
 }

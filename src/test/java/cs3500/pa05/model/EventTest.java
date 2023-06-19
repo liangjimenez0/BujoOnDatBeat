@@ -31,23 +31,23 @@ class EventTest {
   void eventToJson() {
     JsonEvent jsonBirthday = this.birthday.eventToJson();
     assertEquals(DayOfWeek.FRIDAY, jsonBirthday.day());
-    assertEquals("attend birthday party", jsonBirthday.name());
+    assertEquals("birthday", jsonBirthday.name());
     assertEquals(180, jsonBirthday.duration());
-    assertEquals("birthday", jsonBirthday.description());
+    assertEquals("attend birthday party", jsonBirthday.description());
     assertEquals(1800L, jsonBirthday.startTime());
 
     JsonEvent jsonGrad = this.graduation.eventToJson();
     assertEquals(DayOfWeek.WEDNESDAY, jsonGrad.day());
-    assertEquals("grad ceremony", jsonGrad.name());
+    assertEquals("graduation", jsonGrad.name());
     assertEquals(120, jsonGrad.duration());
-    assertEquals("graduation", jsonGrad.description());
+    assertEquals("grad ceremony", jsonGrad.description());
     assertEquals(1000L, jsonGrad.startTime());
 
     JsonEvent jsonWedding = this.wedding.eventToJson();
     assertEquals(DayOfWeek.SUNDAY, jsonWedding.day());
-    assertEquals("attend wedding", jsonWedding.name());
+    assertEquals("wedding", jsonWedding.name());
     assertEquals(240, jsonWedding.duration());
-    assertEquals("wedding", jsonWedding.description());
+    assertEquals("attend wedding", jsonWedding.description());
     assertEquals(2200L, jsonWedding.startTime());
   }
 }

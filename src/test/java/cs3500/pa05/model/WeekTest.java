@@ -2,7 +2,6 @@ package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonDay;
 import cs3500.pa05.json.JsonEvent;
@@ -25,8 +24,8 @@ class WeekTest {
    */
   @BeforeEach
   public void setup() {
-    this.firstWeek = new Week(3, 4);
-    this.secondWeek = new Week(0, 0);
+    this.firstWeek = new Week(3, 4, "happyWeek");
+    this.secondWeek = new Week(0, 0, "emptyWeek");
   }
 
   /**

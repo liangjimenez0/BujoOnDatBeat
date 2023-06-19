@@ -5,14 +5,14 @@
     "Days" : [ {
       "Name" : "SUNDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "SUNDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "SUNDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -20,14 +20,14 @@
     }, {
       "Name" : "MONDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "MONDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "MONDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -35,14 +35,14 @@
     }, {
       "Name" : "TUESDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "TUESDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "TUESDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -50,14 +50,14 @@
     }, {
       "Name" : "WEDNESDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "WEDNESDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "WEDNESDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -65,14 +65,14 @@
     }, {
       "Name" : "THURSDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "THURSDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "THURSDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -80,14 +80,14 @@
     }, {
       "Name" : "FRIDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "FRIDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "FRIDAY",
         "Start Time" : 0,
         "Duration" : 20
@@ -95,14 +95,14 @@
     }, {
       "Name" : "SATURDAY",
       "Tasks" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is a task",
+        "Name" : "this is a task",
+        "Description" : "this must be completed",
         "Day of Week" : "SATURDAY",
         "Completed" : false
       } ],
       "Events" : [ {
-        "Name" : "this must be completed",
-        "Description" : "this is an event",
+        "Name" : "this is an event",
+        "Description" : "this must be completed",
         "Day of Week" : "SATURDAY",
         "Start Time" : 0,
         "Duration" : 20

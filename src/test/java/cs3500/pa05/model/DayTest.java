@@ -124,12 +124,12 @@ class DayTest {
   void dayToJson() {
     assertEquals("MONDAY", this.jsonMon.name());
     assertTrue(this.jsonMon.tasks().contains(new JsonTask(
-        "finish laundry", "laundry", DayOfWeek.MONDAY, false)));
+        "laundry", "finish laundry", DayOfWeek.MONDAY, false)));
     assertEquals("TUESDAY", this.jsonTues.name());
     assertTrue(this.jsonTues.tasks().contains(new JsonTask(
-        "study for exam", "study", DayOfWeek.TUESDAY, false)));
+        "study", "study for exam", DayOfWeek.TUESDAY, false)));
     assertEquals("FRIDAY", this.jsonFri.name());
     assertTrue(this.jsonFri.events().contains(
-        new JsonEvent("dinner with fam", "dinner", DayOfWeek.FRIDAY, 1800L, 120)));
+        new JsonEvent("dinner", "dinner with fam", DayOfWeek.FRIDAY, 1800L, 120)));
   }
 }
