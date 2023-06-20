@@ -49,7 +49,7 @@ public class CreateNewEventController extends AbstractController {
    */
   private void createNewEvent() {
     Event newEvent;
-    if (userEventName.getText().isEmpty() || userEventDescription.getText().isEmpty()
+    if (userEventName.getText().isEmpty()
         || !this.currentWeek.checkDay(userEventDay.getText().toUpperCase())
         || userEventDuration.getText().isEmpty() || userEventStartTime.getText().isEmpty()) {
       switchScene(newEventDone, new WarningController(this.currentWeek),

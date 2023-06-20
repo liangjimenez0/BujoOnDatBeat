@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -41,9 +42,12 @@ public class WeekViewController extends AbstractController {
   private Button newTaskButton, newEventButton;
 
   @FXML
-  private VBox sunTasksBox, sunEventsBox, monTasksBox, monEventsBox, tuesTasksBox, tuesEventsBox,
-      wedTasksBox, wedEventsBox, thursTasksBox, thursEventsBox, friTasksBox, friEventsBox,
-      satTasksBox, satEventsBox, allTasksBox;
+  private VBox dayOneTasksBox, dayOneEventsBox, dayTwoTasksBox, dayTwoEventsBox, dayThreeTasksBox, dayThreeEventsBox,
+      dayFourTasksBox, dayFourEventsBox, dayFiveTasksBox, dayFiveEventsBox, daySixTasksBox, daySixEventsBox,
+      daySevenTasksBox, daySevenEventsBox, allTasksBox;
+
+  @FXML
+  private VBox dayOneBox, dayTwoBox, dayThreeBox, dayFourBox, dayFiveBox, daySixBox, daySevenBox;
   @FXML
   private MenuBar menuBar;
 
@@ -54,13 +58,12 @@ public class WeekViewController extends AbstractController {
   @FXML
   private TextField userTaskName;
   @FXML
-  private ProgressBar sunProgressBar, monProgressBar, tuesProgressBar, wedProgressBar,
-      thursProgressBar,
-      friProgressBar, satProgressBar;
+  private ProgressBar dayOneProgressBar, dayTwoProgressBar, dayThreeProgressBar, dayFourProgressBar,
+      dayFiveProgressBar, daySixProgressBar, daySevenProgressBar;
 
   @FXML
-  private Label sunProgLabel, monProgLabel, tueProgLabel, wedProgLabel, thuProgLabel,
-      friProgLabel, satProgLabel;
+  private Label dayOneProgLabel, dayTwoProgLabel, dayThreeProgLabel, dayFourProgLabel, dayFiveProgLabel,
+      daySixProgLabel, daySevenProgLabel;
 
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
 
@@ -127,12 +130,19 @@ public class WeekViewController extends AbstractController {
     this.dayFiveLabel.setText(this.week.getDays().get(4).getDayOfWeek().name().toLowerCase());
     this.daySixLabel.setText(this.week.getDays().get(5).getDayOfWeek().name().toLowerCase());
     this.daySevenLabel.setText(this.week.getDays().get(6).getDayOfWeek().name().toLowerCase());
+
+    this.dayOneBox.setId(this.week.getDays().get(0).getDayOfWeek().name().toLowerCase());
+    this.dayTwoBox.setId(this.week.getDays().get(1).getDayOfWeek().name().toLowerCase());
+    this.dayThreeBox.setId(this.week.getDays().get(2).getDayOfWeek().name().toLowerCase());
+    this.dayFourBox.setId(this.week.getDays().get(3).getDayOfWeek().name().toLowerCase());
+    this.dayFiveBox.setId(this.week.getDays().get(4).getDayOfWeek().name().toLowerCase());
+    this.daySixBox.setId(this.week.getDays().get(5).getDayOfWeek().name().toLowerCase());
+    this.daySevenBox.setId(this.week.getDays().get(6).getDayOfWeek().name().toLowerCase());
   }
 
   private void mutateJournalName() {
     this.week.setNameForWeek(newName);
   }
-
 
   private void newTask() {
     switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml");
@@ -185,27 +195,27 @@ public class WeekViewController extends AbstractController {
   private void convertWeekTasksToGui() {
     for (Day d : this.week.getDays()) {
       for (Task t : d.getTasks()) {
-        if (t.getDay().equals(DayOfWeek.SUNDAY)) {
+        if (String.valueOf(t.getDay()).toLowerCase().equals(dayOneBox.getId())) {
           Button taskBox = createNewTask(t);
-          sunTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.MONDAY)) {
+          dayOneBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(dayTwoBox.getId())) {
           Button taskBox = createNewTask(t);
-          monTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.TUESDAY)) {
+          dayTwoTasksBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(dayThreeBox.getId())) {
           Button taskBox = createNewTask(t);
-          tuesTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.WEDNESDAY)) {
+          dayThreeTasksBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(dayFourBox.getId())) {
           Button taskBox = createNewTask(t);
-          wedTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.THURSDAY)) {
+          dayFourTasksBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(dayFiveBox.getId())) {
           Button taskBox = createNewTask(t);
-          thursTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.FRIDAY)) {
+          dayFiveTasksBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(daySixBox.getId())) {
           Button taskBox = createNewTask(t);
-          friTasksBox.getChildren().add(taskBox);
-        } else if (t.getDay().equals(DayOfWeek.SATURDAY)) {
+          daySixTasksBox.getChildren().add(taskBox);
+        } else if (String.valueOf(t.getDay()).toLowerCase().equals(daySevenBox.getId())) {
           Button taskBox = createNewTask(t);
-          satTasksBox.getChildren().add(taskBox);
+          daySevenTasksBox.getChildren().add(taskBox);
         }
       }
     }
@@ -229,6 +239,7 @@ public class WeekViewController extends AbstractController {
     taskButton.setMinHeight(26);
     taskButton.setMaxHeight(50);
     taskButton.setTextAlignment(TextAlignment.LEFT);
+    taskButton.setAlignment(Pos.TOP_LEFT);
     taskButton.setStyle(regularButton);
     taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
     taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
@@ -240,27 +251,27 @@ public class WeekViewController extends AbstractController {
     for (Day d : this.week.getDays()) {
 
       for (Event e : d.getEvents()) {
-        if (e.getDay().equals(DayOfWeek.SUNDAY)) {
+        if (String.valueOf(e.getDay()).toLowerCase().equals(dayOneBox.getId())) {
           Button eventBox = createNewEvent(e);
-          sunEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.MONDAY)) {
+          dayOneEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(dayTwoBox.getId())) {
           Button eventBox = createNewEvent(e);
-          monEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.TUESDAY)) {
+          dayTwoEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(dayThreeBox.getId())) {
           Button eventBox = createNewEvent(e);
-          tuesEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.WEDNESDAY)) {
+          dayThreeEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(dayFourBox.getId())) {
           Button eventBox = createNewEvent(e);
-          wedEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.THURSDAY)) {
+          dayFourEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(dayFiveBox.getId())) {
           Button eventBox = createNewEvent(e);
-          thursEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.FRIDAY)) {
+          dayFiveEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(daySixBox.getId())) {
           Button eventBox = createNewEvent(e);
-          friEventsBox.getChildren().add(eventBox);
-        } else if (e.getDay().equals(DayOfWeek.SATURDAY)) {
+          daySixEventsBox.getChildren().add(eventBox);
+        } else if (String.valueOf(e.getDay()).toLowerCase().equals(daySevenBox.getId())) {
           Button eventBox = createNewEvent(e);
-          satEventsBox.getChildren().add(eventBox);
+          daySevenEventsBox.getChildren().add(eventBox);
         }
       }
     }
@@ -283,6 +294,7 @@ public class WeekViewController extends AbstractController {
     eventButton.setPrefWidth(169);
     eventButton.setMinHeight(26);
     eventButton.setMaxHeight(50);
+    eventButton.setAlignment(Pos.TOP_LEFT);
     eventButton.setTextAlignment(TextAlignment.LEFT);
     eventButton.setStyle("-fx-background-color: #B3C890; ");
     eventButton.setOnMouseEntered(event -> eventButton.setStyle(buttonWhenMouseHovers));
@@ -306,34 +318,34 @@ public class WeekViewController extends AbstractController {
 
   private void updateProgressBars() {
     for (Day day : this.week.getDays()) {
-      if (day.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
-        this.sunProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+      if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayOneBox.getId())) {
+        this.dayOneProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.sunProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
-        this.monProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.dayOneProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayTwoBox.getId())) {
+        this.dayTwoProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.monProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
-        this.tueProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.dayTwoProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayThreeBox.getId())) {
+        this.dayThreeProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.tuesProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
-        this.wedProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.dayThreeProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayFourBox.getId())) {
+        this.dayFourProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.wedProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-        this.thuProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.dayFourProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayFiveBox.getId())) {
+        this.dayFiveProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.thursProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
-        this.friProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.dayFiveProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(daySixBox.getId())) {
+        this.daySixProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.friProgressBar.setProgress(day.taskCompletionPercentage());
-      } else if (day.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
-        this.satProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+        this.daySixProgressBar.setProgress(day.taskCompletionPercentage());
+      } else if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(daySevenBox.getId())) {
+        this.daySevenProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
             + "/" + day.getTasks().size());
-        this.satProgressBar.setProgress(day.taskCompletionPercentage());
+        this.daySevenProgressBar.setProgress(day.taskCompletionPercentage());
       }
     }
   }

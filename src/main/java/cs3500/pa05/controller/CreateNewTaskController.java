@@ -48,7 +48,7 @@ public class CreateNewTaskController extends AbstractController {
   private void createNewTask() {
     Task newTask;
 
-    if (userTaskName.getText().isEmpty() || userTaskDescription.getText().isEmpty()
+    if (userTaskName.getText().isEmpty()
         || !this.currentWeek.checkDay(userTaskDay.getText().toUpperCase())) {
       switchScene(newTaskDone, new WarningController(this.currentWeek),
           "invalidWidgetWarning.fxml");

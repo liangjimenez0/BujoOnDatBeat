@@ -4,6 +4,14 @@
   "Week" : {
     "Name" : "welcome to your bullet journal",
     "Days" : [ {
+      "Name" : "TUESDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
+      "Name" : "WEDNESDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
       "Name" : "THURSDAY",
       "Tasks" : [ ],
       "Events" : [ ]
@@ -21,14 +29,6 @@
       "Events" : [ ]
     }, {
       "Name" : "MONDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
-    }, {
-      "Name" : "TUESDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
-    }, {
-      "Name" : "WEDNESDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     } ]

@@ -5,7 +5,6 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
@@ -19,7 +18,7 @@
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <root>
-      <AnchorPane prefHeight="800.0" prefWidth="1452.0">
+      <AnchorPane prefHeight="823.0" prefWidth="1477.0">
          <children>
             <BorderPane prefHeight="805.0" prefWidth="1477.0">
                <center>
@@ -30,7 +29,7 @@
                               <Font name="Avenir Book" size="24.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" prefHeight="27.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="27.0" prefWidth="200.0" spacing="20.0">
                            <children>
                               <Button fx:id="newTaskButton" alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: DBDFAA;" text="new task">
                                  <font>
@@ -46,7 +45,7 @@
                         </HBox>
                         <HBox fx:id="weekHBox" alignment="CENTER_RIGHT" prefHeight="630.0" prefWidth="1258.0" spacing="20.0">
                            <children>
-                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="dayOneBox" prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="dayOneLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -61,7 +60,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="sunTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="dayOneTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -70,8 +69,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="sunEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="sunProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="dayOneEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="dayOneProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -79,7 +78,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="sunProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="dayOneProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -95,7 +94,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="dayTwoBox" prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="dayTwoLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -110,7 +109,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="monTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="dayTwoTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -119,8 +118,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="monEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="monProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="dayTwoEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="dayTwoProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -128,7 +127,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="monProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="dayTwoProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -144,7 +143,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="dayThreeBox" prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="dayThreeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -159,7 +158,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="tuesTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="dayThreeTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -168,8 +167,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="tuesEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="tueProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="dayThreeEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="dayThreeProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -177,7 +176,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="tuesProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="dayThreeProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -193,7 +192,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="672.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="dayFourBox" prefHeight="672.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="dayFourLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -208,7 +207,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="wedTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="dayFourTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -217,8 +216,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="wedEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="wedProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="dayFourEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="dayFourProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -226,7 +225,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="wedProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="dayFourProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -242,7 +241,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="dayFiveBox" prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="dayFiveLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="183.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -257,7 +256,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="thursTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="dayFiveTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -266,8 +265,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="thursEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="thuProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="dayFiveEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="dayFiveProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -275,7 +274,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="thursProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="dayFiveProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -291,7 +290,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="602.0" prefWidth="159.0" style="-fx-border-color:black">
+                              <VBox fx:id="daySixBox" prefHeight="602.0" prefWidth="159.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="daySixLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -306,7 +305,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="friTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="daySixTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -315,8 +314,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="friEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="friProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="daySixEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="daySixProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -324,7 +323,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="friProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="daySixProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -340,7 +339,7 @@
                                     </ProgressBar>
                                  </children>
                               </VBox>
-                              <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
+                              <VBox fx:id="daySevenBox" prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
                                     <Label fx:id="daySevenLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="189.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
@@ -355,7 +354,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="satTasksBox" prefHeight="270.0" prefWidth="158.0" />
+                                    <VBox fx:id="daySevenTasksBox" prefHeight="270.0" prefWidth="158.0" />
                                     <Label prefHeight="33.0" prefWidth="121.0" text="events:">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
@@ -364,8 +363,8 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <VBox fx:id="satEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label fx:id="satProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <VBox fx:id="daySevenEventsBox" prefHeight="238.0" prefWidth="158.0" />
+                                    <Label fx:id="daySevenProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -373,7 +372,7 @@
                                           <Insets left="10.0" />
                                        </padding>
                                     </Label>
-                                    <ProgressBar fx:id="satProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
+                                    <ProgressBar fx:id="daySevenProgressBar" prefHeight="27.0" prefWidth="180.0" progress="0.0">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -398,6 +397,9 @@
                      <padding>
                         <Insets top="40.0" />
                      </padding>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
                   </VBox>
                </center>
                <left>
@@ -457,13 +459,6 @@
                      </children>
                   </HBox>
                </top>
-               <right>
-                  <HBox prefHeight="800.0" prefWidth="133.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <ListView fx:id="listOfSearches" prefHeight="755.0" prefWidth="138.0" />
-                     </children>
-                  </HBox>
-               </right>
             </BorderPane>
          </children>
       </AnchorPane>
