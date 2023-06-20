@@ -11,7 +11,8 @@ import java.util.NoSuchElementException;
  */
 public class Week {
 
-  private String name;
+  private String fileName;
+  private String nameForWeek;
   private final List<Day> allDays;
   private List<Task> allTasks;
   private List<Event> allEvents;
@@ -24,13 +25,14 @@ public class Week {
    * @param maxTasks is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
    */
-  public Week(int maxTasks, int maxEvents, String name) {
+  public Week(int maxTasks, int maxEvents, String fileName) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
     this.allEvents = new ArrayList<>();
     this.maxTasks = maxTasks;
     this.maxEvents = maxEvents;
-    this.name = name;
+    this.fileName = fileName;
+    this.nameForWeek = "welcome to your bullet journal";
 
     initializeDays(maxTasks, maxEvents);
   }
@@ -165,6 +167,15 @@ public class Week {
    * @return the name of this week
    */
   public String getName() {
-    return this.name;
+    return this.fileName;
+  }
+
+
+  public void setNameForWeek(String s) {
+    this.nameForWeek = s;
+  }
+
+  public String getNameForWeek() {
+    return this.nameForWeek;
   }
 }

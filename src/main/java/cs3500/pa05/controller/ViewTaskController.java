@@ -94,7 +94,6 @@ public class ViewTaskController extends AbstractController{
         }
       }
     }
-
     switchScene(doneViewing, new WeekViewController(this.week), "weekView.fxml");
   }
 

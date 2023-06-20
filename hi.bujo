@@ -1,7 +1,8 @@
 {
-  "Max Tasks" : 1,
-  "Max Events" : 1,
+  "Max Tasks" : 3,
+  "Max Events" : 3,
   "Week" : {
+    "Name" : "okay",
     "Days" : [ {
       "Name" : "SUNDAY",
       "Tasks" : [ ],

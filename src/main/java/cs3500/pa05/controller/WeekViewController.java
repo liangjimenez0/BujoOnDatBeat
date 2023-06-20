@@ -37,7 +37,7 @@ public class WeekViewController extends AbstractController {
   private Label bujoTitle;
 
   @FXML
-  private Button newTaskButton, newEventButton;
+  private Button newTaskButton, newEventButton, searchButton;
 
   @FXML
   private VBox sunTasksBox, sunEventsBox, monTasksBox, monEventsBox, tuesTasksBox, tuesEventsBox,
@@ -57,18 +57,16 @@ public class WeekViewController extends AbstractController {
       friProgressBar, satProgressBar;
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
 
-  private ListView<String> listOfSearches;
+  private ListView<String> listView;
   private String newName;
 
   public WeekViewController(Week week) {
     this.week = week;
-
   }
 
   public WeekViewController(Week week, String s) {
     this.week = week;
     this.newName = s;
-    //this.bujoTitle.setText(s);
   }
 
   /**
@@ -77,19 +75,15 @@ public class WeekViewController extends AbstractController {
   @Override
   public void run() {
     this.menuBar.getScene().getWindow().centerOnScreen();
+    this.bujoTitle.setText(week.getNameForWeek());
     settingShortcuts();
     createTaskQueue();
     convertWeekTasksToGui();
     convertWeekEventsToGui();
-    checkIfUserMarkedAsCompleted();
     updateProgressBars();
    // searchAlgorithm();
 
-    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
     saveButton.setOnAction(e -> newFileCreation());
-
-    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
-        KeyCombination.SHORTCUT_DOWN));
 
     openExistingButton.setOnAction(e -> {
       switchScene(this.menuBar,
@@ -97,58 +91,46 @@ public class WeekViewController extends AbstractController {
       newFileCreation();
     });
 
-    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
     newTask.setOnAction(e -> newTask());
     newTaskButton.setOnAction(e -> newTask());
 
-    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
     newEvent.setOnAction(e -> newEvent());
     newEventButton.setOnAction(e -> newEvent());
 
-    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
     newWeek.setOnAction(
         e -> {
           switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml");
           newFileCreation();
         });
 
-    renameWeekButton.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
     renameWeekButton.setOnAction(e -> {
       switchScene(this.menuBar,
           new ChangeWeekNameController(this.week), "enterWeekName.fxml");
-      this.bujoTitle.setText(newName);
-
+      mutateJournalName();
     });
-
   }
 
-  private void checkIfUserMarkedAsCompleted() {
-    if (allCheckBoxes.size() > 0) {
-      for (CheckBox c : allCheckBoxes) {
-        if (c.isSelected()) {
-          for (Day d : this.week.getDays()) {
-            for (Task t : d.getTasks()) {
-              if (c.getText().equals(t.getName())) {
-                t.changeCompleted(true);
-              }
-            }
-          }
-        }
-      }
-    }
+
+  private void mutateJournalName() {
+    this.week.setNameForWeek(newName);
   }
+
 
 //  private void searchAlgorithm() {
+//
+//
 //    ArrayList<String> allTaskNames = new ArrayList<>();
 //    for (Task t : this.week.getAllTasks()) {
 //      allTaskNames.add(t.getName());
 //    }
-//    listOfSearches.getItems().addAll(searchList(searchBar.getText(), allTaskNames));
+//    listView.getItems().addAll(searchList(searchBar.getText(), allTaskNames));
 //
 //    if (searchBar.getText() != null) {
-//      listOfSearches.getItems().addAll(allTaskNames);
+//      listView.getItems().addAll(allTaskNames);
 //    }
 //  }
+//
+//
 //
 //  private List<String> searchList(String searchWords, List<String> listOfStrings) {
 //    List<String> searchWordsArray = Arrays.asList(searchWords.trim().split(" "));
@@ -158,8 +140,6 @@ public class WeekViewController extends AbstractController {
 //          input.toLowerCase().contains(word.toLowerCase()));
 //    }).collect(Collectors.toList());
 //  }
-
-
 
 
   private void newTask() {
@@ -208,6 +188,7 @@ public class WeekViewController extends AbstractController {
     return checkBox;
   }
 
+
   private void convertWeekTasksToGui() {
     for (Day d : this.week.getDays()) {
       for (Task t : d.getTasks()) {
@@ -237,6 +218,7 @@ public class WeekViewController extends AbstractController {
     }
   }
 
+
   private Button createNewTask(Task t) {
     Button taskButton = new Button();
     Font font = Font.font("Avenir Book",
@@ -262,7 +244,6 @@ public class WeekViewController extends AbstractController {
   }
 
   private void convertWeekEventsToGui() {
-
     for (Day d : this.week.getDays()) {
 
       for (Event e : d.getEvents()) {
@@ -352,6 +333,14 @@ public class WeekViewController extends AbstractController {
 
 
   private void settingShortcuts() {
+    renameWeekButton.setAccelerator(
+        new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
+    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
+    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
+    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
+    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
+        KeyCombination.SHORTCUT_DOWN));
+    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
     this.menuBar.getScene().getAccelerators()
         .put(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
             this::newFileCreation);
@@ -368,5 +357,13 @@ public class WeekViewController extends AbstractController {
     this.menuBar.getScene().getAccelerators()
         .put(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN),
             () -> switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml"));
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN),
+            () -> {
+              switchScene(this.menuBar, new ChangeWeekNameController(this.week),
+                  "enterWeekName.fxml");
+              mutateJournalName();
+            });
   }
 }
+

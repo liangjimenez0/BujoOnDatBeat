@@ -38,8 +38,10 @@ public class CreateNewEventController extends AbstractController {
    */
   public void run() {
     newEventDone.setOnAction(e -> createNewEvent());
+
     backToWeekView.setOnAction(e -> switchScene(newEventDone,
         new WeekViewController(this.currentWeek), "weekView.fxml"));
+
   }
 
   /**

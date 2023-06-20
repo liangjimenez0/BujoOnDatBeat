@@ -17,8 +17,6 @@ public class ChangeWeekNameController extends AbstractController {
 
   private Week week;
 
-  private String bujoFileName;
-
   private Label given;
 
 
@@ -31,7 +29,6 @@ public class ChangeWeekNameController extends AbstractController {
   public void run() {
     backButton.setOnAction(
         e -> switchScene(newWeekNameDone, new WeekViewController(this.week), "weekView.fxml"));
-
     newWeekNameDone.setOnAction(
         e -> setNewTitle());
 
@@ -40,9 +37,9 @@ public class ChangeWeekNameController extends AbstractController {
 
   private void setNewTitle() {
     if (newWeekName.getText() != null) {
-     // this.given.setText(newWeekName.getText());
+      this.week.setNameForWeek(newWeekName.getText());
       switchScene(newWeekNameDone,
-          new WeekViewController(this.week, newWeekName.getText()), "weekView.fxml");
+          new WeekViewController(this.week), "weekView.fxml");
     } else {
       switchScene(newWeekNameDone, new WarningController(this.week), "warningScreen.fxml");
     }

@@ -22,23 +22,23 @@
    <root>
       <AnchorPane prefHeight="800.0" prefWidth="1452.0">
          <children>
-            <BorderPane prefHeight="850.0" prefWidth="1492.0">
+            <BorderPane prefHeight="805.0" prefWidth="1477.0">
                <center>
                   <VBox alignment="TOP_CENTER" prefHeight="968.0" prefWidth="1150.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="bujoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="364.0" text="welcome to your bullet journal" textAlignment="CENTER">
+                        <Label fx:id="bujoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="364.0" textAlignment="CENTER">
                            <font>
                               <Font name="Avenir Book" size="24.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="27.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="newTaskButton" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: DBDFAA;" text="new task">
+                              <Button fx:id="newTaskButton" alignment="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: DBDFAA;" text="new task">
                                  <font>
                                     <Font name="Avenir Book" size="13.0" />
                                  </font>/>
                               </Button>
-                              <Button fx:id="newEventButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: DBDFAA;" text="new event" >
+                              <Button fx:id="newEventButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="115.0" style="-fx-background-color: DBDFAA;" text="new event">
                                  <font>
                                     <Font name="Avenir Book" size="13.0" />
                                  </font>/>
@@ -417,7 +417,7 @@
                   </VBox>
                </left>
                <top>
-                  <HBox prefHeight="50.0" prefWidth="1492.0" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1492.0" BorderPane.alignment="CENTER">
                      <children>
                         <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1181.0">
                            <menus>
@@ -454,11 +454,15 @@
                               <Insets top="6.0" />
                            </padding>
                         </MenuBar>
-                        <TextField fx:id="searchBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="315.0" promptText="search for task">
+                        <TextField fx:id="searchBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="254.0" promptText="look for task">
                            <font>
                               <Font name="Avenir Book" size="18.0" />
                            </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </TextField>
+                        <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="search" textAlignment="CENTER" />
                      </children>
                   </HBox>
                </top>
