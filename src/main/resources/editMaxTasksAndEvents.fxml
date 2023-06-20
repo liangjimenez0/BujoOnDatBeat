@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <root>
+      <AnchorPane prefHeight="330.0" prefWidth="485.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="48.0" layoutY="66.0" prefHeight="215.0" prefWidth="390.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="edit max tasks and events per day:" textAlignment="CENTER" wrappingWidth="289.21630859375">
+                     <font>
+                        <Font name="Avenir Book" size="18.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="50.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="186.0" style="-fx-background-color: B3C890;" text="  max amount of tasks per day:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="maxTasksInput" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="51.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="195.0" style="-fx-background-color: B3C890;" text="  max amount of events per day:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="maxEventsInput" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="262.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="backButton" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="back">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="doneButton" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="done">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </root>
+</Scene>
