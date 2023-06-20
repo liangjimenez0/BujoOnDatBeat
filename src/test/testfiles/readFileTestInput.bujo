@@ -5,7 +5,7 @@
         "Name" : "finals week",
         "Days" : [
             {
-                "Name": "Sunday",
+                "Name": "SUNDAY",
                 "Tasks": [
                     {
                         "Name": "walk dog",
@@ -31,7 +31,7 @@
                 ]
             },
             {
-                "Name": "Monday",
+                "Name": "MONDAY",
                 "Tasks": [
                     {
                         "Name": "do laundry",
@@ -51,7 +51,7 @@
                 ]
             },
             {
-                "Name": "Tuesday",
+                "Name": "TUESDAY",
                 "Tasks": [
                     {}
                 ],
@@ -66,7 +66,7 @@
                 ]
             },
             {
-                "Name": "Wednesday",
+                "Name": "WEDNESDAY",
                 "Tasks": [
                     {
                         "Name": "take meds",
@@ -92,7 +92,7 @@
                 ]
             },
             {
-                "Name": "Thursday",
+                "Name": "THURSDAY",
                 "Tasks": [
                     {
                         "Name": "buy ticket home",
@@ -106,7 +106,7 @@
                 ]
             },
             {
-                "Name": "Friday",
+                "Name": "FRIDAY",
                 "Tasks": [
                     {
                         "Name": "submit math hw",
@@ -133,7 +133,7 @@
                 ]
             },
             {
-                "Name": "Saturday",
+                "Name": "SATURDAY",
                 "Tasks": [
                     {
                         "Name": "submit housing app",

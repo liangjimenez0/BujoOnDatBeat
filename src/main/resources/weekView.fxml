@@ -11,7 +11,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -49,7 +48,7 @@
                            <children>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="sunday" textAlignment="CENTER">
+                                    <Label fx:id="dayOneLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -98,7 +97,7 @@
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="monday" textAlignment="CENTER">
+                                    <Label fx:id="dayTwoLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -147,7 +146,7 @@
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="tuesday" textAlignment="CENTER">
+                                    <Label fx:id="dayThreeLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -196,7 +195,7 @@
                               </VBox>
                               <VBox prefHeight="672.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" text="wednesday" textAlignment="CENTER">
+                                    <Label fx:id="dayFourLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -245,7 +244,7 @@
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="183.0" style="-fx-background-color: #73A9AD;" text="thursday" textAlignment="CENTER">
+                                    <Label fx:id="dayFiveLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="183.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -294,7 +293,7 @@
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="159.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #73A9AD;" text="friday" textAlignment="CENTER">
+                                    <Label fx:id="daySixLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="195.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -343,7 +342,7 @@
                               </VBox>
                               <VBox prefHeight="602.0" prefWidth="160.0" style="-fx-border-color:black">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="189.0" style="-fx-background-color: #73A9AD;" text="saturday" textAlignment="CENTER">
+                                    <Label fx:id="daySevenLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="189.0" style="-fx-background-color: #73A9AD;" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="18.0" />
                                        </font>
@@ -419,7 +418,7 @@
                <top>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1492.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1181.0">
+                        <MenuBar fx:id="menuBar" prefHeight="50.0" prefWidth="1474.0">
                            <menus>
                               <Menu mnemonicParsing="false">
                                  <graphic>
@@ -454,15 +453,6 @@
                               <Insets top="6.0" />
                            </padding>
                         </MenuBar>
-                        <TextField fx:id="searchBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="254.0" promptText="look for task">
-                           <font>
-                              <Font name="Avenir Book" size="18.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </TextField>
-                        <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="search" textAlignment="CENTER" />
                      </children>
                   </HBox>
                </top>

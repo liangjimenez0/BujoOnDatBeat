@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ProgressBar;
@@ -34,10 +34,11 @@ public class WeekViewController extends AbstractController {
   private Week week;
 
   @FXML
-  private Label bujoTitle;
+  private Label bujoTitle, dayOneLabel, dayTwoLabel, dayThreeLabel, dayFourLabel, dayFiveLabel,
+      daySixLabel, daySevenLabel;
 
   @FXML
-  private Button newTaskButton, newEventButton, searchButton;
+  private Button newTaskButton, newEventButton;
 
   @FXML
   private VBox sunTasksBox, sunEventsBox, monTasksBox, monEventsBox, tuesTasksBox, tuesEventsBox,
@@ -50,7 +51,7 @@ public class WeekViewController extends AbstractController {
   private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton;
   private CreateNewTaskController taskController;
   @FXML
-  private TextField userTaskName, searchBar;
+  private TextField userTaskName;
   @FXML
   private ProgressBar sunProgressBar, monProgressBar, tuesProgressBar, wedProgressBar,
       thursProgressBar,
@@ -62,7 +63,6 @@ public class WeekViewController extends AbstractController {
 
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
 
-  private ListView<String> listView;
   private String newName;
 
   public WeekViewController(Week week) {
@@ -81,12 +81,12 @@ public class WeekViewController extends AbstractController {
   public void run() {
     this.menuBar.getScene().getWindow().centerOnScreen();
     this.bujoTitle.setText(week.getNameForWeek());
+    setWeekdays();
     settingShortcuts();
     createTaskQueue();
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     updateProgressBars();
-   // searchAlgorithm();
 
     saveButton.setOnAction(e -> newFileCreation());
 
@@ -116,35 +116,21 @@ public class WeekViewController extends AbstractController {
   }
 
 
-  private void mutateJournalName() {
-    this.week.setNameForWeek(newName);
+  private void setWeekdays() {
+    this.dayOneLabel.setText(this.week.getDays().get(0).getDayOfWeek().name().toLowerCase());
+    this.dayTwoLabel.setText(this.week.getDays().get(1).getDayOfWeek().name().toLowerCase());
+    this.dayThreeLabel.setText(this.week.getDays().get(2).getDayOfWeek().name().toLowerCase());
+    this.dayFourLabel.setText(this.week.getDays().get(3).getDayOfWeek().name().toLowerCase());
+    this.dayFiveLabel.setText(this.week.getDays().get(4).getDayOfWeek().name().toLowerCase());
+    this.daySixLabel.setText(this.week.getDays().get(5).getDayOfWeek().name().toLowerCase());
+    this.daySevenLabel.setText(this.week.getDays().get(6).getDayOfWeek().name().toLowerCase());
   }
 
 
-//  private void searchAlgorithm() {
-//
-//
-//    ArrayList<String> allTaskNames = new ArrayList<>();
-//    for (Task t : this.week.getAllTasks()) {
-//      allTaskNames.add(t.getName());
-//    }
-//    listView.getItems().addAll(searchList(searchBar.getText(), allTaskNames));
-//
-//    if (searchBar.getText() != null) {
-//      listView.getItems().addAll(allTaskNames);
-//    }
-//  }
-//
-//
-//
-//  private List<String> searchList(String searchWords, List<String> listOfStrings) {
-//    List<String> searchWordsArray = Arrays.asList(searchWords.trim().split(" "));
-//
-//    return listOfStrings.stream().filter(input -> {
-//      return searchWordsArray.stream().allMatch(word ->
-//          input.toLowerCase().contains(word.toLowerCase()));
-//    }).collect(Collectors.toList());
-//  }
+
+  private void mutateJournalName() {
+    this.week.setNameForWeek(newName);
+  }
 
 
   private void newTask() {
@@ -383,6 +369,9 @@ public class WeekViewController extends AbstractController {
                   "enterWeekName.fxml");
               mutateJournalName();
             });
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
+            Platform::exit);
   }
 }
 

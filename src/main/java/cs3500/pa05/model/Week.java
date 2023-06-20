@@ -18,6 +18,7 @@ public class Week {
   private List<Event> allEvents;
   private final int maxTasks;
   private final int maxEvents;
+  private DayOfWeek startDay;
 
   /**
    * Initializes a week object without a user-defined name.
@@ -36,6 +37,21 @@ public class Week {
     this.nameForWeek = "welcome to your bullet journal";
 
     initializeDays(maxTasks, maxEvents);
+  }
+
+  public Week(int maxTasks, int maxEvents, String fileName, String startDay) {
+    this.allDays = new ArrayList<>();
+    this.allTasks = new ArrayList<>();
+    this.allEvents = new ArrayList<>();
+    this.maxTasks = maxTasks;
+    this.maxEvents = maxEvents;
+    this.fileName = fileName;
+    this.nameForWeek = "welcome to your bullet journal";
+    this.startDay = DayOfWeek.valueOf(startDay);
+
+
+    initializeDays(maxTasks, maxEvents);
+    initializeWithStartDay(this.startDay);
   }
 
   /**
@@ -60,6 +76,28 @@ public class Week {
     allDays.add(thursday);
     allDays.add(friday);
     allDays.add(saturday);
+  }
+
+
+  private void initializeWithStartDay(DayOfWeek start) {
+    List<Day> reorderedDays = new ArrayList<>();
+
+    Day startDay = this.allDays.get(this.allDays.indexOf(new Day(start)));
+
+    reorderedDays.add(startDay);
+
+    int index = this.allDays.indexOf(new Day(start));
+    while (reorderedDays.size() < 7) {
+      if (index == 6) {
+        index = 0;
+        reorderedDays.add(this.allDays.get(index));
+      } else {
+      index += 1;
+      reorderedDays.add(this.allDays.get(index));
+      }
+    }
+    this.allDays.clear();
+    this.allDays.addAll(reorderedDays);
   }
 
 

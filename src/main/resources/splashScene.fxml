@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Button?>
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="300.0" prefWidth="500.0">
+        <children>
+            <ImageView fx:id="bulletJournalLogo" fitHeight="400.0" fitWidth="600.0" layoutX="-11.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="Bullet Jouraling.gif" />
+                </image>
+            </ImageView>
+            <Button fx:id="hidden" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="53.0">
+            </Button>
+        </children></AnchorPane>
+</Scene>

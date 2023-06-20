@@ -122,4 +122,11 @@ public class Day {
     return count;
   }
 
+  public boolean equals(Object o) {
+    if (!(o instanceof Day)) {
+      return false;
+    }
+    Day that = (Day) o;
+    return this.day.equals(that.getDayOfWeek());
+  }
 }
