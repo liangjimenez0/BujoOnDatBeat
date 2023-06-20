@@ -31,6 +31,16 @@
                         <TextField fx:id="fileNameInput" prefHeight="34.0" prefWidth="141.0" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: B3C890;" text="  name your week:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="newWeekNameInput" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
                   <HBox prefHeight="50.0" prefWidth="475.0" spacing="20.0">
                      <children>
                         <Label prefHeight="34.0" prefWidth="186.0" style="-fx-background-color: B3C890;" text="  max amount of tasks per day:">

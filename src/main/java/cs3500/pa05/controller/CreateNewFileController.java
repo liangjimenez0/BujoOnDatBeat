@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
  */
 public class CreateNewFileController extends AbstractController {
   @FXML
-  private TextField maxTasksInput, maxEventsInput, fileNameInput, startWeekday, passwordInput;
+  private TextField maxTasksInput, maxEventsInput, fileNameInput, startWeekday, passwordInput, newWeekNameInput;
 
   private Week currentWeek;
 
@@ -36,21 +36,21 @@ public class CreateNewFileController extends AbstractController {
   }
 
   private void createNewFile() {
-    int maxTasks;
-    int maxEvents;
+
     try {
-      maxTasks = Integer.parseInt(maxTasksInput.getText());
-      maxEvents = Integer.parseInt(maxEventsInput.getText());
+      int maxTasks = Integer.parseInt(maxTasksInput.getText());
+      int maxEvents = Integer.parseInt(maxEventsInput.getText());
       String fileName = fileNameInput.getText();
       String weekdayStart = startWeekday.getText();
       String password = passwordInput.getText();
+      String weekName = newWeekNameInput.getText();
       if (!fileName.endsWith("bujo") || weekdayStart.isEmpty() || password.isEmpty() ||
           maxTasks < 0 || maxEvents < 0 || !isDayOfWeek(weekdayStart)) {
         switchScene(submitButton, new WarningController(this.currentWeek),
             "invalidFileWarning.fxml");
       } else {
         this.currentWeek =
-            new Week(maxTasks, maxEvents, fileName, weekdayStart.toUpperCase(), password);
+            new Week(maxTasks, maxEvents, fileName, weekdayStart.toUpperCase(), password, weekName);
         try {
           new CreateNewFile().createNewFile(this.currentWeek, fileName);
         } catch (IOException e) {

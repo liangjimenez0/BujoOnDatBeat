@@ -22,6 +22,7 @@ public class WelcomeController extends AbstractController {
    */
   @Override
   public void run() {
+    createNewFile.getScene().getWindow().centerOnScreen();
     createNewFile.setOnAction(e -> switchScene(createNewFile, new CreateNewFileController(),
         "createNewFile.fxml"));
 

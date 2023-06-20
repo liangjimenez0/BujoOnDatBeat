@@ -41,6 +41,16 @@
                         <TextField fx:id="newFileNameInput" prefHeight="34.0" prefWidth="141.0" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: B3C890;" text="  new week name:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="newWeekNameInput" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="62.0" prefWidth="475.0" spacing="20.0">
                      <children>
                         <Button fx:id="backButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: DBDFAA;" text="back">

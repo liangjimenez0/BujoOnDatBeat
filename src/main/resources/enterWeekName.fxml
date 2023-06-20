@@ -10,43 +10,34 @@
 <?import javafx.scene.text.Text?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="270.0" prefWidth="412.0">
-      <children>
-         <VBox prefHeight="270.0" prefWidth="374.0">
-            <children>
-               <VBox alignment="CENTER" prefHeight="120.0" prefWidth="462.0">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="please enter in this week's name!" textAlignment="CENTER" wrappingWidth="509.21630859375">
-                        <font>
-                           <Font name="Avenir Book" size="13.0" />
-                        </font>
-                     </Text>
-                  </children>
-               </VBox>
-               <VBox prefHeight="98.0" prefWidth="510.0">
-                  <children>
-                     <TextField fx:id="newWeekName" prefHeight="26.0" prefWidth="372.0" />
-                  </children>
-               </VBox>
-               <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="348.0">
-                  <children>
-                     <HBox prefHeight="79.0" prefWidth="510.0">
-                        <children>
-                           <HBox prefHeight="100.0" prefWidth="200.0">
-                              <children>
-                                 <Button fx:id="backButton" mnemonicParsing="false" text="back" />
-                              </children>
-                           </HBox>
-                           <HBox prefHeight="100.0" prefWidth="200.0">
-                              <children>
-                                 <Button fx:id="newWeekNameDone" mnemonicParsing="false" text="finish" />
-                              </children>
-                           </HBox>
-                        </children>
-                     </HBox>
-                  </children>
-               </VBox>
-            </children>
-         </VBox>
-      </children></AnchorPane>
+   <root>
+      <AnchorPane prefHeight="330.0" prefWidth="485.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="48.0" layoutY="66.0" prefHeight="215.0" prefWidth="390.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="edit week's name:" textAlignment="CENTER" wrappingWidth="289.21630859375">
+                     <font>
+                        <Font name="Avenir Book" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="newWeekName" prefHeight="34.0" prefWidth="141.0" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="262.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="backButton" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="back">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="newWeekNameDone" mnemonicParsing="false" style="-fx-background-color: #73A9AD;" text="done">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </root>
 </Scene>

@@ -24,9 +24,9 @@ public class Week {
   /**
    * Initializes a week object without a user-defined name.
    *
-   * @param maxTasks is the maximum number of tasks a user can have in a week
+   * @param maxTasks  is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
-   * @param fileName the name of the file this week is
+   * @param fileName  the name of the file this week is
    */
   public Week(int maxTasks, int maxEvents, String fileName, String password) {
     this.allDays = new ArrayList<>();
@@ -41,7 +41,8 @@ public class Week {
     initializeDays();
   }
 
-  public Week(int maxTasks, int maxEvents, String fileName, String startDay, String password) {
+  public Week(int maxTasks, int maxEvents, String fileName, String startDay, String password,
+              String nameForWeek) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
     this.allEvents = new ArrayList<>();
@@ -51,6 +52,7 @@ public class Week {
     this.nameForWeek = "welcome to your bullet journal";
     this.startDay = DayOfWeek.valueOf(startDay);
     this.password = password;
+    this.nameForWeek = nameForWeek;
 
     initializeDays();
     initializeWithStartDay(this.startDay);
@@ -91,8 +93,8 @@ public class Week {
         index = 0;
         reorderedDays.add(this.allDays.get(index));
       } else {
-      index += 1;
-      reorderedDays.add(this.allDays.get(index));
+        index += 1;
+        reorderedDays.add(this.allDays.get(index));
       }
     }
     this.allDays.clear();
@@ -127,13 +129,13 @@ public class Week {
   public boolean checkDay(String dayName) {
     return
         dayName.equals(DayOfWeek.SUNDAY.name())
-        ||dayName.equals(DayOfWeek.MONDAY.name())
-        ||dayName.equals(DayOfWeek.TUESDAY.name())
-        ||dayName.equals(DayOfWeek.WEDNESDAY.name())
-        ||dayName.equals(DayOfWeek.THURSDAY.name())
-        ||dayName.equals(DayOfWeek.FRIDAY.name())
-        ||dayName.equals(DayOfWeek.SATURDAY.name());
-    }
+            || dayName.equals(DayOfWeek.MONDAY.name())
+            || dayName.equals(DayOfWeek.TUESDAY.name())
+            || dayName.equals(DayOfWeek.WEDNESDAY.name())
+            || dayName.equals(DayOfWeek.THURSDAY.name())
+            || dayName.equals(DayOfWeek.FRIDAY.name())
+            || dayName.equals(DayOfWeek.SATURDAY.name());
+  }
 
   /**
    * Gets the max tasks for this week.

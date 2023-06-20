@@ -1,10 +1,12 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.model.CreateNewFile;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.ReadFile;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;
 import java.io.File;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -12,7 +14,7 @@ import javafx.scene.control.TextField;
 public class OpenFileAsTemplateController extends AbstractController {
 
   @FXML
-  private TextField fileNameInput, newFileNameInput;
+  private TextField fileNameInput, newFileNameInput, newWeekNameInput;
   @FXML
   private Button submitButton;
   @FXML
@@ -33,7 +35,8 @@ public class OpenFileAsTemplateController extends AbstractController {
     String fileName = fileNameInput.getText();
     File file = new File(fileName);
 
-    String weekName = newFileNameInput.getText();
+    String newFileName = newFileNameInput.getText();
+    String newWeekName = newWeekNameInput.getText();
 
 
     if (!fileName.endsWith("bujo") || new ReadFile(file).processFile() == null) {
@@ -43,10 +46,17 @@ public class OpenFileAsTemplateController extends AbstractController {
       Week weekTemplate = new ReadFile(file).processFile();
 
       this.currentWeek =
-          new Week(weekTemplate.getMaxTasks(), weekTemplate.getMaxEvents(), weekName,
-              String.valueOf(weekTemplate.getWeekdayStart()));
+          new Week(weekTemplate.getMaxTasks(), weekTemplate.getMaxEvents(), newFileName,
+              String.valueOf(weekTemplate.getWeekdayStart()), weekTemplate.getPassword(),
+              newWeekName);
 
-        switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+      try {
+        new CreateNewFile().createNewFile(this.currentWeek, newFileName);
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+
+      switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
     }
   }
 }
