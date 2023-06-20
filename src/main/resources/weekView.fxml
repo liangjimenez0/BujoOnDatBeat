@@ -429,6 +429,7 @@
                                           <MenuItem fx:id="saveButton" mnemonicParsing="false" text="save current project" />
                                           <MenuItem fx:id="openExistingButton" mnemonicParsing="false" text="open existing project" />
                                           <MenuItem fx:id="renameWeekButton" mnemonicParsing="false" text="rename week" />
+                                          <MenuItem fx:id="openFileAsTemplateButton" mnemonicParsing="false" text="open file as template" />
                                        </items>
                                        <font>
                                           <Font name="Avenir Book" size="13.0" />

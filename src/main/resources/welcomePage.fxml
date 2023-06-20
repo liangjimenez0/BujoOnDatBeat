@@ -18,12 +18,17 @@
                      <Font name="Avenir Book" size="24.0" />
                   </font>
                </Label>
-               <Button fx:id="createNewFile" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: DBDFAA;" text="create new file">
+               <Button fx:id="createNewFile" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: DBDFAA;" text="create new file">
                   <font>
                      <Font name="Avenir Book" size="13.0" />
                   </font>
                </Button>
-               <Button fx:id="openExistingFile" mnemonicParsing="false" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: DBDFAA;" text="open existing file">
+               <Button fx:id="openExistingFile" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: DBDFAA;" text="open existing file">
+                  <font>
+                     <Font name="Avenir Book" size="13.0" />
+                  </font>
+               </Button>
+               <Button fx:id="openFileAsTemplate" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: DBDFAA;" text="open file as template">
                   <font>
                      <Font name="Avenir Book" size="13.0" />
                   </font>

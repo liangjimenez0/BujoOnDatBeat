@@ -48,9 +48,6 @@ public class CreateNewFileController extends AbstractController {
         switchScene(submitButton, new WarningController(this.currentWeek),
             "invalidFileWarning.fxml");
       } else {
-        maxTasks = Integer.parseInt(maxTasksInput.getText());
-        maxEvents = Integer.parseInt(maxEventsInput.getText());
-        password = passwordInput.getText();
         this.currentWeek =
             new Week(maxTasks, maxEvents, fileName, weekdayStart.toUpperCase(), password);
         try {

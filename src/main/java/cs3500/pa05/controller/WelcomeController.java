@@ -15,7 +15,7 @@ public class WelcomeController extends AbstractController {
   private Button createNewFile;
 
   @FXML
-  private Button openExistingFile;
+  private Button openExistingFile, openFileAsTemplate;
 
   /**
    * Initializes a welcome page scene on the Java Journal
@@ -25,7 +25,11 @@ public class WelcomeController extends AbstractController {
     createNewFile.setOnAction(e -> switchScene(createNewFile, new CreateNewFileController(),
         "createNewFile.fxml"));
 
-    openExistingFile.setOnAction(e -> switchScene(openExistingFile, new OpenExistingFileController(),
-        "openExistingFile.fxml"));
+    openExistingFile.setOnAction(
+        e -> switchScene(openExistingFile, new OpenExistingFileController(),
+            "openExistingFile.fxml"));
+
+    openFileAsTemplate.setOnAction(
+        e -> switchScene(openFileAsTemplate, new OpenFileAsTemplateController(), "openFileAsTemplate.fxml"));
   }
 }

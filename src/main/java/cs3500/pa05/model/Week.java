@@ -228,4 +228,8 @@ public class Week {
   public String getPassword() {
     return this.password;
   }
+
+  public DayOfWeek getWeekdayStart() {
+    return this.startDay;
+  }
 }

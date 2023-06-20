@@ -42,8 +42,10 @@ public class WeekViewController extends AbstractController {
   private Button newTaskButton, newEventButton;
 
   @FXML
-  private VBox dayOneTasksBox, dayOneEventsBox, dayTwoTasksBox, dayTwoEventsBox, dayThreeTasksBox, dayThreeEventsBox,
-      dayFourTasksBox, dayFourEventsBox, dayFiveTasksBox, dayFiveEventsBox, daySixTasksBox, daySixEventsBox,
+  private VBox dayOneTasksBox, dayOneEventsBox, dayTwoTasksBox, dayTwoEventsBox, dayThreeTasksBox,
+      dayThreeEventsBox,
+      dayFourTasksBox, dayFourEventsBox, dayFiveTasksBox, dayFiveEventsBox, daySixTasksBox,
+      daySixEventsBox,
       daySevenTasksBox, daySevenEventsBox, allTasksBox;
 
   @FXML
@@ -53,7 +55,7 @@ public class WeekViewController extends AbstractController {
 
   @FXML
   private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton,
-      editMaxTasksAndEventsButton;
+      editMaxTasksAndEventsButton, openFileAsTemplateButton;
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
@@ -62,7 +64,8 @@ public class WeekViewController extends AbstractController {
       dayFiveProgressBar, daySixProgressBar, daySevenProgressBar;
 
   @FXML
-  private Label dayOneProgLabel, dayTwoProgLabel, dayThreeProgLabel, dayFourProgLabel, dayFiveProgLabel,
+  private Label dayOneProgLabel, dayTwoProgLabel, dayThreeProgLabel, dayFourProgLabel,
+      dayFiveProgLabel,
       daySixProgLabel, daySevenProgLabel;
 
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
@@ -118,8 +121,12 @@ public class WeekViewController extends AbstractController {
       mutateJournalName();
     });
 
-    editMaxTasksAndEventsButton.setOnAction(e ->  switchScene(this.menuBar,
+    editMaxTasksAndEventsButton.setOnAction(e -> switchScene(this.menuBar,
         new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml"));
+
+    openFileAsTemplateButton.setOnAction(
+        e -> switchScene(this.menuBar, new OpenFileAsTemplateController(),
+            "openFileAsTemplate.fxml"));
   }
 
   private void setWeekdays() {
