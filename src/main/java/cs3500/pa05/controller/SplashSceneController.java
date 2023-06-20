@@ -1,15 +1,13 @@
 package cs3500.pa05.controller;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import java.io.InputStream;
-import java.io.FileInputStream;
 
 public class SplashSceneController extends AbstractController {
   @FXML
@@ -18,7 +16,6 @@ public class SplashSceneController extends AbstractController {
   @FXML
   Button hidden;
 
-  Scene gifLoaded;
   Stage stage;
 
   public SplashSceneController(Stage stage) {
@@ -37,17 +34,7 @@ public class SplashSceneController extends AbstractController {
     bulletJournalLogo.setImage(image);
     bulletJournalLogo.setPreserveRatio(true);
 
-    Group root = new Group(bulletJournalLogo, hidden);
-    gifLoaded = new Scene(root, 595, 370);
-    stage.setScene(gifLoaded);
-
-    try {
-      Thread.sleep(2000);
-    } catch (InterruptedException e) {
-      throw new RuntimeException();
-    }
-
-    switchScene(hidden,
-        new WelcomeController(), "welcomePage.fxml");
+    hidden.setOnAction(e -> switchScene(hidden,
+        new WelcomeController(), "welcomePage.fxml"));
   }
 }
