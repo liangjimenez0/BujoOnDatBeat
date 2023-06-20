@@ -20,10 +20,11 @@ public class Week {
   private final int maxEvents;
 
   /**
-   * Initializes a week object.
+   * Initializes a week object without a user-defined name.
    *
    * @param maxTasks is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
+   * @param fileName the name of the file this week is
    */
   public Week(int maxTasks, int maxEvents, String fileName) {
     this.allDays = new ArrayList<>();
@@ -128,7 +129,7 @@ public class Week {
       jsonDays.add(jsonDay);
     }
 
-    return new JsonWeek(jsonDays);
+    return new JsonWeek(nameForWeek, jsonDays);
   }
 
   /**

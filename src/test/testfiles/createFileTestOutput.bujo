@@ -2,6 +2,7 @@
   "Max Tasks" : 3,
   "Max Events" : 5,
   "Week" : {
+    "Name" : "welcome to your bullet journal",
     "Days" : [ {
       "Name" : "SUNDAY",
       "Tasks" : [ {

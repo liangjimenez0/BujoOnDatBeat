@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import cs3500.pa05.model.DayOfWeek;
 
 /**
+ * Represents a task record.
+ *
  * @param name is the name of this JsonTask
  * @param description is a short description of this JsonTask
  * @param day is the week day that this task occurs on

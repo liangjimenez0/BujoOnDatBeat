@@ -2,6 +2,7 @@
     "Max Tasks": "3",
     "Max Events": "4",
     "Week": {
+        "Name" : "finals week",
         "Days" : [
             {
                 "Name": "Sunday",

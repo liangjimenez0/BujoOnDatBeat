@@ -100,17 +100,26 @@ public class Day {
    * @return the percentage of completed tasks from this day
    */
   public double taskCompletionPercentage() {
-    int numOfCompletedTasks = 0;
-    for (Task t : this.tasks) {
-      if (t.getCompleted()) {
-        numOfCompletedTasks += 1;
-      }
-    }
-
     if (this.tasks.size() == 0) {
       return 0;
     } else {
-      return (numOfCompletedTasks * .10) / (this.tasks.size() * .10);
+      return (getNumOfCompletedTasks() * .10) / (this.tasks.size() * .10);
     }
   }
+
+  /**
+   * Gets the number of completed tasks.
+   *
+   * @return the number of completed tasks.
+   */
+  public int getNumOfCompletedTasks() {
+    int count = 0;
+    for (Task t : tasks) {
+      if (t.getCompleted()) {
+        count++;
+      }
+    }
+    return count;
+  }
+
 }

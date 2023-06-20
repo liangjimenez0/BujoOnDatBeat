@@ -80,6 +80,7 @@ public class ViewTaskController extends AbstractController{
           t.changeDescription(userTaskDescription.getText());
           t.changeCompleted(completedBox.isSelected());
 
+
           // if the day has been changed, remove the event from its current day
           // and add to the correct day.
           if (t.day != d.getDayOfWeek()) {

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import cs3500.pa05.model.DayOfWeek;
 
 /**
+ * Represents an event record.
+ *
  * @param name is the name of this JsonEvent
  * @param description is a short description of the JsonEvent
  * @param day is the day this JsonEvent occurs on

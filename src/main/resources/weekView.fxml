@@ -72,7 +72,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="sunEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="sunProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -121,7 +121,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="monEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="monProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -170,7 +170,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="tuesEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="tueProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -219,7 +219,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="wedEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="wedProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -268,7 +268,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="thursEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="thuProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -317,7 +317,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="friEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="friProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>
@@ -366,7 +366,7 @@
                                        </padding>
                                     </Label>
                                     <VBox fx:id="satEventsBox" prefHeight="238.0" prefWidth="158.0" />
-                                    <Label contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
+                                    <Label fx:id="satProgLabel" contentDisplay="CENTER" prefHeight="36.0" prefWidth="158.0" text="progress:" textAlignment="CENTER">
                                        <font>
                                           <Font name="Avenir Book" size="14.0" />
                                        </font>

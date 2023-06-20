@@ -55,6 +55,11 @@ public class WeekViewController extends AbstractController {
   private ProgressBar sunProgressBar, monProgressBar, tuesProgressBar, wedProgressBar,
       thursProgressBar,
       friProgressBar, satProgressBar;
+
+  @FXML
+  private Label sunProgLabel, monProgLabel, tueProgLabel, wedProgLabel, thuProgLabel,
+      friProgLabel, satProgLabel;
+
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
 
   private ListView<String> listView;
@@ -314,18 +319,32 @@ public class WeekViewController extends AbstractController {
   private void updateProgressBars() {
     for (Day day : this.week.getDays()) {
       if (day.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        this.sunProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.sunProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+        this.monProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.monProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+        this.tueProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.tuesProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+        this.wedProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.wedProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+        this.thuProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.thursProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+        this.friProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.friProgressBar.setProgress(day.taskCompletionPercentage());
       } else if (day.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+        this.satProgLabel.setText("progress: " + day.getNumOfCompletedTasks()
+            + "/" + day.getTasks().size());
         this.satProgressBar.setProgress(day.taskCompletionPercentage());
       }
     }
