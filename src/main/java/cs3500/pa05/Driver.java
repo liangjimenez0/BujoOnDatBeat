@@ -30,7 +30,7 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-    Controller controller = new SplashSceneController();
+    Controller controller = new SplashSceneController(stage);
     View view = new GraphicalView(controller, "splashScene.fxml");
 
     try {
