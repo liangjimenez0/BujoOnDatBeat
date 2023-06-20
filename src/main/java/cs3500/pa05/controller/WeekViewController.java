@@ -48,7 +48,8 @@ public class WeekViewController extends AbstractController {
   private MenuBar menuBar;
 
   @FXML
-  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton, editMaxTasksAndEventsButton;
+  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton,
+      editMaxTasksAndEventsButton;
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
@@ -166,6 +167,7 @@ public class WeekViewController extends AbstractController {
     if (t.getCompleted()) {
       checkBox.setSelected(true);
     }
+
 
     checkBox.setText(taskName);
     checkBox.setFont(font);
