@@ -16,8 +16,8 @@ public class Week {
   private final List<Day> allDays;
   private List<Task> allTasks;
   private List<Event> allEvents;
-  private final int maxTasks;
-  private final int maxEvents;
+  private int maxTasks;
+  private int maxEvents;
   private DayOfWeek startDay;
 
   /**
@@ -216,5 +216,13 @@ public class Week {
 
   public String getNameForWeek() {
     return this.nameForWeek;
+  }
+
+  public void changeMaxTasks(int maxTasks) {
+    this.maxTasks = maxTasks;
+  }
+
+  public void changeMaxEvents(int maxEvents) {
+    this.maxEvents = maxEvents;
   }
 }

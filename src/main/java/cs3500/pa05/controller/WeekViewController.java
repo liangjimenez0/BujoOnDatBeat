@@ -48,7 +48,7 @@ public class WeekViewController extends AbstractController {
   private MenuBar menuBar;
 
   @FXML
-  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton;
+  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton, editMaxTasksAndEventsButton;
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
@@ -87,6 +87,7 @@ public class WeekViewController extends AbstractController {
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     updateProgressBars();
+    settingAccelerators();
 
     saveButton.setOnAction(e -> newFileCreation());
 
@@ -95,6 +96,9 @@ public class WeekViewController extends AbstractController {
           new OpenExistingFileController(), "openExistingFile.fxml");
       newFileCreation();
     });
+
+    editMaxTasksAndEventsButton.setOnAction(e ->  switchScene(this.menuBar,
+        new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml"));
 
     newTask.setOnAction(e -> newTask());
     newTaskButton.setOnAction(e -> newTask());
@@ -115,6 +119,17 @@ public class WeekViewController extends AbstractController {
     });
   }
 
+  private void settingAccelerators() {
+    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
+    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
+        KeyCombination.SHORTCUT_DOWN));
+    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
+    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
+    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
+    renameWeekButton.setAccelerator(
+        new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
+  }
+
 
   private void setWeekdays() {
     this.dayOneLabel.setText(this.week.getDays().get(0).getDayOfWeek().name().toLowerCase());
@@ -125,8 +140,6 @@ public class WeekViewController extends AbstractController {
     this.daySixLabel.setText(this.week.getDays().get(5).getDayOfWeek().name().toLowerCase());
     this.daySevenLabel.setText(this.week.getDays().get(6).getDayOfWeek().name().toLowerCase());
   }
-
-
 
   private void mutateJournalName() {
     this.week.setNameForWeek(newName);
@@ -183,25 +196,25 @@ public class WeekViewController extends AbstractController {
   private void convertWeekTasksToGui() {
     for (Day d : this.week.getDays()) {
       for (Task t : d.getTasks()) {
-        if (d.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if (t.getDay().equals(DayOfWeek.SUNDAY)) {
           Button taskBox = createNewTask(t);
           sunTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.MONDAY)) {
           Button taskBox = createNewTask(t);
           monTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.TUESDAY)) {
           Button taskBox = createNewTask(t);
           tuesTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.WEDNESDAY)) {
           Button taskBox = createNewTask(t);
           wedTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.THURSDAY)) {
           Button taskBox = createNewTask(t);
           thursTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.FRIDAY)) {
           Button taskBox = createNewTask(t);
           friTasksBox.getChildren().add(taskBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+        } else if (t.getDay().equals(DayOfWeek.SATURDAY)) {
           Button taskBox = createNewTask(t);
           satTasksBox.getChildren().add(taskBox);
         }
@@ -238,25 +251,25 @@ public class WeekViewController extends AbstractController {
     for (Day d : this.week.getDays()) {
 
       for (Event e : d.getEvents()) {
-        if (d.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+        if (e.getDay().equals(DayOfWeek.SUNDAY)) {
           Button eventBox = createNewEvent(e);
           sunEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.MONDAY)) {
           Button eventBox = createNewEvent(e);
           monEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.TUESDAY)) {
           Button eventBox = createNewEvent(e);
           tuesEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.WEDNESDAY)) {
           Button eventBox = createNewEvent(e);
           wedEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.THURSDAY)) {
           Button eventBox = createNewEvent(e);
           thursEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.FRIDAY)) {
           Button eventBox = createNewEvent(e);
           friEventsBox.getChildren().add(eventBox);
-        } else if (d.getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+        } else if (e.getDay().equals(DayOfWeek.SATURDAY)) {
           Button eventBox = createNewEvent(e);
           satEventsBox.getChildren().add(eventBox);
         }

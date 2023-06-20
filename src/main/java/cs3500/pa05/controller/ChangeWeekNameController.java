@@ -19,7 +19,6 @@ public class ChangeWeekNameController extends AbstractController {
 
   private Label given;
 
-
   public ChangeWeekNameController(Week week) {
     this.week = week;
 
