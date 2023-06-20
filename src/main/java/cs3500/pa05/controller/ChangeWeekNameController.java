@@ -6,32 +6,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * Represents the
+ */
 public class ChangeWeekNameController extends AbstractController {
 
   @FXML
   private TextField newWeekName;
-
 
   @FXML
   private Button newWeekNameDone, backButton;
 
   private Week week;
 
-  private Label given;
-
   public ChangeWeekNameController(Week week) {
     this.week = week;
-
-
   }
+
+
+
   @Override
   public void run() {
     backButton.setOnAction(
         e -> switchScene(newWeekNameDone, new WeekViewController(this.week), "weekView.fxml"));
     newWeekNameDone.setOnAction(
         e -> setNewTitle());
-
   }
+
 
 
   private void setNewTitle() {

@@ -1,3 +1,6 @@
+/**
+ * The module information for this JavaFX program.
+ */
 module cs.pa {
   requires javafx.controls;
   requires javafx.fxml;
