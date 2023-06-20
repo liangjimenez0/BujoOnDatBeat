@@ -1,7 +1,7 @@
 package cs3500.pa05;
 
 import cs3500.pa05.controller.Controller;
-import cs3500.pa05.controller.WelcomeController;
+import cs3500.pa05.controller.SplashSceneController;
 import cs3500.pa05.view.GraphicalView;
 import cs3500.pa05.view.View;
 import javafx.application.Application;
@@ -30,8 +30,8 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-    Controller controller = new WelcomeController();
-    View view = new GraphicalView(controller, "welcomePage.fxml");
+    Controller controller = new SplashSceneController();
+    View view = new GraphicalView(controller, "splashScene.fxml");
 
     try {
       stage.setScene(view.load());
