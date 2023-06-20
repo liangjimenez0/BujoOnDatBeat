@@ -359,14 +359,7 @@ public class WeekViewController extends AbstractController {
 
 
   private void settingShortcuts() {
-    renameWeekButton.setAccelerator(
-        new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
-    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
-    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
-    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
-    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
-        KeyCombination.SHORTCUT_DOWN));
-    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
+    setAccelerators();
     this.menuBar.getScene().getAccelerators()
         .put(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN),
             this::newFileCreation);
@@ -393,6 +386,25 @@ public class WeekViewController extends AbstractController {
     this.menuBar.getScene().getAccelerators()
         .put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
             Platform::exit);
+    this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), () -> {
+          switchScene(this.menuBar,
+              new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml");
+        });
+  }
+
+
+  private void setAccelerators() {
+    renameWeekButton.setAccelerator(
+        new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
+    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
+    editMaxTasksAndEventsButton.setAccelerator(
+        new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN));
+    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
+    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
+    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
+        KeyCombination.SHORTCUT_DOWN));
+    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
   }
 }
 

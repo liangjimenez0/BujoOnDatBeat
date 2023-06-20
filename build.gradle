@@ -49,7 +49,7 @@ dependencies {
 
     // Added JavaFX dependency--by Logan
 //    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
-//    testCompile "org.testfx:testfx-core:4.0.16-alpha"
+ //   testCompile "org.testfx:testfx-core:4.0.16-alpha"
 //    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
 
     // Jackson

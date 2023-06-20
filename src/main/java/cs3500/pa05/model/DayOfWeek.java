@@ -31,5 +31,5 @@ public enum DayOfWeek {
   /**
    * Represents the weekday Saturday
    */
-  SATURDAY
+  SATURDAY;
 }

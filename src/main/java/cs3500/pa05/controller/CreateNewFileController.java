@@ -1,6 +1,7 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.CreateNewFile;
+import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Week;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -61,5 +62,16 @@ public class CreateNewFileController extends AbstractController {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
     }
+  }
+
+
+  private boolean isDayOfWeek(String s) {
+    return DayOfWeek.MONDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.TUESDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.WEDNESDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.THURSDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.FRIDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.SATURDAY.name().equals(s.toUpperCase()) ||
+        DayOfWeek.SUNDAY.name().equals(s.toUpperCase());
   }
 }

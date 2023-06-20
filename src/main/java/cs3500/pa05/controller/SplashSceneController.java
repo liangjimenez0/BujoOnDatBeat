@@ -31,7 +31,7 @@ public class SplashSceneController extends AbstractController {
     bulletJournalLogo.setImage(image);
     bulletJournalLogo.setPreserveRatio(true);
 
-    Group root = new Group(bulletJournalLogo);
+    Group root = new Group(bulletJournalLogo, hidden);
     gifLoaded = new Scene(root, 595, 370);
 
     try {
