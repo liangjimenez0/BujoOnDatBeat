@@ -10,9 +10,9 @@ import javafx.scene.control.TextField;
 /**
  * Handles opening of a given file to the view.
  */
-public class OpenExistingFileController extends AbstractController{
+public class OpenExistingFileController extends AbstractController {
   @FXML
-  private TextField fileNameInput;
+  private TextField fileNameInput, passwordInput;
   @FXML
   private Button submitButton;
   @FXML
@@ -23,8 +23,10 @@ public class OpenExistingFileController extends AbstractController{
   /**
    * Handles what happens when the buttons on this scene are clicked.
    */
-  public void run(){
-    backButton.setOnAction(e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
+  public void run() {
+    this.backButton.getScene().getWindow().centerOnScreen();
+    backButton.setOnAction(
+        e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
 
     submitButton.setOnAction(e -> processFile());
   }
@@ -36,15 +38,18 @@ public class OpenExistingFileController extends AbstractController{
     String fileName = fileNameInput.getText();
     File file = new File(fileName);
 
-    if (!fileName.endsWith("bujo")) {
-      switchScene(submitButton, new WarningController(this.currentWeek),
-          "invalidFileWarning.fxml");
-    } else if (new ReadFile(file).processFile() == null ) {
+    if (!fileName.endsWith("bujo") || new ReadFile(file).processFile() == null) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
     } else {
       this.currentWeek = new ReadFile(file).processFile();
-      switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+      String password = passwordInput.getText();
+      if (currentWeek.getPassword().equals(password)) {
+        switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
+      } else {
+        switchScene(submitButton, new WarningController(this.currentWeek),
+            "invalidPasswordWarning.fxml");
+      }
     }
   }
 }

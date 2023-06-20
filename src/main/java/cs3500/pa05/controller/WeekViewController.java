@@ -197,7 +197,7 @@ public class WeekViewController extends AbstractController {
       for (Task t : d.getTasks()) {
         if (String.valueOf(t.getDay()).toLowerCase().equals(dayOneBox.getId())) {
           Button taskBox = createNewTask(t);
-          dayOneBox.getChildren().add(taskBox);
+          dayOneTasksBox.getChildren().add(taskBox);
         } else if (String.valueOf(t.getDay()).toLowerCase().equals(dayTwoBox.getId())) {
           Button taskBox = createNewTask(t);
           dayTwoTasksBox.getChildren().add(taskBox);

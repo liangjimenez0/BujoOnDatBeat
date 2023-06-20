@@ -42,7 +42,7 @@ public class ViewTaskController extends AbstractController{
    * Handles different button presses.
    */
   public void run() {
-
+    this.deleteTask.getScene().getWindow().centerOnScreen();
     setTextFields();
 
     deleteTask.setOnAction(e -> deleteTask());

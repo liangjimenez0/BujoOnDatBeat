@@ -20,6 +20,7 @@ public class EditMaxTasksAndEventsController extends AbstractController {
   }
 
   public void run() {
+    this.doneButton.getScene().getWindow().centerOnScreen();
     doneButton.setOnAction(e -> editMax());
     backButton.setOnAction(e -> switchScene(backButton, new WeekViewController(this.week), "weekView.fxml"));
   }

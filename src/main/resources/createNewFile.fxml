@@ -51,21 +51,27 @@
                         <TextField fx:id="maxEventsInput" prefHeight="34.0" prefWidth="141.0" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: B3C890;" text="  start weekday:" textAlignment="CENTER">
+                        <Label prefHeight="29.0" prefWidth="154.0" style="-fx-background-color: B3C890;" text="  create password for file:">
                            <font>
                               <Font name="Avenir Book" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="startWeekday" prefHeight="28.0" prefWidth="130.0">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </TextField>
+                        <TextField fx:id="passwordInput" prefHeight="34.0" prefWidth="141.0" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="79.0" prefWidth="475.0" spacing="20.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="159.0" style="-fx-background-color: B3C890;" text="  starting day of the week:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="startWeekday" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Button fx:id="backButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: DBDFAA;" text="back">
                            <font>

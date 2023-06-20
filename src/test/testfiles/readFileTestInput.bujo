@@ -1,6 +1,7 @@
 {
     "Max Tasks": "3",
     "Max Events": "4",
+    "Password": "YURRRRR",
     "Week": {
         "Name" : "finals week",
         "Days" : [

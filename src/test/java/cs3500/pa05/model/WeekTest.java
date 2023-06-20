@@ -24,8 +24,8 @@ class WeekTest {
    */
   @BeforeEach
   public void setup() {
-    this.firstWeek = new Week(3, 4, "happyWeek");
-    this.secondWeek = new Week(0, 0, "emptyWeek");
+    this.firstWeek = new Week(3, 4, "happyWeek", "password");
+    this.secondWeek = new Week(0, 0, "emptyWeek", "password");
   }
 
   /**

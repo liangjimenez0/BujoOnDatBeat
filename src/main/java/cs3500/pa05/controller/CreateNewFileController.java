@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
  */
 public class CreateNewFileController extends AbstractController {
   @FXML
-  private TextField maxTasksInput, maxEventsInput, fileNameInput, startWeekday;
+  private TextField maxTasksInput, maxEventsInput, fileNameInput, startWeekday, passwordInput;
 
   private Week currentWeek;
 
@@ -27,7 +27,9 @@ public class CreateNewFileController extends AbstractController {
    */
   @Override
   public void run() {
-    backButton.setOnAction(e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
+    this.backButton.getScene().getWindow().centerOnScreen();
+    backButton.setOnAction(
+        e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
 
     submitButton.setOnAction(e -> createNewFile());
   }
@@ -40,16 +42,17 @@ public class CreateNewFileController extends AbstractController {
       maxEvents = Integer.parseInt(maxEventsInput.getText());
       String fileName = fileNameInput.getText();
       String weekdayStart = startWeekday.getText();
-      if (!fileName.endsWith("bujo") || weekdayStart.isEmpty()) {
-        switchScene(submitButton, new WarningController(this.currentWeek),
-            "invalidFileWarning.fxml");
-      } else if (maxTasks < 0 || maxEvents < 0) {
+      String password = passwordInput.getText();
+      if (!fileName.endsWith("bujo") || weekdayStart.isEmpty() || password.isEmpty() ||
+          maxTasks < 0 || maxEvents < 0 || !isDayOfWeek(weekdayStart)) {
         switchScene(submitButton, new WarningController(this.currentWeek),
             "invalidFileWarning.fxml");
       } else {
         maxTasks = Integer.parseInt(maxTasksInput.getText());
         maxEvents = Integer.parseInt(maxEventsInput.getText());
-        this.currentWeek = new Week(maxTasks, maxEvents, fileName, weekdayStart.toUpperCase());
+        password = passwordInput.getText();
+        this.currentWeek =
+            new Week(maxTasks, maxEvents, fileName, weekdayStart.toUpperCase(), password);
         try {
           new CreateNewFile().createNewFile(this.currentWeek, fileName);
         } catch (IOException e) {

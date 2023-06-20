@@ -19,6 +19,7 @@ class CreateNewFileTest {
   private CreateNewFile testCreateFile;
   private int maxTasks;
   private int maxEvents;
+  private String password;
   private Week exampleWeek;
   private final Task exampleTaskSunday = new Task("this is a task",
       DayOfWeek.SUNDAY, "this must be completed");
@@ -60,7 +61,8 @@ class CreateNewFileTest {
     this.testCreateFile = new CreateNewFile();
     this.maxTasks = 3;
     this.maxEvents = 5;
-    this.exampleWeek = new Week(this.maxTasks, this.maxEvents, "createFileTestOutput.bujo");
+    this.password = "jujuOnThatBeat";
+    this.exampleWeek = new Week(this.maxTasks, this.maxEvents, "createFileTestOutput.bujo", this.password);
     this.exampleWeek.getDay(DayOfWeek.SUNDAY).addToTask(exampleTaskSunday);
     this.exampleWeek.getDay(DayOfWeek.MONDAY).addToTask(exampleTaskMonday);
     this.exampleWeek.getDay(DayOfWeek.TUESDAY).addToTask(exampleTaskTuesday);
@@ -77,7 +79,7 @@ class CreateNewFileTest {
     this.exampleWeek.getDay(DayOfWeek.FRIDAY).addToEvent(exampleEventFri);
     this.exampleWeek.getDay(DayOfWeek.SATURDAY).addToEvent(exampleEventSat);
 
-    JsonBujoFile jsonBujoFile = new JsonBujoFile(maxTasks, maxEvents, exampleWeek.weekToJson());
+    JsonBujoFile jsonBujoFile = new JsonBujoFile(maxTasks, maxEvents, password, exampleWeek.weekToJson());
     JsonNode nodeBujo = JsonUtils.serializeRecord(jsonBujoFile);
     String expecOut = nodeBujo.toPrettyString();
     expectedOutputBuilder = new StringBuilder(expecOut);

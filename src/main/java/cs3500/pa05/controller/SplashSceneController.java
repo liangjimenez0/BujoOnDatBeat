@@ -1,5 +1,6 @@
 package cs3500.pa05.controller;
 
+import java.io.FileNotFoundException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;

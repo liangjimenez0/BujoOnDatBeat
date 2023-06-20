@@ -39,7 +39,7 @@ public class ViewEventController extends AbstractController {
    * Handles different button presses.
    */
   public void run() {
-
+    this.deleteEvent.getScene().getWindow().centerOnScreen();
     setTextFields();
 
     deleteEvent.setOnAction(e -> deleteEvent());

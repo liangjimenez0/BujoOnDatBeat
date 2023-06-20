@@ -21,14 +21,24 @@
                         <Font name="Avenir Book" size="24.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
                      <children>
-                        <Label prefHeight="34.0" prefWidth="291.0" style="-fx-background-color: B3C890;" text="  name your file (no spaces and ends with .bujo):">
+                        <Label prefHeight="34.0" prefWidth="291.0" style="-fx-background-color: B3C890;" text="   input the file path (no spaces):">
                            <font>
                               <Font name="Avenir Book" size="13.0" />
                            </font>
                         </Label>
                         <TextField fx:id="fileNameInput" prefHeight="34.0" prefWidth="141.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="475.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="164.0" style="-fx-background-color: B3C890;" text="   password for file:">
+                           <font>
+                              <Font name="Avenir Book" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="passwordInput" prefHeight="34.0" prefWidth="141.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="62.0" prefWidth="475.0" spacing="20.0">

@@ -16,7 +16,7 @@ public class CreateNewFile {
   /**
    * Initializes an object that can create a new file.
    *
-   * @param week is the given week that is to be converted to a Bujo file
+   * @param week     is the given week that is to be converted to a Bujo file
    * @param fileName is the given file name of where the Bujo file contents will be outputted in
    * @throws IOException when this method gets interrupted
    */
@@ -24,7 +24,8 @@ public class CreateNewFile {
     StringBuilder builder = new StringBuilder();
 
     JsonWeek jsonWeek = week.weekToJson();
-    JsonBujoFile jsonBujoFile = new JsonBujoFile(week.getMaxTasks(), week.getMaxEvents(), jsonWeek);
+    JsonBujoFile jsonBujoFile =
+        new JsonBujoFile(week.getMaxTasks(), week.getMaxEvents(), week.getPassword(), jsonWeek);
 
     builder.append(JsonUtils.serializeRecord(jsonBujoFile).toPrettyString());
 

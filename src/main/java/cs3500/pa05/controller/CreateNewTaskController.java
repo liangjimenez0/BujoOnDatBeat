@@ -37,6 +37,7 @@ public class CreateNewTaskController extends AbstractController {
    * Handles creating a new task when the user presses the done button.
    */
   public void run() {
+    this.newTaskDone.getScene().getWindow().centerOnScreen();
     newTaskDone.setOnAction(e -> createNewTask());
     backToWeekView.setOnAction(e -> switchScene(newTaskDone,
         new WeekViewController(this.currentWeek), "weekView.fxml"));

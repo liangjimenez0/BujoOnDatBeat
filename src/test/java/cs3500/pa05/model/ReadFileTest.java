@@ -14,6 +14,7 @@ class ReadFileTest {
   private ReadFile testRead;
   private int maxTasks;
   private int maxEvents;
+  private String password;
 
   /**
    * Initializes objects before each test
@@ -22,6 +23,7 @@ class ReadFileTest {
   public void setup() {
     this.maxTasks = 5;
     this.maxEvents = 5;
+    this.password = "YURRRRR";
     this.testRead = new ReadFile(new File("src/test/testfiles/readFileTestInput.bujo"));
   }
 
@@ -34,6 +36,7 @@ class ReadFileTest {
     assertEquals(7, fileData.getDays().size());
     assertEquals(4, fileData.getMaxEvents());
     assertEquals(3, fileData.getMaxTasks());
+    assertEquals("YURRRRR", fileData.getPassword());
     assertThrows(RuntimeException.class,
         () -> new ReadFile(new File("fakeFile")));
   }

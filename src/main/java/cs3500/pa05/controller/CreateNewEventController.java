@@ -37,6 +37,7 @@ public class CreateNewEventController extends AbstractController {
    * Handles creating a new event when the user presses the done button.
    */
   public void run() {
+    this.newEventDone.getScene().getWindow().centerOnScreen();
     newEventDone.setOnAction(e -> createNewEvent());
 
     backToWeekView.setOnAction(e -> switchScene(newEventDone,

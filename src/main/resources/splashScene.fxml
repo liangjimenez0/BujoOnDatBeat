@@ -11,7 +11,7 @@
         <children>
             <ImageView fx:id="bulletJournalLogo" fitHeight="400.0" fitWidth="600.0" layoutX="-11.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="Bullet Jouraling.gif" />
+                    <Image url="bujo.gif" />
                 </image>
             </ImageView>
             <Button fx:id="hidden" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="53.0">

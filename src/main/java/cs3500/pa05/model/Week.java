@@ -19,6 +19,7 @@ public class Week {
   private int maxTasks;
   private int maxEvents;
   private DayOfWeek startDay;
+  private String password;
 
   /**
    * Initializes a week object without a user-defined name.
@@ -27,7 +28,7 @@ public class Week {
    * @param maxEvents is the maximum number of events a user can have in a week
    * @param fileName the name of the file this week is
    */
-  public Week(int maxTasks, int maxEvents, String fileName) {
+  public Week(int maxTasks, int maxEvents, String fileName, String password) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
     this.allEvents = new ArrayList<>();
@@ -35,11 +36,12 @@ public class Week {
     this.maxEvents = maxEvents;
     this.fileName = fileName;
     this.nameForWeek = "welcome to your bullet journal";
+    this.password = password;
 
-    initializeDays(maxTasks, maxEvents);
+    initializeDays();
   }
 
-  public Week(int maxTasks, int maxEvents, String fileName, String startDay) {
+  public Week(int maxTasks, int maxEvents, String fileName, String startDay, String password) {
     this.allDays = new ArrayList<>();
     this.allTasks = new ArrayList<>();
     this.allEvents = new ArrayList<>();
@@ -48,19 +50,16 @@ public class Week {
     this.fileName = fileName;
     this.nameForWeek = "welcome to your bullet journal";
     this.startDay = DayOfWeek.valueOf(startDay);
+    this.password = password;
 
-
-    initializeDays(maxTasks, maxEvents);
+    initializeDays();
     initializeWithStartDay(this.startDay);
   }
 
   /**
    * Initializes all the days to empty days.
-   *
-   * @param maxTasks is the maximum number of tasks a user can have in a week
-   * @param maxEvents is the maximum number of events a user can have in a week
    */
-  private void initializeDays(int maxTasks, int maxEvents) {
+  private void initializeDays() {
     Day sunday = new Day(DayOfWeek.SUNDAY);
     Day monday = new Day(DayOfWeek.MONDAY);
     Day tuesday = new Day(DayOfWeek.TUESDAY);
@@ -224,5 +223,9 @@ public class Week {
 
   public void changeMaxEvents(int maxEvents) {
     this.maxEvents = maxEvents;
+  }
+
+  public String getPassword() {
+    return this.password;
   }
 }

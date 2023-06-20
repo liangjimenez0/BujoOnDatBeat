@@ -17,7 +17,7 @@ public abstract class AbstractController implements Controller {
    * @param fxmlFileName is the file name of the given JavaFX file
    */
   public void switchScene(Control control, Controller controller, String fxmlFileName) {
-
+    control.getScene().getWindow().centerOnScreen();
     Stage stage = (Stage) control.getScene().getWindow();
     stage.centerOnScreen();
 

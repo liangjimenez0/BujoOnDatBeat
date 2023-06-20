@@ -1,6 +1,7 @@
 {
   "Max Tasks" : 3,
   "Max Events" : 5,
+  "Password" : "jujuOnThatBeat",
   "Week" : {
     "Name" : "welcome to your bullet journal",
     "Days" : [ {

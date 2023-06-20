@@ -27,6 +27,7 @@ public class ChangeWeekNameController extends AbstractController {
 
   @Override
   public void run() {
+    this.backButton.getScene().getWindow().centerOnScreen();
     backButton.setOnAction(
         e -> switchScene(newWeekNameDone, new WeekViewController(this.week), "weekView.fxml"));
     newWeekNameDone.setOnAction(

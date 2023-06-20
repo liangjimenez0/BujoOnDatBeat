@@ -94,7 +94,7 @@
                      </HBox>
                      <HBox prefHeight="27.0" prefWidth="458.0" spacing="20.0">
                         <children>
-                           <Label fx:id="eventStartTime" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: DBDFAA;" text="start time: ">
+                           <Label fx:id="eventStartTime" prefHeight="27.0" prefWidth="411.0" style="-fx-background-color: DBDFAA;" text="start time (4 digits with no space or &quot;:&quot;): ">
                               <font>
                                  <Font name="Avenir Book" size="18.0" />
                               </font>
