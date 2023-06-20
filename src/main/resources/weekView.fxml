@@ -23,7 +23,7 @@
          <children>
             <BorderPane prefHeight="805.0" prefWidth="1477.0">
                <center>
-                  <VBox alignment="TOP_CENTER" prefHeight="968.0" prefWidth="1150.0" spacing="20.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" prefHeight="755.0" prefWidth="1150.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label fx:id="bujoTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="364.0" textAlignment="CENTER">
                            <font>
@@ -441,6 +441,7 @@
                                           <MenuItem fx:id="newTask" mnemonicParsing="false" text="create new task" />
                                           <MenuItem fx:id="newEvent" mnemonicParsing="false" text="create new event" />
                                           <MenuItem fx:id="newWeek" mnemonicParsing="false" text="create new week" />
+                                          <MenuItem fx:id="editMaxTasksAndEventsButton" mnemonicParsing="false" text="edit max events/tasks" />
                                        </items>
                                        <font>
                                           <Font name="Avenir Book" size="13.0" />
@@ -459,7 +460,7 @@
                <right>
                   <HBox prefHeight="800.0" prefWidth="133.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ListView fx:id="listOfSearches" prefHeight="205.0" prefWidth="145.0" />
+                        <ListView fx:id="listOfSearches" prefHeight="755.0" prefWidth="138.0" />
                      </children>
                   </HBox>
                </right>

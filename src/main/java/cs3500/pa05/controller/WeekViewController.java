@@ -87,7 +87,6 @@ public class WeekViewController extends AbstractController {
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     updateProgressBars();
-    settingAccelerators();
 
     saveButton.setOnAction(e -> newFileCreation());
 
@@ -96,9 +95,6 @@ public class WeekViewController extends AbstractController {
           new OpenExistingFileController(), "openExistingFile.fxml");
       newFileCreation();
     });
-
-    editMaxTasksAndEventsButton.setOnAction(e ->  switchScene(this.menuBar,
-        new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml"));
 
     newTask.setOnAction(e -> newTask());
     newTaskButton.setOnAction(e -> newTask());
@@ -117,19 +113,10 @@ public class WeekViewController extends AbstractController {
           new ChangeWeekNameController(this.week), "enterWeekName.fxml");
       mutateJournalName();
     });
-  }
 
-  private void settingAccelerators() {
-    saveButton.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
-    openExistingButton.setAccelerator(new KeyCodeCombination(KeyCode.O,
-        KeyCombination.SHORTCUT_DOWN));
-    newTask.setAccelerator(new KeyCodeCombination(KeyCode.T, KeyCombination.SHORTCUT_DOWN));
-    newEvent.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.SHORTCUT_DOWN));
-    newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
-    renameWeekButton.setAccelerator(
-        new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
+    editMaxTasksAndEventsButton.setOnAction(e ->  switchScene(this.menuBar,
+        new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml"));
   }
-
 
   private void setWeekdays() {
     this.dayOneLabel.setText(this.week.getDays().get(0).getDayOfWeek().name().toLowerCase());
