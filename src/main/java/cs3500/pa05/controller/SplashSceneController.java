@@ -43,6 +43,8 @@ public class SplashSceneController extends AbstractController {
     }
     Image image = new Image(stream);
     bulletJournalLogo.setImage(image);
+    bulletJournalLogo.setFitHeight(700.0);
+    bulletJournalLogo.setFitWidth(900.0);
     bulletJournalLogo.setPreserveRatio(true);
 
     hidden.setOnAction(e -> switchScene(hidden,

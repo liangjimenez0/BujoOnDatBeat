@@ -13,11 +13,11 @@
             <ImageView fx:id="bulletJournalLogo" fitHeight="500.0" fitWidth="700.0" layoutX="-11.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
 
             </ImageView>
-            <Button fx:id="hidden" alignment="CENTER" contentDisplay="BOTTOM" layoutY="-3.0" mnemonicParsing="false" opacity="0.0" prefHeight="380.0" prefWidth="650.0" text="click anywhere to begin.">
+            <Button fx:id="hidden" alignment="CENTER" contentDisplay="BOTTOM" layoutY="-3.0" mnemonicParsing="false" opacity="0.0" prefHeight="390.0" prefWidth="850.0" text="click anywhere to begin.">
             </Button>
-         <Label layoutX="264.0" layoutY="300.0" prefHeight="17.0" prefWidth="160.0" text="click anywhere to continue" textFill="WHITE">
+         <Label layoutX="325.0" layoutY="400.0" prefHeight="17.0" prefWidth="300.0" text="click anywhere to continue" textFill="WHITE">
             <font>
-               <Font name="Avenir Book" size="13.0" />
+               <Font name="Avenir Book" size="20.0" />
             </font>
          </Label>
 
