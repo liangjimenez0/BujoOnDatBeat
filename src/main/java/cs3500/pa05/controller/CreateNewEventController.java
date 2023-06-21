@@ -14,13 +14,23 @@ import javafx.scene.control.TextField;
  */
 public class CreateNewEventController extends AbstractController {
   @FXML
-  private TextField userEventName, userEventDay, userEventStartTime, userEventDuration;
+  private TextField userEventName;
+  @FXML
+  private TextField userEventDay;
+
+  @FXML
+  private TextField userEventStartTime;
+
+  @FXML
+  private TextField userEventDuration;
 
   @FXML
   private TextArea userEventDescription;
 
   @FXML
-  private Button newEventDone, backToWeekView;
+  private Button newEventDone;
+  @FXML
+  private Button backToWeekView;
 
   private Week currentWeek;
 

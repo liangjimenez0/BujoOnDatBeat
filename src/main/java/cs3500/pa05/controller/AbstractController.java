@@ -16,7 +16,7 @@ public abstract class AbstractController implements Controller {
    * Switches the scene on a given controls stage to a new view of the
    * given FXML file (controlled by the given controller)
    *
-   * @param controller is the given Controller that handles the switching of scenes on a stage
+   * @param controller   is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file
    */
   public void switchScene(Control control, Controller controller, String fxmlFileName) {

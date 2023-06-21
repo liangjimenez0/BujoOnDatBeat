@@ -16,16 +16,19 @@ import javafx.scene.control.TextField;
 public class ViewTaskController extends AbstractController {
 
   @FXML
-  private TextField userTaskName, userTaskDay;
-
+  private TextField userTaskName;
+  @FXML
+  private TextField userTaskDay;
   @FXML
   private TextArea userTaskDescription;
   @FXML
-  Button deleteTask, doneViewing;
+  private Button deleteTask;
   @FXML
-  CheckBox completedBox;
-  Task currentTask;
-  Week week;
+  private Button doneViewing;
+  @FXML
+  private CheckBox completedBox;
+  private Task currentTask;
+  private Week week;
 
   /**
    * Initializes an object that can view and edit a task in a given week.

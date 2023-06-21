@@ -15,7 +15,10 @@ public class WelcomeController extends AbstractController {
   private Button createNewFile;
 
   @FXML
-  private Button openExistingFile, openFileAsTemplate;
+  private Button openExistingFile;
+
+  @FXML
+  private Button openFileAsTemplate;
 
   /**
    * Initializes a welcome page scene on the Java Journal

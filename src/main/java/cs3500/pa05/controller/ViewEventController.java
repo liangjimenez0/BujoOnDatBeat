@@ -14,21 +14,32 @@ import javafx.scene.control.TextField;
  */
 public class ViewEventController extends AbstractController {
 
-  Event currentEvent;
+  private Event currentEvent;
   @FXML
-  private TextField userEventName, userEventDay, userEventStartTime, userEventDuration;
+  private TextField userEventName;
+
+  @FXML
+  private TextField userEventDay;
+
+  @FXML
+  private TextField userEventStartTime;
+
+  @FXML
+  private TextField userEventDuration;
 
   @FXML
   private TextArea userEventDescription;
   @FXML
-  Button deleteEvent, doneViewing;
-  Week week;
+  Button deleteEvent;
+  @FXML
+  Button doneViewing;
+  private Week week;
 
   /**
    * Initializes an object that can view and edit an event in a given week.
    *
    * @param event the event being expanded
-   * @param week the current week
+   * @param week  the current week
    */
   public ViewEventController(Event event, Week week) {
     this.currentEvent = event;

@@ -11,10 +11,16 @@ import javafx.scene.control.TextField;
 public class EditMaxTasksAndEventsController extends AbstractController {
 
   @FXML
-  private TextField maxTasksInput, maxEventsInput;
+  private TextField maxTasksInput;
 
   @FXML
-  private Button doneButton, backButton;
+  private TextField maxEventsInput;
+
+  @FXML
+  private Button doneButton;
+
+  @FXML
+  private Button backButton;
 
   private Week week;
 

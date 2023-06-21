@@ -32,43 +32,120 @@ import javafx.scene.text.TextAlignment;
  */
 public class WeekViewController extends AbstractController {
   private Week week;
-
   @FXML
-  private Label bujoTitle, dayOneLabel, dayTwoLabel, dayThreeLabel, dayFourLabel, dayFiveLabel,
-      daySixLabel, daySevenLabel;
-
+  private Label bujoTitle;
   @FXML
-  private Button newTaskButton, newEventButton;
-
+  private Label dayOneLabel;
   @FXML
-  private VBox dayOneTasksBox, dayOneEventsBox, dayTwoTasksBox, dayTwoEventsBox, dayThreeTasksBox,
-      dayThreeEventsBox,
-      dayFourTasksBox, dayFourEventsBox, dayFiveTasksBox, dayFiveEventsBox, daySixTasksBox,
-      daySixEventsBox,
-      daySevenTasksBox, daySevenEventsBox, allTasksBox;
-
+  private Label dayTwoLabel;
   @FXML
-  private VBox dayOneBox, dayTwoBox, dayThreeBox, dayFourBox, dayFiveBox, daySixBox, daySevenBox;
+  private Label dayThreeLabel;
+  @FXML
+  private Label dayFourLabel;
+  @FXML
+  private Label dayFiveLabel;
+  @FXML
+  private Label daySixLabel;
+  @FXML
+  private Label daySevenLabel;
+  @FXML
+  private Button newTaskButton;
+  @FXML
+  private Button newEventButton;
+  @FXML
+  private VBox dayOneTasksBox;
+  @FXML
+  private VBox dayOneEventsBox;
+  @FXML
+  private VBox dayTwoTasksBox;
+  @FXML
+  private VBox dayTwoEventsBox;
+  @FXML
+  private VBox dayThreeTasksBox;
+  @FXML
+  private VBox dayThreeEventsBox;
+  @FXML
+  private VBox dayFourTasksBox;
+  @FXML
+  private VBox dayFourEventsBox;
+  @FXML
+  private VBox dayFiveTasksBox;
+  @FXML
+  private VBox dayFiveEventsBox;
+  @FXML
+  private VBox daySixTasksBox;
+  @FXML
+  private VBox daySixEventsBox;
+  @FXML
+  private VBox daySevenTasksBox;
+  @FXML
+  private VBox daySevenEventsBox;
+  @FXML
+  private VBox allTasksBox;
+  @FXML
+  private VBox dayOneBox;
+  @FXML
+  private VBox dayTwoBox;
+  @FXML
+  private VBox dayThreeBox;
+  @FXML
+  private VBox dayFourBox;
+  @FXML
+  private VBox dayFiveBox;
+  @FXML
+  private VBox daySixBox;
+  @FXML
+  private VBox daySevenBox;
   @FXML
   private MenuBar menuBar;
-
   @FXML
-  private MenuItem saveButton, openExistingButton, newTask, newEvent, newWeek, renameWeekButton,
-      editMaxTasksAndEventsButton, openFileAsTemplateButton;
+  private MenuItem saveButton;
+  @FXML
+  private MenuItem openExistingButton;
+  @FXML
+  private MenuItem newTask;
+  @FXML
+  private MenuItem newEvent;
+  @FXML
+  private MenuItem newWeek;
+  @FXML
+  private MenuItem renameWeekButton;
+  @FXML
+  private MenuItem editMaxTasksAndEventsButton;
+  @FXML
+  private MenuItem openFileAsTemplateButton;
   private CreateNewTaskController taskController;
   @FXML
   private TextField userTaskName;
   @FXML
-  private ProgressBar dayOneProgressBar, dayTwoProgressBar, dayThreeProgressBar, dayFourProgressBar,
-      dayFiveProgressBar, daySixProgressBar, daySevenProgressBar;
-
+  private ProgressBar dayOneProgressBar;
   @FXML
-  private Label dayOneProgLabel, dayTwoProgLabel, dayThreeProgLabel, dayFourProgLabel,
-      dayFiveProgLabel,
-      daySixProgLabel, daySevenProgLabel;
-
+  private ProgressBar dayTwoProgressBar;
+  @FXML
+  private ProgressBar dayThreeProgressBar;
+  @FXML
+  private ProgressBar dayFourProgressBar;
+  @FXML
+  private ProgressBar dayFiveProgressBar;
+  @FXML
+  private ProgressBar daySixProgressBar;
+  @FXML
+  private ProgressBar daySevenProgressBar;
+  @FXML
+  private Label dayOneProgLabel;
+  @FXML
+  private Label dayTwoProgLabel;
+  @FXML
+  private Label dayThreeProgLabel;
+  @FXML
+  private Label dayFourProgLabel;
+  @FXML
+  private Label dayFiveProgLabel;
+  @FXML
+  private Label daySixProgLabel;
+  @FXML
+  private Label daySevenProgLabel;
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
-
   private String newName;
 
   /**
@@ -84,7 +161,7 @@ public class WeekViewController extends AbstractController {
    * Initializes an object that displays a given week with a custom name
    *
    * @param week the week to be viewed
-   * @param s the custom week name
+   * @param s    the custom week name
    */
   public WeekViewController(Week week, String s) {
     this.week = week;
@@ -272,9 +349,6 @@ public class WeekViewController extends AbstractController {
     Button taskButton = new Button();
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
-    String regularButton = "-fx-background-color: #DBDFAA;";
-    String buttonWhenMouseHovers =
-        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
 
     taskButton.setText("- " + t.getName());
     taskButton.setFont(font);
@@ -286,7 +360,11 @@ public class WeekViewController extends AbstractController {
     taskButton.setMaxHeight(50);
     taskButton.setTextAlignment(TextAlignment.LEFT);
     taskButton.setAlignment(Pos.TOP_LEFT);
+    String regularButton = "-fx-background-color: #DBDFAA;";
     taskButton.setStyle(regularButton);
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, "
+            + "-fx-inner-border, -fx-body-color;";
     taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
     taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
 
@@ -335,13 +413,9 @@ public class WeekViewController extends AbstractController {
    */
   private Button createNewEvent(Event e) {
     Button eventButton = new Button();
+    eventButton.setText("- " + e.getName());
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
-    String regularButton = "-fx-background-color: #B3C890;";
-    String buttonWhenMouseHovers =
-        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
-
-    eventButton.setText("- " + e.getName());
     eventButton.setFont(font);
     eventButton.setOnAction(
         event -> switchScene(eventButton, new ViewEventController(e, this.week), "viewEvent.fxml"));
@@ -352,7 +426,11 @@ public class WeekViewController extends AbstractController {
     eventButton.setAlignment(Pos.TOP_LEFT);
     eventButton.setTextAlignment(TextAlignment.LEFT);
     eventButton.setStyle("-fx-background-color: #B3C890; ");
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, "
+            + "-fx-inner-border, -fx-body-color;";
     eventButton.setOnMouseEntered(event -> eventButton.setStyle(buttonWhenMouseHovers));
+    String regularButton = "-fx-background-color: #B3C890;";
     eventButton.setOnMouseExited(event -> eventButton.setStyle(regularButton));
 
     return eventButton;

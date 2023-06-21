@@ -20,7 +20,7 @@ public class Week {
   private DayOfWeek startDay;
   private String password;
 
- /**
+  /**
    * Initializes a week object without a user-defined name.
    *
    * @param maxTasks  is the maximum number of tasks a user can have in a week
@@ -43,11 +43,11 @@ public class Week {
   /**
    * Initializes a week object with a user-defined name, password, and start date.
    *
-   * @param maxTasks is the maximum number of tasks a user can have in a week
-   * @param maxEvents is the maximum number of events a user can have in a week
-   * @param fileName the name of the file this week is
-   * @param startDay what day this week starts on
-   * @param password the key to get into this file
+   * @param maxTasks    is the maximum number of tasks a user can have in a week
+   * @param maxEvents   is the maximum number of events a user can have in a week
+   * @param fileName    the name of the file this week is
+   * @param startDay    what day this week starts on
+   * @param password    the key to get into this file
    * @param nameForWeek the custom name for this week
    */
   public Week(int maxTasks, int maxEvents, String fileName, String startDay, String password,
