@@ -67,43 +67,47 @@ class EventTest {
   /**
    * Tests that events can correctly determine their start time
    */
+  @Test
   void getStartTime() {
-    assertEquals(10, wedding.getStartTime());
-    assertEquals(12, graduation.getStartTime());
-    assertEquals(13, birthday.getStartTime());
+    assertEquals(2200, wedding.getStartTime());
+    assertEquals(1000, graduation.getStartTime());
+    assertEquals(1800, birthday.getStartTime());
   }
 
   /**
    * Tests that events can correctly determine their duration
    */
+  @Test
   void getDuration() {
-    assertEquals(10, wedding.getDuration());
-    assertEquals(12, graduation.getDuration());
-    assertEquals(13, birthday.getDuration());
+    assertEquals(240, wedding.getDuration());
+    assertEquals(120, graduation.getDuration());
+    assertEquals(180, birthday.getDuration());
   }
 
   /**
    * Tests that events can correctly change their start time
    */
+  @Test
   void changeStartTime() {
-    assertEquals(10, wedding.getDuration());
-    assertEquals(12, graduation.getDuration());
-    assertEquals(13, birthday.getDuration());
+    assertEquals(2200, wedding.getStartTime());
+    assertEquals(1000, graduation.getStartTime());
+    assertEquals(1800, birthday.getStartTime());
     wedding.changeStartTime(13L);
     graduation.changeStartTime(4L);
     birthday.changeStartTime(7L);
-    assertEquals(13, wedding.getDuration());
-    assertEquals(4, graduation.getDuration());
-    assertEquals(7, birthday.getDuration());
+    assertEquals(13, wedding.getStartTime());
+    assertEquals(4, graduation.getStartTime());
+    assertEquals(7, birthday.getStartTime());
   }
 
   /**
    * Tests that events can correctly change their duration
    */
+  @Test
   void changeDuration() {
-    assertEquals(10, wedding.getDuration());
-    assertEquals(12, graduation.getDuration());
-    assertEquals(13, birthday.getDuration());
+    assertEquals(240, wedding.getDuration());
+    assertEquals(120, graduation.getDuration());
+    assertEquals(180, birthday.getDuration());
 
     wedding.changeDuration(5);
     graduation.changeDuration(70);

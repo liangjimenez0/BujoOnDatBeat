@@ -1,6 +1,8 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonTask;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,5 +45,31 @@ class TaskTest {
     assertEquals(DayOfWeek.THURSDAY, jsonClean.day());
     assertEquals("clean", jsonClean.name());
     assertEquals("clean the house", jsonClean.description());
+  }
+
+  @Test
+  void getCompleted() {
+    assertFalse(clean.getCompleted());
+    callFamily.changeCompleted(true);
+    assertTrue(callFamily.getCompleted());
+    assertFalse(laundry.getCompleted());
+  }
+
+  @Test
+  void equals() {
+    assertTrue(clean.equals(clean));
+    assertFalse(callFamily.equals(clean));
+    assertFalse(laundry.equals(21));
+  }
+
+  @Test
+  void changeCompleted() {
+    clean.changeCompleted(false);
+    callFamily.changeCompleted(false);
+    laundry.changeCompleted(true);
+
+    assertTrue(laundry.getCompleted());
+    assertFalse(clean.getCompleted());
+    assertFalse(callFamily.getCompleted());
   }
 }

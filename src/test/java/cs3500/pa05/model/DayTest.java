@@ -46,6 +46,7 @@ class DayTest {
     this.sat = new Day(DayOfWeek.SATURDAY);
     this.sun = new Day(DayOfWeek.SUNDAY);
     this.laundry = new Task("laundry", DayOfWeek.MONDAY, "finish laundry");
+    this.laundry.changeCompleted(true);
     this.study = new Task("study", DayOfWeek.TUESDAY, "study for exam");
     this.dinner = new Event("dinner", DayOfWeek.FRIDAY, "dinner with fam", 1800L, 120);
     this.birthday = new Event("birthday", DayOfWeek.SATURDAY, "mom's birthday party", 1200L, 60);
@@ -139,31 +140,40 @@ class DayTest {
    */
   @Test
   void taskCompletionPercentage() {
-    assertEquals(.67, mon.taskCompletionPercentage());
-    assertEquals(.20, tues.taskCompletionPercentage());
-    assertEquals(.30, wed.taskCompletionPercentage());
-    assertEquals(.30, thurs.taskCompletionPercentage());
-    assertEquals(.30, fri.taskCompletionPercentage());
-    assertEquals(.30, sat.taskCompletionPercentage());
-    assertEquals(.30, sun.taskCompletionPercentage());
+    assertEquals(1.0, mon.taskCompletionPercentage());
+    assertEquals(0.0, tues.taskCompletionPercentage());
+    assertEquals(0.0, wed.taskCompletionPercentage());
+    assertEquals(0.0, thurs.taskCompletionPercentage());
+    fri.addToTask(laundry);
+    assertEquals(1.0, fri.taskCompletionPercentage());
+    sat.addToTask(laundry);
+    sat.addToTask(study);
+    assertEquals(0.5, sat.taskCompletionPercentage());
+    assertEquals(0.0, sun.taskCompletionPercentage());
   }
 
   /**
    * Tests that the day holds the correct number of completed tasks
    */
+  @Test
   void getNumOfCompletedTasks() {
-    assertEquals(3, mon.getNumOfCompletedTasks());
-    assertEquals(3, tues.getNumOfCompletedTasks());
-    assertEquals(3, wed.getNumOfCompletedTasks());
-    assertEquals(3, thurs.getNumOfCompletedTasks());
-    assertEquals(3, fri.getNumOfCompletedTasks());
-    assertEquals(3, sat.getNumOfCompletedTasks());
-    assertEquals(3, sun.getNumOfCompletedTasks());
+    fri.addToTask(laundry);
+    fri.addToTask(laundry);
+    sat.addToTask(laundry);
+    sat.addToTask(study);
+    assertEquals(1, mon.getNumOfCompletedTasks());
+    assertEquals(0, tues.getNumOfCompletedTasks());
+    assertEquals(0, wed.getNumOfCompletedTasks());
+    assertEquals(0, thurs.getNumOfCompletedTasks());
+    assertEquals(2, fri.getNumOfCompletedTasks());
+    assertEquals(1, sat.getNumOfCompletedTasks());
+    assertEquals(0, sun.getNumOfCompletedTasks());
   }
 
   /**
    * Tests that days determine equality between other objects correctly.
    */
+  @Test
   void equals() {
     assertTrue(mon.equals(mon));
     assertFalse(mon.equals(tues));

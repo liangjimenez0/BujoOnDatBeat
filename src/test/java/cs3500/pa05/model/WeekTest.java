@@ -1,7 +1,9 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonDay;
 import cs3500.pa05.json.JsonEvent;
@@ -64,6 +66,20 @@ class WeekTest {
         this.secondWeek.getDay(DayOfWeek.SUNDAY).getDayOfWeek());
   }
 
+  @Test
+  void getDay() {
+    assertEquals("", firstWeek.getDay(DayOfWeek.MONDAY));
+    assertEquals("", firstWeek.getDay(DayOfWeek.TUESDAY));
+  }
+
+  @Test
+  void checkDay() {
+    assertTrue(firstWeek.checkDay("TUESDAY"));
+    assertTrue(firstWeek.checkDay("WEDNESDAY"));
+    assertTrue(firstWeek.checkDay("FRIDAY"));
+    assertFalse(firstWeek.checkDay("NOT A DAY"));
+  }
+
   /**
    * Testing the maximum number of tasks in this week
    */
@@ -97,5 +113,50 @@ class WeekTest {
     assertEquals(new JsonDay("THURSDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(4));
     assertEquals(new JsonDay("FRIDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(5));
     assertEquals(new JsonDay("SATURDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(6));
+  }
+
+  @Test
+  void getAllTasks() {
+    assertEquals(new ArrayList<>(),firstWeek.getAllTasks());
+  }
+
+  @Test
+  void getAllEvents() {
+    assertEquals(new ArrayList<>(),firstWeek.getAllEvents());
+  }
+
+  @Test
+  void getName() {
+
+  }
+
+  @Test
+  void setNameForWeek() {
+
+  }
+
+  @Test
+  void getNameForWeek() {
+
+  }
+
+  @Test
+  void changeMaxTasks() {
+
+  }
+
+  @Test
+  void changeMaxEvents() {
+
+  }
+
+  @Test
+  void getPassword() {
+
+  }
+
+  @Test
+  void getWeekdayStart() {
+
   }
 }
