@@ -12,7 +12,7 @@ import org.testfx.framework.junit5.Start;
 class DriverTest {
 
   @ExtendWith(ApplicationExtension.class)
-  class ClickableButtonTest_JUnit5AssertJ {
+  class ClickableButtonTestJunit5AssertJ {
 
     private Button button;
 

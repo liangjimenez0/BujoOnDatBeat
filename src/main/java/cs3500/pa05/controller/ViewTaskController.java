@@ -16,12 +16,17 @@ import javafx.scene.control.TextField;
 public class ViewTaskController extends AbstractController {
 
   @FXML
-  private TextField userTaskName, userTaskDay;
+  private TextField userTaskName;
+  @FXML
+  private TextField userTaskDay;
 
   @FXML
   private TextArea userTaskDescription;
   @FXML
-  Button deleteTask, doneViewing;
+  Button deleteTask;
+  @FXML
+  Button doneViewing;
+
   @FXML
   CheckBox completedBox;
   Task currentTask;

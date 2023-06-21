@@ -7,6 +7,9 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+/**
+ * Class to test the week view controller class and respective methods
+ */
 public class WeekViewControllerTest {
 
   @ExtendWith(ApplicationExtension.class)

@@ -15,7 +15,11 @@ import javafx.scene.control.TextField;
 public class OpenFileAsTemplateController extends AbstractController {
 
   @FXML
-  private TextField fileNameInput, newFileNameInput, newWeekNameInput;
+  private TextField fileNameInput;
+  @FXML
+  private TextField newFileNameInput;
+  @FXML
+  private TextField newWeekNameInput;
   @FXML
   private Button submitButton;
   @FXML

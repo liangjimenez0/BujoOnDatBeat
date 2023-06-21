@@ -11,12 +11,18 @@ import javafx.scene.layout.HBox;
 public class WarningController extends AbstractController {
 
   @FXML
-  Button exitButton, leaveErrorScreen, invalidWidgetDone, invalidPasswordDone;
+  private Button exitButton;
+  @FXML
+  private Button leaveErrorScreen;
+  @FXML
+  private Button invalidWidgetDone;
+  @FXML
+  private Button invalidPasswordDone;
 
   @FXML
-  HBox fileWarningHbox;
+  private HBox fileWarningHbox;
 
-  Week week;
+  private Week week;
 
   /**
    * Initializes an object that can display a warning to the user.

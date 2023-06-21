@@ -16,12 +16,20 @@ public class ViewEventController extends AbstractController {
 
   Event currentEvent;
   @FXML
-  private TextField userEventName, userEventDay, userEventStartTime, userEventDuration;
+  private TextField userEventName;
+  @FXML
+  private TextField userEventDay;
+  @FXML
+  private TextField userEventStartTime;
+  @FXML
+  private TextField userEventDuration;
 
   @FXML
   private TextArea userEventDescription;
   @FXML
-  Button deleteEvent, doneViewing;
+  Button deleteEvent;
+  @FXML
+  Button doneViewing;
   Week week;
 
   /**

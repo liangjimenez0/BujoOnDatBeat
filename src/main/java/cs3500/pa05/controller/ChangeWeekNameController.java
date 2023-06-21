@@ -14,7 +14,9 @@ public class ChangeWeekNameController extends AbstractController {
   private TextField newWeekName;
 
   @FXML
-  private Button newWeekNameDone, backButton;
+  private Button newWeekNameDone;
+  @FXML
+  private Button backButton;
 
   private Week week;
 
