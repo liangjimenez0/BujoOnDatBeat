@@ -12,10 +12,13 @@ public class EditMaxTasksAndEventsController extends AbstractController {
 
   @FXML
   private TextField maxTasksInput;
+
   @FXML
   private TextField maxEventsInput;
+
   @FXML
   private Button doneButton;
+
   @FXML
   private Button backButton;
 

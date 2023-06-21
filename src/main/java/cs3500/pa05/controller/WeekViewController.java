@@ -32,7 +32,6 @@ import javafx.scene.text.TextAlignment;
  */
 public class WeekViewController extends AbstractController {
   private Week week;
-
   @FXML
   private Label bujoTitle;
   @FXML
@@ -132,7 +131,6 @@ public class WeekViewController extends AbstractController {
   private ProgressBar daySixProgressBar;
   @FXML
   private ProgressBar daySevenProgressBar;
-
   @FXML
   private Label dayOneProgLabel;
   @FXML
@@ -147,9 +145,7 @@ public class WeekViewController extends AbstractController {
   private Label daySixProgLabel;
   @FXML
   private Label daySevenProgLabel;
-
   private List<CheckBox> allCheckBoxes = new ArrayList<>();
-
   private String newName;
 
   /**
@@ -353,14 +349,7 @@ public class WeekViewController extends AbstractController {
     Button taskButton = new Button();
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
-    String regularButton = "-fx-background-color: #DBDFAA;";
-    String buttonWhenMouseHovers =
-        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border,"
-            + "-fx-inner-border, -fx-body-color;";
 
-    taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
-    taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
-    taskButton.setStyle(regularButton);
     taskButton.setText("- " + t.getName());
     taskButton.setFont(font);
     taskButton.setOnAction(
@@ -371,6 +360,13 @@ public class WeekViewController extends AbstractController {
     taskButton.setMaxHeight(50);
     taskButton.setTextAlignment(TextAlignment.LEFT);
     taskButton.setAlignment(Pos.TOP_LEFT);
+    String regularButton = "-fx-background-color: #DBDFAA;";
+    taskButton.setStyle(regularButton);
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, "
+            + "-fx-inner-border, -fx-body-color;";
+    taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
+    taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
 
     return taskButton;
   }
@@ -417,16 +413,9 @@ public class WeekViewController extends AbstractController {
    */
   private Button createNewEvent(Event e) {
     Button eventButton = new Button();
+    eventButton.setText("- " + e.getName());
     Font font = Font.font("Avenir Book",
         FontWeight.NORMAL, 13);
-    String regularButton = "-fx-background-color: #B3C890;";
-    String buttonWhenMouseHovers =
-        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border,"
-            + "-fx-inner-border, -fx-body-color;";
-
-    eventButton.setOnMouseExited(event -> eventButton.setStyle(regularButton));
-    eventButton.setOnMouseEntered(event -> eventButton.setStyle(buttonWhenMouseHovers));
-    eventButton.setText("- " + e.getName());
     eventButton.setFont(font);
     eventButton.setOnAction(
         event -> switchScene(eventButton, new ViewEventController(e, this.week), "viewEvent.fxml"));
@@ -437,6 +426,12 @@ public class WeekViewController extends AbstractController {
     eventButton.setAlignment(Pos.TOP_LEFT);
     eventButton.setTextAlignment(TextAlignment.LEFT);
     eventButton.setStyle("-fx-background-color: #B3C890; ");
+    String buttonWhenMouseHovers =
+        "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, "
+            + "-fx-inner-border, -fx-body-color;";
+    eventButton.setOnMouseEntered(event -> eventButton.setStyle(buttonWhenMouseHovers));
+    String regularButton = "-fx-background-color: #B3C890;";
+    eventButton.setOnMouseExited(event -> eventButton.setStyle(regularButton));
 
     return eventButton;
   }

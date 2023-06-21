@@ -20,16 +20,6 @@ public class Task extends Widget {
     this.completed = false;
   }
 
-  /**
-   * Initializes a task without a description.
-   *
-   * @param name is the name of this task
-   * @param day  is the day this task occurs on
-   */
-  public Task(String name, DayOfWeek day) {
-    super(day, name);
-    this.completed = false;
-  }
 
   /**
    * Initializes a task with information about completed or not with a description.

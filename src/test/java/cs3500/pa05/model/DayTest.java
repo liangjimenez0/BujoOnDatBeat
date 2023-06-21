@@ -1,6 +1,7 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonDay;
@@ -45,6 +46,7 @@ class DayTest {
     this.sat = new Day(DayOfWeek.SATURDAY);
     this.sun = new Day(DayOfWeek.SUNDAY);
     this.laundry = new Task("laundry", DayOfWeek.MONDAY, "finish laundry");
+    this.laundry.changeCompleted(true);
     this.study = new Task("study", DayOfWeek.TUESDAY, "study for exam");
     this.dinner = new Event("dinner", DayOfWeek.FRIDAY, "dinner with fam", 1800L, 120);
     this.birthday = new Event("birthday", DayOfWeek.SATURDAY, "mom's birthday party", 1200L, 60);
@@ -124,12 +126,57 @@ class DayTest {
   void dayToJson() {
     assertEquals("MONDAY", this.jsonMon.name());
     assertTrue(this.jsonMon.tasks().contains(new JsonTask(
-        "laundry", "finish laundry", DayOfWeek.MONDAY, false)));
+        "laundry", "finish laundry", DayOfWeek.MONDAY, true)));
     assertEquals("TUESDAY", this.jsonTues.name());
     assertTrue(this.jsonTues.tasks().contains(new JsonTask(
         "study", "study for exam", DayOfWeek.TUESDAY, false)));
     assertEquals("FRIDAY", this.jsonFri.name());
     assertTrue(this.jsonFri.events().contains(
         new JsonEvent("dinner", "dinner with fam", DayOfWeek.FRIDAY, 1800L, 120)));
+  }
+
+  /**
+   * Tests that the day's task completion percentage is correct
+   */
+  @Test
+  void taskCompletionPercentage() {
+    assertEquals(1.0, mon.taskCompletionPercentage());
+    assertEquals(0.0, tues.taskCompletionPercentage());
+    assertEquals(0.0, wed.taskCompletionPercentage());
+    assertEquals(0.0, thurs.taskCompletionPercentage());
+    fri.addToTask(laundry);
+    assertEquals(1.0, fri.taskCompletionPercentage());
+    sat.addToTask(laundry);
+    sat.addToTask(study);
+    assertEquals(0.5, sat.taskCompletionPercentage());
+    assertEquals(0.0, sun.taskCompletionPercentage());
+  }
+
+  /**
+   * Tests that the day holds the correct number of completed tasks
+   */
+  @Test
+  void getNumOfCompletedTasks() {
+    fri.addToTask(laundry);
+    fri.addToTask(laundry);
+    sat.addToTask(laundry);
+    sat.addToTask(study);
+    assertEquals(1, mon.getNumOfCompletedTasks());
+    assertEquals(0, tues.getNumOfCompletedTasks());
+    assertEquals(0, wed.getNumOfCompletedTasks());
+    assertEquals(0, thurs.getNumOfCompletedTasks());
+    assertEquals(2, fri.getNumOfCompletedTasks());
+    assertEquals(1, sat.getNumOfCompletedTasks());
+    assertEquals(0, sun.getNumOfCompletedTasks());
+  }
+
+  /**
+   * Tests that days determine equality between other objects correctly.
+   */
+  @Test
+  void equals() {
+    assertTrue(mon.equals(mon));
+    assertFalse(mon.equals(tues));
+    assertFalse(fri.equals(7));
   }
 }

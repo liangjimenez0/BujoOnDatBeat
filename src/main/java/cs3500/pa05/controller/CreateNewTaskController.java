@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 public class CreateNewTaskController extends AbstractController {
   @FXML
   private TextField userTaskName;
+
   @FXML
   private TextField userTaskDay;
 
@@ -22,6 +23,7 @@ public class CreateNewTaskController extends AbstractController {
   private TextArea userTaskDescription;
   @FXML
   private Button newTaskDone;
+
   @FXML
   private Button backToWeekView;
 

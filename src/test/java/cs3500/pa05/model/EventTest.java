@@ -1,6 +1,8 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonEvent;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,5 +51,79 @@ class EventTest {
     assertEquals(240, jsonWedding.duration());
     assertEquals("attend wedding", jsonWedding.description());
     assertEquals(2200L, jsonWedding.startTime());
+  }
+
+  /**
+   * Tests that events can determine equality correctly
+   */
+  @Test
+  void equals() {
+    assertTrue(wedding.equals(wedding));
+    assertFalse(wedding.equals(graduation));
+    assertFalse(wedding.equals(3));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("funeral", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.MONDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 100L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 10)));
+  }
+
+  /**
+   * Tests that events can correctly determine their start time
+   */
+  @Test
+  void getStartTime() {
+    assertEquals(2200, wedding.getStartTime());
+    assertEquals(1000, graduation.getStartTime());
+    assertEquals(1800, birthday.getStartTime());
+  }
+
+  /**
+   * Tests that events can correctly determine their duration
+   */
+  @Test
+  void getDuration() {
+    assertEquals(240, wedding.getDuration());
+    assertEquals(120, graduation.getDuration());
+    assertEquals(180, birthday.getDuration());
+  }
+
+  /**
+   * Tests that events can correctly change their start time
+   */
+  @Test
+  void changeStartTime() {
+    assertEquals(2200, wedding.getStartTime());
+    assertEquals(1000, graduation.getStartTime());
+    assertEquals(1800, birthday.getStartTime());
+    wedding.changeStartTime(13L);
+    graduation.changeStartTime(4L);
+    birthday.changeStartTime(7L);
+    assertEquals(13, wedding.getStartTime());
+    assertEquals(4, graduation.getStartTime());
+    assertEquals(7, birthday.getStartTime());
+  }
+
+  /**
+   * Tests that events can correctly change their duration
+   */
+  @Test
+  void changeDuration() {
+    assertEquals(240, wedding.getDuration());
+    assertEquals(120, graduation.getDuration());
+    assertEquals(180, birthday.getDuration());
+
+    wedding.changeDuration(5);
+    graduation.changeDuration(70);
+    birthday.changeDuration(3);
+
+    assertEquals(5, wedding.getDuration());
+    assertEquals(70, graduation.getDuration());
+    assertEquals(3, birthday.getDuration());
   }
 }

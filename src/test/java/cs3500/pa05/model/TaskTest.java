@@ -1,6 +1,8 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonTask;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,5 +45,46 @@ class TaskTest {
     assertEquals(DayOfWeek.THURSDAY, jsonClean.day());
     assertEquals("clean", jsonClean.name());
     assertEquals("clean the house", jsonClean.description());
+  }
+
+  /**
+   * Tests that tasks return the correct completed boolean
+   */
+  @Test
+  void getCompleted() {
+    assertFalse(clean.getCompleted());
+    callFamily.changeCompleted(true);
+    assertTrue(callFamily.getCompleted());
+    assertFalse(laundry.getCompleted());
+  }
+
+  /**
+   * Tests that tasks can know if they are equal to other objects.
+   */
+  @Test
+  void equals() {
+    assertTrue(clean.equals(clean));
+    assertFalse(callFamily.equals(clean));
+    assertFalse(laundry.equals(21));
+    assertFalse(new Task("laundry", DayOfWeek.TUESDAY, "finish laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
+    assertFalse(new Task("monday", DayOfWeek.MONDAY, "finish laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
+    assertFalse(new Task("laundry", DayOfWeek.MONDAY, "laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
+  }
+
+  /**
+   * Tests that we can correctly change whether the task was completed
+   */
+  @Test
+  void changeCompleted() {
+    clean.changeCompleted(false);
+    callFamily.changeCompleted(false);
+    laundry.changeCompleted(true);
+
+    assertTrue(laundry.getCompleted());
+    assertFalse(clean.getCompleted());
+    assertFalse(callFamily.getCompleted());
   }
 }

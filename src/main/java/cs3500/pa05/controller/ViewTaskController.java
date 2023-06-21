@@ -19,18 +19,16 @@ public class ViewTaskController extends AbstractController {
   private TextField userTaskName;
   @FXML
   private TextField userTaskDay;
-
   @FXML
   private TextArea userTaskDescription;
   @FXML
-  Button deleteTask;
+  private Button deleteTask;
   @FXML
-  Button doneViewing;
-
+  private Button doneViewing;
   @FXML
-  CheckBox completedBox;
-  Task currentTask;
-  Week week;
+  private CheckBox completedBox;
+  private Task currentTask;
+  private Week week;
 
   /**
    * Initializes an object that can view and edit a task in a given week.

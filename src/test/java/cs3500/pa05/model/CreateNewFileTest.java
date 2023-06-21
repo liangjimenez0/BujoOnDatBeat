@@ -62,8 +62,8 @@ class CreateNewFileTest {
     this.maxTasks = 3;
     this.maxEvents = 5;
     this.password = "jujuOnThatBeat";
-    this.exampleWeek =
-        new Week(this.maxTasks, this.maxEvents, "createFileTestOutput.bujo", this.password);
+    this.exampleWeek = new Week(this.maxTasks, this.maxEvents,
+        "createFileTestOutput.bujo", this.password);
     this.exampleWeek.getDay(DayOfWeek.SUNDAY).addToTask(exampleTaskSunday);
     this.exampleWeek.getDay(DayOfWeek.MONDAY).addToTask(exampleTaskMonday);
     this.exampleWeek.getDay(DayOfWeek.TUESDAY).addToTask(exampleTaskTuesday);
@@ -80,8 +80,8 @@ class CreateNewFileTest {
     this.exampleWeek.getDay(DayOfWeek.FRIDAY).addToEvent(exampleEventFri);
     this.exampleWeek.getDay(DayOfWeek.SATURDAY).addToEvent(exampleEventSat);
 
-    JsonBujoFile jsonBujoFile =
-        new JsonBujoFile(maxTasks, maxEvents, password, exampleWeek.weekToJson());
+    JsonBujoFile jsonBujoFile = new JsonBujoFile(maxTasks, maxEvents,
+        password, exampleWeek.weekToJson());
     JsonNode nodeBujo = JsonUtils.serializeRecord(jsonBujoFile);
     String expecOut = nodeBujo.toPrettyString();
     expectedOutputBuilder = new StringBuilder(expecOut);
@@ -101,9 +101,9 @@ class CreateNewFileTest {
       // tests that the expected outputs are displayed.
       BufferedReader expectedOutput =
           new BufferedReader(new FileReader("src/test/testfiles/createFileTestOutput.bujo"));
-      BufferedReader actualOutput =
-          new BufferedReader(new StringReader(expectedOutputBuilder.toString()));
-
+      BufferedReader actualOutput = new BufferedReader(
+          new StringReader(expectedOutputBuilder.toString()));
+      
       while (expectedOutput.ready() && actualOutput.ready()) {
         assertEquals(expectedOutput.readLine(), actualOutput.readLine());
       }

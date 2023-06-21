@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 public class OpenExistingFileController extends AbstractController {
   @FXML
   private TextField fileNameInput;
+
   @FXML
   private TextField passwordInput;
   @FXML

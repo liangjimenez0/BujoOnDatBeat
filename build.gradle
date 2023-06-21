@@ -90,3 +90,30 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+
+apply plugin: 'java'
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes("Manifest-Version": "1.0",
+                "Main-Class": "cs3500.pa05.Driver")
+    }
+}
+
+tasks.register('fatJar', Jar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest.from jar.manifest
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+installDist{}

@@ -1,7 +1,9 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonDay;
 import cs3500.pa05.json.JsonEvent;
@@ -19,13 +21,20 @@ class WeekTest {
   Week firstWeek;
   Week secondWeek;
 
+  Week thirdWeek;
+
   /**
    * Initializes objects before each test
    */
   @BeforeEach
   public void setup() {
-    this.firstWeek = new Week(3, 4, "happyWeek", "password");
-    this.secondWeek = new Week(0, 0, "emptyWeek", "password");
+    this.firstWeek = new Week(3, 4, "week1", "badPassword");
+    this.secondWeek = new Week(0, 0, "week2", "betterPassword");
+    this.thirdWeek = new Week(15, 22, "week3", "worsePassword");
+    this.thirdWeek.getDays().get(0).getTasks().add(
+        new Task("shopping", DayOfWeek.FRIDAY, "shopping"));
+    this.thirdWeek.getDays().get(0).getEvents().add(
+        new Event("bday", DayOfWeek.SUNDAY, "surprise party", 1000L, 120));
   }
 
   /**
@@ -65,6 +74,30 @@ class WeekTest {
   }
 
   /**
+   * Tests that a week returns the correct day
+   */
+  @Test
+  void getDay() {
+    assertEquals(new Day(DayOfWeek.MONDAY), firstWeek.getDay(DayOfWeek.MONDAY));
+    assertEquals(new Day(DayOfWeek.TUESDAY), firstWeek.getDay(DayOfWeek.TUESDAY));
+  }
+
+  /**
+   * Tests that a string given is a valid day
+   */
+  @Test
+  void checkDay() {
+    assertTrue(firstWeek.checkDay("TUESDAY"));
+    assertTrue(firstWeek.checkDay("WEDNESDAY"));
+    assertTrue(firstWeek.checkDay("FRIDAY"));
+    assertTrue(firstWeek.checkDay("MONDAY"));
+    assertTrue(firstWeek.checkDay("THURSDAY"));
+    assertTrue(firstWeek.checkDay("SATURDAY"));
+    assertTrue(firstWeek.checkDay("SUNDAY"));
+    assertFalse(firstWeek.checkDay("NOT A DAY"));
+  }
+
+  /**
    * Testing the maximum number of tasks in this week
    */
   @Test
@@ -97,5 +130,137 @@ class WeekTest {
     assertEquals(new JsonDay("THURSDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(4));
     assertEquals(new JsonDay("FRIDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(5));
     assertEquals(new JsonDay("SATURDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(6));
+  }
+
+  /**
+   * Tests that start days are correctly initialized by a given day
+   */
+  @Test
+  void initializwWithStartDay() {
+    List<Day> weekStartingWithFriday = new ArrayList<>();
+    weekStartingWithFriday.add(new Day(DayOfWeek.FRIDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.SATURDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.SUNDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.MONDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.TUESDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.WEDNESDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.THURSDAY));
+    List<Day> weekStartingWithWednesday = new ArrayList<>();
+    weekStartingWithWednesday.add(new Day(DayOfWeek.WEDNESDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.THURSDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.FRIDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.SATURDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.SUNDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.MONDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.TUESDAY));
+
+    Week fridayStartWeek = new Week(5, 5, "filename", "FRIDAY", "password", "weekname");
+    Week wednesdayStartWeek = new Week(5, 5, "filename", "WEDNESDAY", "password", "weekname");
+
+    assertEquals(weekStartingWithFriday.size(), weekStartingWithWednesday.size());
+    assertEquals(weekStartingWithWednesday, wednesdayStartWeek.getDays());
+    assertEquals(weekStartingWithFriday, fridayStartWeek.getDays());
+  }
+
+  /**
+   * Tests that the weeks contain the correct amount of tasks.
+   */
+  @Test
+  void getAllTasks() {
+    assertEquals(new ArrayList<>(), firstWeek.getAllTasks());
+    assertEquals(1, thirdWeek.getAllTasks().size());
+    assertEquals(new Task("shopping", DayOfWeek.FRIDAY, "shopping"),
+        thirdWeek.getAllTasks().get(0));
+  }
+
+  /**
+   * Tests that the weeks contain the correct amount of events.
+   */
+  @Test
+  void getAllEvents() {
+    assertEquals(new ArrayList<>(), firstWeek.getAllEvents());
+    assertEquals(1, thirdWeek.getAllTasks().size());
+    assertEquals(new Event("bday", DayOfWeek.SUNDAY, "surprise party", 1000L, 120),
+        thirdWeek.getAllEvents().get(0));
+  }
+
+  /**
+   * Tests that the correct name is given
+   */
+  @Test
+  void getName() {
+    assertEquals("week1", firstWeek.getName());
+    assertEquals("week2", secondWeek.getName());
+    assertEquals("week3", thirdWeek.getName());
+  }
+
+  /**
+   * Tests that the name for a week can correctly be updated
+   */
+  @Test
+  void setNameForWeek() {
+    Week changeNameTest = new Week(2, 2, "weekname", "password");
+    changeNameTest.setNameForWeek("newName");
+    assertEquals("newName", changeNameTest.getNameForWeek());
+  }
+
+  /**
+   * Tests that the name is correctly returned
+   */
+  @Test
+  void getNameForWeek() {
+    assertEquals("welcome to your bullet journal", firstWeek.getNameForWeek());
+    assertEquals("welcome to your bullet journal", secondWeek.getNameForWeek());
+  }
+
+  /**
+   * Tests that the max events can be correctly updated.
+   */
+  @Test
+  void changeMaxEvents() {
+    assertEquals(4, firstWeek.getMaxEvents());
+    assertEquals(0, secondWeek.getMaxEvents());
+
+    firstWeek.changeMaxEvents(7);
+    secondWeek.changeMaxEvents(4);
+
+    assertEquals(7, firstWeek.getMaxEvents());
+    assertEquals(4, secondWeek.getMaxEvents());
+  }
+
+  /**
+   * Tests that the max tasks can be correctly updated.
+   */
+  @Test
+  void changeMaxTasks() {
+    assertEquals(3, firstWeek.getMaxTasks());
+    assertEquals(0, secondWeek.getMaxTasks());
+
+    firstWeek.changeMaxTasks(7);
+    secondWeek.changeMaxTasks(4);
+
+    assertEquals(7, firstWeek.getMaxTasks());
+    assertEquals(4, secondWeek.getMaxTasks());
+  }
+
+  /**
+   * Tests that the password is correctly returned
+   */
+  @Test
+  void getPassword() {
+    assertEquals("badPassword", firstWeek.getPassword());
+    assertEquals("betterPassword", secondWeek.getPassword());
+  }
+
+  /**
+   * Tests that the weekday start is correctly returned
+   */
+  @Test
+  void getWeekdayStart() {
+    Week fridayStartWeek = new Week(5, 5, "filename", "MONDAY", "password", "week name");
+    assertEquals(DayOfWeek.MONDAY, fridayStartWeek.getWeekdayStart());
+
+    Week thursdayStartWeek = new Week(5, 5, "filename", "THURSDAY", "password", "week name");
+    assertEquals(DayOfWeek.THURSDAY, thursdayStartWeek.getWeekdayStart());
   }
 }

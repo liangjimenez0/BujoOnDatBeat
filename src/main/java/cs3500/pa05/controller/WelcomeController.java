@@ -16,6 +16,7 @@ public class WelcomeController extends AbstractController {
 
   @FXML
   private Button openExistingFile;
+
   @FXML
   private Button openFileAsTemplate;
 

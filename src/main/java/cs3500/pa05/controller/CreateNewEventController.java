@@ -17,11 +17,12 @@ public class CreateNewEventController extends AbstractController {
   private TextField userEventName;
   @FXML
   private TextField userEventDay;
+
   @FXML
   private TextField userEventStartTime;
+
   @FXML
   private TextField userEventDuration;
-
 
   @FXML
   private TextArea userEventDescription;

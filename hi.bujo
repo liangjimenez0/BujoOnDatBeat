@@ -1,16 +1,32 @@
 {
-  "Max Tasks" : 1,
-  "Max Events" : 1,
+  "Max Tasks" : 20,
+  "Max Events" : 20,
+  "Password" : "password",
   "Week" : {
-    "Name" : "welcome to your bullet journal",
+    "Name" : "final's week",
     "Days" : [ {
+      "Name" : "TUESDAY",
+      "Tasks" : [ {
+        "Name" : "laundry",
+        "Description" : "finish laundry for the week",
+        "Day of Week" : "TUESDAY",
+        "Completed" : false
+      } ],
+      "Events" : [ ]
+    }, {
       "Name" : "WEDNESDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     }, {
       "Name" : "THURSDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "birthday party",
+        "Description" : "annie's birthday party\t\t",
+        "Day of Week" : "THURSDAY",
+        "Start Time" : 1100,
+        "Duration" : 160
+      } ]
     }, {
       "Name" : "FRIDAY",
       "Tasks" : [ ],
@@ -25,10 +41,6 @@
       "Events" : [ ]
     }, {
       "Name" : "MONDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
-    }, {
-      "Name" : "TUESDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     } ]
