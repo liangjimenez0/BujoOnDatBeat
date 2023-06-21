@@ -9,17 +9,19 @@
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="300.0" prefWidth="500.0">
-        <children>
-            <ImageView fx:id="bulletJournalLogo" fitHeight="500.0" fitWidth="700.0" layoutX="-11.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="bulletJournalLogo" fitHeight="500.0" fitWidth="700.0" layoutX="-11.0" layoutY="-10.0"
+                   pickOnBounds="true" preserveRatio="true">
 
-            </ImageView>
-            <Button fx:id="hidden" alignment="CENTER" contentDisplay="BOTTOM" layoutY="-3.0" mnemonicParsing="false" opacity="0.0" prefHeight="390.0" prefWidth="850.0" text="click anywhere to begin.">
-            </Button>
-         <Label layoutX="325.0" layoutY="400.0" prefHeight="17.0" prefWidth="300.0" text="click anywhere to continue" textFill="WHITE">
-            <font>
-               <Font name="Avenir Book" size="20.0" />
-            </font>
-         </Label>
+        </ImageView>
+        <Button fx:id="hidden" alignment="CENTER" contentDisplay="BOTTOM" layoutY="-3.0" mnemonicParsing="false"
+                opacity="0.0" prefHeight="390.0" prefWidth="850.0" text="click anywhere to begin.">
+        </Button>
+        <Label layoutX="325.0" layoutY="400.0" prefHeight="17.0" prefWidth="300.0" text="click anywhere to continue"
+               textFill="WHITE">
+           <font>
+               <Font name="Avenir Book" size="20.0"/>
+           </font>
+        </Label>
 
-        </children></AnchorPane>
+    </AnchorPane>
 </Scene>
