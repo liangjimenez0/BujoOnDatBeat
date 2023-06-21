@@ -71,10 +71,21 @@ public class WeekViewController extends AbstractController {
 
   private String newName;
 
+  /**
+   * Initializes an object that displays a given week.
+   *
+   * @param week the week to be viewed
+   */
   public WeekViewController(Week week) {
     this.week = week;
   }
 
+  /**
+   * Initializes an object that displays a given week with a custom name
+   *
+   * @param week the week to be viewed
+   * @param s the custom week name
+   */
   public WeekViewController(Week week, String s) {
     this.week = week;
     this.newName = s;
@@ -128,6 +139,9 @@ public class WeekViewController extends AbstractController {
             "openFileAsTemplate.fxml"));
   }
 
+  /**
+   * Sets all the days of the week.
+   */
   private void setWeekdays() {
     this.dayOneLabel.setText(this.week.getDays().get(0).getDayOfWeek().name().toLowerCase());
     this.dayTwoLabel.setText(this.week.getDays().get(1).getDayOfWeek().name().toLowerCase());
@@ -146,19 +160,30 @@ public class WeekViewController extends AbstractController {
     this.daySevenBox.setId(this.week.getDays().get(6).getDayOfWeek().name().toLowerCase());
   }
 
+  /**
+   * Updates the current name of the week.
+   */
   private void mutateJournalName() {
     this.week.setNameForWeek(newName);
   }
 
+  /**
+   * Displays the new task popup to the user.
+   */
   private void newTask() {
     switchScene(this.menuBar, new CreateNewTaskController(this.week), "createNewTask.fxml");
   }
 
+  /**
+   * Displays the new event popup to the user.
+   */
   private void newEvent() {
     switchScene(this.menuBar, new CreateNewEventController(this.week), "createNewEvent.fxml");
   }
 
-
+  /**
+   * Populates the task queue with all the weeks tasks.
+   */
   private void createTaskQueue() {
     List<Task> allTasks = this.week.getAllTasks();
 
@@ -172,6 +197,12 @@ public class WeekViewController extends AbstractController {
   }
 
 
+  /**
+   * Determines if a task should be displayed as completed.
+   *
+   * @param t the task
+   * @return whether the task is completed or not
+   */
   private CheckBox convertTaskToGui(Task t) {
     CheckBox checkBox = new CheckBox();
     checkBox.setDisable(true);
@@ -198,6 +229,9 @@ public class WeekViewController extends AbstractController {
   }
 
 
+  /**
+   * Converts the weeks tasks to be displayable.
+   */
   private void convertWeekTasksToGui() {
     for (Day d : this.week.getDays()) {
       for (Task t : d.getTasks()) {
@@ -228,6 +262,12 @@ public class WeekViewController extends AbstractController {
   }
 
 
+  /**
+   * Creates a new task display from the given task.
+   *
+   * @param t the task to be displayed
+   * @return the task as a button
+   */
   private Button createNewTask(Task t) {
     Button taskButton = new Button();
     Font font = Font.font("Avenir Book",
@@ -253,6 +293,9 @@ public class WeekViewController extends AbstractController {
     return taskButton;
   }
 
+  /**
+   * Converts the weeks events to be displayable.
+   */
   private void convertWeekEventsToGui() {
     for (Day d : this.week.getDays()) {
 
@@ -284,6 +327,12 @@ public class WeekViewController extends AbstractController {
   }
 
 
+  /**
+   * Creates a new event display from a given event.
+   *
+   * @param e the event to be displayed
+   * @return a button representation of the event
+   */
   private Button createNewEvent(Event e) {
     Button eventButton = new Button();
     Font font = Font.font("Avenir Book",
@@ -322,6 +371,9 @@ public class WeekViewController extends AbstractController {
   }
 
 
+  /**
+   * Updates all the progress bars to reflected complete vs incomplete tasks.
+   */
   private void updateProgressBars() {
     for (Day day : this.week.getDays()) {
       if (String.valueOf(day.getDayOfWeek()).toLowerCase().equals(dayOneBox.getId())) {
@@ -356,7 +408,9 @@ public class WeekViewController extends AbstractController {
     }
   }
 
-
+  /**
+   * Initializes all shortcuts for this program.
+   */
   private void settingShortcuts() {
     setAccelerators();
     this.menuBar.getScene().getAccelerators()
@@ -392,7 +446,9 @@ public class WeekViewController extends AbstractController {
         });
   }
 
-
+  /**
+   * Initializes all hot keys for this program.
+   */
   private void setAccelerators() {
     renameWeekButton.setAccelerator(
         new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));

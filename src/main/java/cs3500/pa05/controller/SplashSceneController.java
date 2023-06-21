@@ -9,6 +9,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+/**
+ * Handles displaying a splash scene to the user.
+ */
 public class SplashSceneController extends AbstractController {
   @FXML
   ImageView bulletJournalLogo;
@@ -18,10 +21,18 @@ public class SplashSceneController extends AbstractController {
 
   Stage stage;
 
+  /**
+   * Initializes an object that can display a splash scene.
+   *
+   * @param stage where to display the scene.
+   */
   public SplashSceneController(Stage stage) {
     this.stage = stage;
   }
 
+  /**
+   * Displays the scene until a user clicks the screen.
+   */
   @Override
   public void run() {
     InputStream stream = null;

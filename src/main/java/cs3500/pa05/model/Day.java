@@ -122,6 +122,12 @@ public class Day {
     return count;
   }
 
+  /**
+   * Determines if this day is the same as a given object.
+   *
+   * @param o the object to be compared
+   * @return whether the objects equal
+   */
   public boolean equals(Object o) {
     if (!(o instanceof Day)) {
       return false;

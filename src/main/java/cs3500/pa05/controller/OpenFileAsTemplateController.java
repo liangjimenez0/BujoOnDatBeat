@@ -9,6 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Handles opening of preexisting templated files.
+ */
 public class OpenFileAsTemplateController extends AbstractController {
 
   @FXML
@@ -20,6 +23,9 @@ public class OpenFileAsTemplateController extends AbstractController {
 
   private Week currentWeek;
 
+  /**
+   * Handles the different actions a user can take when opening a templated file
+   */
   public void run() {
     this.backButton.getScene().getWindow().centerOnScreen();
 
@@ -29,6 +35,9 @@ public class OpenFileAsTemplateController extends AbstractController {
     submitButton.setOnAction(e -> processFile());
   }
 
+  /**
+   * Creates a week from a given file and displays it.
+   */
   private void processFile() {
     String fileName = fileNameInput.getText();
     File file = new File(fileName);

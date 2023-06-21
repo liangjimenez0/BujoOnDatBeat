@@ -31,6 +31,7 @@ public class WelcomeController extends AbstractController {
             "openExistingFile.fxml"));
 
     openFileAsTemplate.setOnAction(
-        e -> switchScene(openFileAsTemplate, new OpenFileAsTemplateController(), "openFileAsTemplate.fxml"));
+        e -> switchScene(
+            openFileAsTemplate, new OpenFileAsTemplateController(), "openFileAsTemplate.fxml"));
   }
 }

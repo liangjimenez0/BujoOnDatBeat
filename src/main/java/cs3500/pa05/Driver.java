@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 public class Driver extends Application {
 
   /**
+   * The entry method
+   *
    * @param args are the command line arguments that are to be processed and read
    */
   public static void main(String[] args) {

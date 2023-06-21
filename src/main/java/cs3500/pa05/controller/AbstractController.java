@@ -7,12 +7,15 @@ import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
 /**
- * Represents the abstracted code from controller that switches scenes on a JavaFX stage
+ * Represents a controller that switches scenes on a JavaFX stage
  */
 public abstract class AbstractController implements Controller {
   private Week currentWeek;
 
   /**
+   * Switches the scene on a given controls stage to a new view of the
+   * given FXML file (controlled by the given controller)
+   *
    * @param controller is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file
    */

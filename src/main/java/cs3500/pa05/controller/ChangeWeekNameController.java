@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /**
- * Represents the
+ * Represents an object that can change the week name of a bujo.
  */
 public class ChangeWeekNameController extends AbstractController {
 
@@ -23,7 +23,9 @@ public class ChangeWeekNameController extends AbstractController {
   }
 
 
-
+  /**
+   * Initializes controls for each button on this scene.
+   */
   @Override
   public void run() {
     this.backButton.getScene().getWindow().centerOnScreen();
@@ -34,7 +36,9 @@ public class ChangeWeekNameController extends AbstractController {
   }
 
 
-
+  /**
+   * Updates the week to contain the new tite.
+   */
   private void setNewTitle() {
     if (newWeekName.getText() != null) {
       this.week.setNameForWeek(newWeekName.getText());

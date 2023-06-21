@@ -59,8 +59,7 @@ public abstract class Widget {
   public String getDescription() {
     if (this.description != null) {
       return this.description;
-    }
-    else {
+    } else {
       return "";
     }
   }

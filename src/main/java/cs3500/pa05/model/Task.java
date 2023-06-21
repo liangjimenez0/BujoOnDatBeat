@@ -86,8 +86,8 @@ public class Task extends Widget {
     }
 
     Task that = (Task) other;
-    return this.name.equals(that.name) && this.day.equals(that.day) &&
-        this.description.equals(that.description) && this.completed == that.completed;
+    return this.name.equals(that.name) && this.day.equals(that.day)
+        && this.description.equals(that.description) && this.completed == that.completed;
   }
 
   /**

@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Handles the editing of max tasks and events.
+ */
 public class EditMaxTasksAndEventsController extends AbstractController {
 
   @FXML
@@ -24,12 +27,19 @@ public class EditMaxTasksAndEventsController extends AbstractController {
     this.week = week;
   }
 
+  /**
+   * Handles the different actions a user can take while editing a max task/event
+   */
   public void run() {
     this.doneButton.getScene().getWindow().centerOnScreen();
     doneButton.setOnAction(e -> editMax());
-    backButton.setOnAction(e -> switchScene(backButton, new WeekViewController(this.week), "weekView.fxml"));
+    backButton.setOnAction(e ->
+        switchScene(backButton, new WeekViewController(this.week), "weekView.fxml"));
   }
 
+  /**
+   * Updates the week and returns to the week view.
+   */
   private void editMax() {
     this.week.changeMaxTasks(Integer.parseInt(maxTasksInput.getText()));
     this.week.changeMaxEvents(Integer.parseInt(maxEventsInput.getText()));

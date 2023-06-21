@@ -21,7 +21,7 @@ public class Week {
   private DayOfWeek startDay;
   private String password;
 
-  /**
+ /**
    * Initializes a week object without a user-defined name.
    *
    * @param maxTasks  is the maximum number of tasks a user can have in a week
@@ -41,6 +41,16 @@ public class Week {
     initializeDays();
   }
 
+  /**
+   * Initializes a week object with a user-defined name, password, and start date.
+   *
+   * @param maxTasks is the maximum number of tasks a user can have in a week
+   * @param maxEvents is the maximum number of events a user can have in a week
+   * @param fileName the name of the file this week is
+   * @param startDay what day this week starts on
+   * @param password the key to get into this file
+   * @param nameForWeek the custom name for this week
+   */
   public Week(int maxTasks, int maxEvents, String fileName, String startDay, String password,
               String nameForWeek) {
     this.allDays = new ArrayList<>();
@@ -80,6 +90,11 @@ public class Week {
   }
 
 
+  /**
+   * Creates a week with custom order.
+   *
+   * @param start the desired start day
+   */
   private void initializeWithStartDay(DayOfWeek start) {
     List<Day> reorderedDays = new ArrayList<>();
 
@@ -126,6 +141,12 @@ public class Week {
     return this.allDays;
   }
 
+  /**
+   * Checks that the day is a valid day
+   *
+   * @param dayName the given day to check
+   * @return if it is a valid day
+   */
   public boolean checkDay(String dayName) {
     return
         dayName.equals(DayOfWeek.SUNDAY.name())
@@ -211,26 +232,56 @@ public class Week {
   }
 
 
+  /**
+   * Mutates the name of this week.
+   *
+   * @param s the new name
+   */
   public void setNameForWeek(String s) {
     this.nameForWeek = s;
   }
 
+  /**
+   * Gets the current name of this week
+   *
+   * @return the current week name
+   */
   public String getNameForWeek() {
     return this.nameForWeek;
   }
 
+  /**
+   * Updates the number of max tasks for this week.
+   *
+   * @param maxTasks the new number of max tasks
+   */
   public void changeMaxTasks(int maxTasks) {
     this.maxTasks = maxTasks;
   }
 
+  /**
+   * Updates the number of max events for this week.
+   *
+   * @param maxEvents the new number of max events
+   */
   public void changeMaxEvents(int maxEvents) {
     this.maxEvents = maxEvents;
   }
 
+  /**
+   * Gets the password for this file.
+   *
+   * @return the current password
+   */
   public String getPassword() {
     return this.password;
   }
 
+  /**
+   * Gets the current start day of this week.
+   *
+   * @return the start day
+   */
   public DayOfWeek getWeekdayStart() {
     return this.startDay;
   }

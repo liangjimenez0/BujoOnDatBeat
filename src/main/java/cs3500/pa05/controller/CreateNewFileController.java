@@ -35,6 +35,9 @@ public class CreateNewFileController extends AbstractController {
     submitButton.setOnAction(e -> createNewFile());
   }
 
+  /**
+   * Creates a new file from the user-entered information.
+   */
   private void createNewFile() {
 
     try {
@@ -44,8 +47,8 @@ public class CreateNewFileController extends AbstractController {
       String weekdayStart = startWeekday.getText();
       String password = passwordInput.getText();
       String weekName = newWeekNameInput.getText();
-      if (!fileName.endsWith("bujo") || weekdayStart.isEmpty() || password.isEmpty() ||
-          maxTasks < 0 || maxEvents < 0 || !isDayOfWeek(weekdayStart)) {
+      if (!fileName.endsWith("bujo") || weekdayStart.isEmpty() || password.isEmpty()
+          || maxTasks < 0 || maxEvents < 0 || !isDayOfWeek(weekdayStart)) {
         switchScene(submitButton, new WarningController(this.currentWeek),
             "invalidFileWarning.fxml");
       } else {
@@ -72,12 +75,12 @@ public class CreateNewFileController extends AbstractController {
    * @return if the string is a day of the week
    */
   private boolean isDayOfWeek(String s) {
-    return DayOfWeek.MONDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.TUESDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.WEDNESDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.THURSDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.FRIDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.SATURDAY.name().equals(s.toUpperCase()) ||
-        DayOfWeek.SUNDAY.name().equals(s.toUpperCase());
+    return DayOfWeek.MONDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.TUESDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.WEDNESDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.THURSDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.FRIDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.SATURDAY.name().equals(s.toUpperCase())
+        || DayOfWeek.SUNDAY.name().equals(s.toUpperCase());
   }
 }

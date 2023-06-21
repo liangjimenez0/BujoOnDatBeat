@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 /**
  * Handles the expanding of an event in the view.
  */
-public class ViewTaskController extends AbstractController{
+public class ViewTaskController extends AbstractController {
 
   @FXML
   private TextField userTaskName, userTaskDay;

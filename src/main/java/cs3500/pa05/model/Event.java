@@ -63,9 +63,9 @@ public class Event extends Widget {
     }
 
     Event that = (Event) other;
-    return this.day.equals(that.day) && this.name.equals(that.name) &&
-        this.description.equals(that.description) && this.duration == that.duration &&
-        this.startTime == that.startTime;
+    return this.day.equals(that.day) && this.name.equals(that.name)
+        && this.description.equals(that.description) && this.duration == that.duration
+        && this.startTime == that.startTime;
   }
 
   /**
