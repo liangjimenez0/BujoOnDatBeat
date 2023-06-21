@@ -21,13 +21,20 @@ class WeekTest {
   Week firstWeek;
   Week secondWeek;
 
+  Week thirdWeek;
+
   /**
    * Initializes objects before each test
    */
   @BeforeEach
   public void setup() {
-    this.firstWeek = new Week(3, 4, "happyWeek", "password");
-    this.secondWeek = new Week(0, 0, "emptyWeek", "password");
+    this.firstWeek = new Week(3, 4, "week1", "badPassword");
+    this.secondWeek = new Week(0, 0, "week2", "betterPassword");
+    this.thirdWeek = new Week(15, 22, "week3", "worsePassword");
+    this.thirdWeek.getDays().get(0).getTasks().add(
+        new Task("shopping", DayOfWeek.FRIDAY, "shopping"));
+    this.thirdWeek.getDays().get(0).getEvents().add(
+        new Event("bday", DayOfWeek.SUNDAY, "surprise party", 1000L, 120));
   }
 
   /**
@@ -68,8 +75,8 @@ class WeekTest {
 
   @Test
   void getDay() {
-    assertEquals("", firstWeek.getDay(DayOfWeek.MONDAY));
-    assertEquals("", firstWeek.getDay(DayOfWeek.TUESDAY));
+    assertEquals(new Day(DayOfWeek.MONDAY), firstWeek.getDay(DayOfWeek.MONDAY));
+    assertEquals(new Day(DayOfWeek.TUESDAY), firstWeek.getDay(DayOfWeek.TUESDAY));
   }
 
   @Test
@@ -77,6 +84,10 @@ class WeekTest {
     assertTrue(firstWeek.checkDay("TUESDAY"));
     assertTrue(firstWeek.checkDay("WEDNESDAY"));
     assertTrue(firstWeek.checkDay("FRIDAY"));
+    assertTrue(firstWeek.checkDay("MONDAY"));
+    assertTrue(firstWeek.checkDay("THURSDAY"));
+    assertTrue(firstWeek.checkDay("SATURDAY"));
+    assertTrue(firstWeek.checkDay("SUNDAY"));
     assertFalse(firstWeek.checkDay("NOT A DAY"));
   }
 
@@ -116,18 +127,53 @@ class WeekTest {
   }
 
   @Test
+  void initializwWithStartDay() {
+    List<Day> weekStartingWithFriday = new ArrayList<>();
+    weekStartingWithFriday.add(new Day(DayOfWeek.FRIDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.SATURDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.SUNDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.MONDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.TUESDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.WEDNESDAY));
+    weekStartingWithFriday.add(new Day(DayOfWeek.THURSDAY));
+    List<Day> weekStartingWithWednesday = new ArrayList<>();
+    weekStartingWithWednesday.add(new Day(DayOfWeek.WEDNESDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.THURSDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.FRIDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.SATURDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.SUNDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.MONDAY));
+    weekStartingWithWednesday.add(new Day(DayOfWeek.TUESDAY));
+
+    Week fridayStartWeek = new Week(5, 5, "filename", "FRIDAY", "password", "weekname");
+    Week wednesdayStartWeek = new Week(5, 5, "filename", "WEDNESDAY", "password", "weekname");
+
+    assertEquals(weekStartingWithFriday.size(), weekStartingWithWednesday.size());
+    assertEquals(weekStartingWithWednesday, wednesdayStartWeek.getDays());
+    assertEquals(weekStartingWithFriday, fridayStartWeek.getDays());
+  }
+
+  @Test
   void getAllTasks() {
-    assertEquals(new ArrayList<>(),firstWeek.getAllTasks());
+    assertEquals(new ArrayList<>(), firstWeek.getAllTasks());
+    assertEquals(1, thirdWeek.getAllTasks().size());
+    assertEquals(new Task("shopping", DayOfWeek.FRIDAY, "shopping"),
+        thirdWeek.getAllTasks().get(0));
   }
 
   @Test
   void getAllEvents() {
-    assertEquals(new ArrayList<>(),firstWeek.getAllEvents());
+    assertEquals(new ArrayList<>(), firstWeek.getAllEvents());
+    assertEquals(1, thirdWeek.getAllTasks().size());
+    assertEquals(new Event("bday", DayOfWeek.SUNDAY, "surprise party", 1000L, 120),
+        thirdWeek.getAllEvents().get(0));
   }
 
   @Test
   void getName() {
-
+    assertEquals("week1", firstWeek.getName());
+    assertEquals("week2", secondWeek.getName());
+    assertEquals("week3", thirdWeek.getName());
   }
 
   @Test
