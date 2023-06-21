@@ -178,7 +178,9 @@ class WeekTest {
 
   @Test
   void setNameForWeek() {
-
+    Week changeNameTest = new Week(2, 2,"weekname", "password");
+    changeNameTest.setNameForWeek("newName");
+    assertEquals("newName", changeNameTest.getNameForWeek());
   }
 
   @Test
@@ -200,9 +202,9 @@ class WeekTest {
   }
 
   @Test
-  void changeMaxEvents() {
+  void changeMaxTasks() {
     assertEquals(3, firstWeek.getMaxTasks());
-    assertEquals(3, secondWeek.getMaxTasks());
+    assertEquals(0, secondWeek.getMaxTasks());
 
     firstWeek.changeMaxTasks(7);
     secondWeek.changeMaxTasks(4);
