@@ -90,9 +90,3 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
-
-//jar {
-//    manifest {
-//        attributes 'Main-Class': 'cs3500.pa05.Driver'
-//    }
-//}
