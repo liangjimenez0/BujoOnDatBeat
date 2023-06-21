@@ -183,26 +183,44 @@ class WeekTest {
 
   @Test
   void getNameForWeek() {
+    assertEquals("week1", firstWeek.getNameForWeek());
+    assertEquals("week2", secondWeek.getNameForWeek());
 
   }
 
   @Test
   void changeMaxTasks() {
+    assertEquals(3, firstWeek.getMaxEvents());
+    assertEquals(3, secondWeek.getMaxEvents());
 
+    firstWeek.changeMaxEvents(7);
+    secondWeek.changeMaxEvents(4);
+
+    assertEquals(7, firstWeek.getMaxEvents());
+    assertEquals(4, secondWeek.getMaxEvents());
   }
 
   @Test
   void changeMaxEvents() {
+    assertEquals(3, firstWeek.getMaxTasks());
+    assertEquals(3, secondWeek.getMaxTasks());
 
+    firstWeek.changeMaxTasks(7);
+    secondWeek.changeMaxTasks(4);
+
+    assertEquals(7, firstWeek.getMaxTasks());
+    assertEquals(4, secondWeek.getMaxTasks());
   }
 
   @Test
   void getPassword() {
-
+    assertEquals("badPassword", firstWeek.getPassword());
+    assertEquals("betterPassword", secondWeek.getPassword());
   }
 
   @Test
   void getWeekdayStart() {
-
+    assertEquals(DayOfWeek.FRIDAY, firstWeek.getWeekdayStart());
+    assertEquals(DayOfWeek.MONDAY, secondWeek.getWeekdayStart());
   }
 }
