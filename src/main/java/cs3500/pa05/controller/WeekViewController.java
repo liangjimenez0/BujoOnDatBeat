@@ -2,7 +2,6 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.CreateNewFile;
 import cs3500.pa05.model.Day;
-import cs3500.pa05.model.DayOfWeek;
 import cs3500.pa05.model.Event;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.Week;

@@ -65,6 +65,12 @@ public class CreateNewFileController extends AbstractController {
   }
 
 
+  /**
+   * Determines if the given string corresponds to a day of the week.
+   *
+   * @param s the string being compared
+   * @return if the string is a day of the week
+   */
   private boolean isDayOfWeek(String s) {
     return DayOfWeek.MONDAY.name().equals(s.toUpperCase()) ||
         DayOfWeek.TUESDAY.name().equals(s.toUpperCase()) ||

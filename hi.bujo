@@ -1,9 +1,13 @@
 {
-  "Max Tasks" : 3,
-  "Max Events" : 3,
+  "Max Tasks" : 1,
+  "Max Events" : 1,
   "Week" : {
     "Name" : "welcome to your bullet journal",
     "Days" : [ {
+      "Name" : "WEDNESDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
       "Name" : "THURSDAY",
       "Tasks" : [ ],
       "Events" : [ ]
@@ -25,10 +29,6 @@
       "Events" : [ ]
     }, {
       "Name" : "TUESDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
-    }, {
-      "Name" : "WEDNESDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     } ]

@@ -15,6 +15,11 @@ public class EditMaxTasksAndEventsController extends AbstractController {
 
   private Week week;
 
+  /**
+   * Initializes an object that can edit a week's max tasks and events.
+   *
+   * @param week the week to be edited.
+   */
   public EditMaxTasksAndEventsController(Week week) {
     this.week = week;
   }

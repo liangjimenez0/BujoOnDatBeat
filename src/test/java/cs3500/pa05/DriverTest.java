@@ -1,16 +1,13 @@
 package cs3500.pa05;
 
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
 import org.testfx.assertions.api.Assertions;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 class DriverTest {
 
@@ -25,13 +22,7 @@ class DriverTest {
      * @param stage - Will be injected by the test runner.
      */
     @Start
-    private void start(Stage stage) {
-      button = new Button("click me!");
-      button.setId("myButton");
-      button.setOnAction(actionEvent -> button.setText("clicked!"));
-      stage.setScene(new Scene(new StackPane(button), 100, 100));
-      stage.show();
-    }
+    private void start(Stage stage) {}
 
     /**
      * @param robot - Will be injected by the test runner.

@@ -40,6 +40,8 @@ public class Driver extends Application {
 
       stage.show();
 
+
+
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load GUI.");
     }
