@@ -126,7 +126,7 @@ class DayTest {
   void dayToJson() {
     assertEquals("MONDAY", this.jsonMon.name());
     assertTrue(this.jsonMon.tasks().contains(new JsonTask(
-        "laundry", "finish laundry", DayOfWeek.MONDAY, false)));
+        "laundry", "finish laundry", DayOfWeek.MONDAY, true)));
     assertEquals("TUESDAY", this.jsonTues.name());
     assertTrue(this.jsonTues.tasks().contains(new JsonTask(
         "study", "study for exam", DayOfWeek.TUESDAY, false)));
