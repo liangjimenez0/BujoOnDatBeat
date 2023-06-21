@@ -183,21 +183,20 @@ class WeekTest {
 
   @Test
   void getNameForWeek() {
-    assertEquals("week1", firstWeek.getNameForWeek());
-    assertEquals("week2", secondWeek.getNameForWeek());
-
+    assertEquals("welcome to your bullet journal", firstWeek.getNameForWeek());
+    assertEquals("welcome to your bullet journal", secondWeek.getNameForWeek());
   }
 
   @Test
-  void changeMaxTasks() {
-    assertEquals(3, firstWeek.getMaxEvents());
-    assertEquals(3, secondWeek.getMaxEvents());
+  void changeMaxEvents() {
+    assertEquals(4, firstWeek.getMaxEvents());
+    assertEquals(0, secondWeek.getMaxEvents());
 
     firstWeek.changeMaxEvents(7);
     secondWeek.changeMaxEvents(4);
 
-    assertEquals(7, firstWeek.getMaxEvents());
-    assertEquals(4, secondWeek.getMaxEvents());
+   assertEquals(7, firstWeek.getMaxEvents());
+   assertEquals(4, secondWeek.getMaxEvents());
   }
 
   @Test
@@ -220,7 +219,10 @@ class WeekTest {
 
   @Test
   void getWeekdayStart() {
-    assertEquals(DayOfWeek.FRIDAY, firstWeek.getWeekdayStart());
-    assertEquals(DayOfWeek.MONDAY, secondWeek.getWeekdayStart());
+    Week fridayStartWeek = new Week(5, 5, "filename", "MONDAY", "password", "week name");
+    assertEquals(DayOfWeek.MONDAY, fridayStartWeek.getWeekdayStart());
+
+    Week thursdayStartWeek = new Week(5, 5, "filename", "THURSDAY", "password", "week name");
+    assertEquals(DayOfWeek.THURSDAY, thursdayStartWeek.getWeekdayStart());
   }
 }

@@ -26,19 +26,6 @@ public class Event extends Widget {
     this.duration = duration;
   }
 
-  /**
-   * Initializes an event without a description.
-   *
-   * @param nameOfEvent the name of the event
-   * @param day         the weekday that this event occurs on
-   * @param startTime   the 24-hour depiction of when this event occurs
-   * @param duration    the number of minutes this event spans
-   */
-  public Event(String nameOfEvent, DayOfWeek day, long startTime, int duration) {
-    super(day, nameOfEvent);
-    this.startTime = startTime;
-    this.duration = duration;
-  }
 
   /**
    * Converts this event to a JsonEvent record.

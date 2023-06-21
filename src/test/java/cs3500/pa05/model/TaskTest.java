@@ -60,6 +60,12 @@ class TaskTest {
     assertTrue(clean.equals(clean));
     assertFalse(callFamily.equals(clean));
     assertFalse(laundry.equals(21));
+    assertFalse(new Task("laundry", DayOfWeek.TUESDAY, "finish laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
+    assertFalse(new Task("monday", DayOfWeek.MONDAY, "finish laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
+    assertFalse(new Task("laundry", DayOfWeek.MONDAY, "laundry").equals(
+        new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
   }
 
   @Test

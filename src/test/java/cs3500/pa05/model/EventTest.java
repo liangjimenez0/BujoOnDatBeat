@@ -61,7 +61,16 @@ class EventTest {
     assertTrue(wedding.equals(wedding));
     assertFalse(wedding.equals(graduation));
     assertFalse(wedding.equals(3));
-
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("funeral", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.MONDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 100L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180)));
+    assertFalse(new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 180).equals(
+        new Event("birthday", DayOfWeek.FRIDAY, "attend birthday party", 1800L, 10)));
   }
 
   /**
