@@ -1,6 +1,8 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.JsonEvent;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,5 +51,66 @@ class EventTest {
     assertEquals(240, jsonWedding.duration());
     assertEquals("attend wedding", jsonWedding.description());
     assertEquals(2200L, jsonWedding.startTime());
+  }
+
+  /**
+   * Tests that events can determine equality correctly
+   */
+  @Test
+  void equals() {
+    assertTrue(wedding.equals(wedding));
+    assertFalse(wedding.equals(graduation));
+    assertFalse(wedding.equals(3));
+
+  }
+
+  /**
+   * Tests that events can correctly determine their start time
+   */
+  void getStartTime() {
+    assertEquals(10, wedding.getStartTime());
+    assertEquals(12, graduation.getStartTime());
+    assertEquals(13, birthday.getStartTime());
+  }
+
+  /**
+   * Tests that events can correctly determine their duration
+   */
+  void getDuration() {
+    assertEquals(10, wedding.getDuration());
+    assertEquals(12, graduation.getDuration());
+    assertEquals(13, birthday.getDuration());
+  }
+
+  /**
+   * Tests that events can correctly change their start time
+   */
+  void changeStartTime() {
+    assertEquals(10, wedding.getDuration());
+    assertEquals(12, graduation.getDuration());
+    assertEquals(13, birthday.getDuration());
+    wedding.changeStartTime(13L);
+    graduation.changeStartTime(4L);
+    birthday.changeStartTime(7L);
+    assertEquals(13, wedding.getDuration());
+    assertEquals(4, graduation.getDuration());
+    assertEquals(7, birthday.getDuration());
+  }
+
+  /**
+   * Tests that events can correctly change their duration
+   */
+  void changeDuration() {
+    assertEquals(10, wedding.getDuration());
+    assertEquals(12, graduation.getDuration());
+    assertEquals(13, birthday.getDuration());
+
+    wedding.changeDuration(5);
+    graduation.changeDuration(70);
+    birthday.changeDuration(3);
+
+    assertEquals(5, wedding.getDuration());
+    assertEquals(70, graduation.getDuration());
+    assertEquals(3, birthday.getDuration());
   }
 }
