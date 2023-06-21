@@ -20,6 +20,11 @@ public class ChangeWeekNameController extends AbstractController {
 
   private Week week;
 
+  /**
+   * Initialize an object that can change the week name.
+   *
+   * @param week the week to change names
+   */
   public ChangeWeekNameController(Week week) {
     this.week = week;
   }

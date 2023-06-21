@@ -47,6 +47,9 @@ class TaskTest {
     assertEquals("clean the house", jsonClean.description());
   }
 
+  /**
+   * Tests that tasks return the correct completed boolean
+   */
   @Test
   void getCompleted() {
     assertFalse(clean.getCompleted());
@@ -55,6 +58,9 @@ class TaskTest {
     assertFalse(laundry.getCompleted());
   }
 
+  /**
+   * Tests that tasks can know if they are equal to other objects.
+   */
   @Test
   void equals() {
     assertTrue(clean.equals(clean));
@@ -68,6 +74,9 @@ class TaskTest {
         new Task("laundry", DayOfWeek.MONDAY, "finish laundry")));
   }
 
+  /**
+   * Tests that we can correctly change whether the task was completed
+   */
   @Test
   void changeCompleted() {
     clean.changeCompleted(false);

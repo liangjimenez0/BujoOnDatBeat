@@ -73,12 +73,18 @@ class WeekTest {
         this.secondWeek.getDay(DayOfWeek.SUNDAY).getDayOfWeek());
   }
 
+  /**
+   * Tests that a week returns the correct day
+   */
   @Test
   void getDay() {
     assertEquals(new Day(DayOfWeek.MONDAY), firstWeek.getDay(DayOfWeek.MONDAY));
     assertEquals(new Day(DayOfWeek.TUESDAY), firstWeek.getDay(DayOfWeek.TUESDAY));
   }
 
+  /**
+   * Tests that a string given is a valid day
+   */
   @Test
   void checkDay() {
     assertTrue(firstWeek.checkDay("TUESDAY"));
@@ -126,6 +132,9 @@ class WeekTest {
     assertEquals(new JsonDay("SATURDAY", emptyTasks, emptyEvents), jsonWeekOne.days().get(6));
   }
 
+  /**
+   * Tests that start days are correctly initialized by a given day
+   */
   @Test
   void initializwWithStartDay() {
     List<Day> weekStartingWithFriday = new ArrayList<>();
@@ -153,6 +162,9 @@ class WeekTest {
     assertEquals(weekStartingWithFriday, fridayStartWeek.getDays());
   }
 
+  /**
+   * Tests that the weeks contain the correct amount of tasks.
+   */
   @Test
   void getAllTasks() {
     assertEquals(new ArrayList<>(), firstWeek.getAllTasks());
@@ -161,6 +173,9 @@ class WeekTest {
         thirdWeek.getAllTasks().get(0));
   }
 
+  /**
+   * Tests that the weeks contain the correct amount of events.
+   */
   @Test
   void getAllEvents() {
     assertEquals(new ArrayList<>(), firstWeek.getAllEvents());
@@ -169,6 +184,9 @@ class WeekTest {
         thirdWeek.getAllEvents().get(0));
   }
 
+  /**
+   * Tests that the correct name is given
+   */
   @Test
   void getName() {
     assertEquals("week1", firstWeek.getName());
@@ -176,19 +194,28 @@ class WeekTest {
     assertEquals("week3", thirdWeek.getName());
   }
 
+  /**
+   * Tests that the name for a week can correctly be updated
+   */
   @Test
   void setNameForWeek() {
-    Week changeNameTest = new Week(2, 2,"weekname", "password");
+    Week changeNameTest = new Week(2, 2, "weekname", "password");
     changeNameTest.setNameForWeek("newName");
     assertEquals("newName", changeNameTest.getNameForWeek());
   }
 
+  /**
+   * Tests that the name is correctly returned
+   */
   @Test
   void getNameForWeek() {
     assertEquals("welcome to your bullet journal", firstWeek.getNameForWeek());
     assertEquals("welcome to your bullet journal", secondWeek.getNameForWeek());
   }
 
+  /**
+   * Tests that the max events can be correctly updated.
+   */
   @Test
   void changeMaxEvents() {
     assertEquals(4, firstWeek.getMaxEvents());
@@ -197,10 +224,13 @@ class WeekTest {
     firstWeek.changeMaxEvents(7);
     secondWeek.changeMaxEvents(4);
 
-   assertEquals(7, firstWeek.getMaxEvents());
-   assertEquals(4, secondWeek.getMaxEvents());
+    assertEquals(7, firstWeek.getMaxEvents());
+    assertEquals(4, secondWeek.getMaxEvents());
   }
 
+  /**
+   * Tests that the max tasks can be correctly updated.
+   */
   @Test
   void changeMaxTasks() {
     assertEquals(3, firstWeek.getMaxTasks());
@@ -213,12 +243,18 @@ class WeekTest {
     assertEquals(4, secondWeek.getMaxTasks());
   }
 
+  /**
+   * Tests that the password is correctly returned
+   */
   @Test
   void getPassword() {
     assertEquals("badPassword", firstWeek.getPassword());
     assertEquals("betterPassword", secondWeek.getPassword());
   }
 
+  /**
+   * Tests that the weekday start is correctly returned
+   */
   @Test
   void getWeekdayStart() {
     Week fridayStartWeek = new Week(5, 5, "filename", "MONDAY", "password", "week name");
