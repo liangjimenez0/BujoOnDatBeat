@@ -14,10 +14,10 @@ import javafx.stage.Stage;
  */
 public class SplashSceneController extends AbstractController {
   @FXML
-  ImageView bulletJournalLogo;
+  private ImageView bulletJournalLogo;
   @FXML
-  Button hidden;
-  Stage stage;
+  private Button hidden;
+  private Stage stage;
 
   /**
    * Initializes an object that can display a splash scene.
