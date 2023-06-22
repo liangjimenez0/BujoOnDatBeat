@@ -3,8 +3,6 @@ package cs3500.pa05.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import cs3500.pa05.json.JsonBujoFile;
-import cs3500.pa05.json.JsonUtils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

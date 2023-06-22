@@ -1,8 +1,5 @@
 package cs3500.pa05.model;
 
-import cs3500.pa05.json.JsonBujoFile;
-import cs3500.pa05.json.JsonUtils;
-import cs3500.pa05.json.JsonWeek;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

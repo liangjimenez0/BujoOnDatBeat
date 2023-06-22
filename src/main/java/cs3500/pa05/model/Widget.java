@@ -8,17 +8,17 @@ public abstract class Widget {
   /**
    * Represents that week day that this widget occurs on
    */
-  public DayOfWeek day;
+  protected DayOfWeek day;
 
   /**
    * Represents the name of this widget
    */
-  public String name;
+  protected String name;
 
   /**
    * Represents the description of this widget detailing its specifics
    */
-  public String description;
+  protected String description;
 
   /**
    * Initializes a widget object with a description.

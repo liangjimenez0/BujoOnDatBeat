@@ -3,12 +3,12 @@
   "Max Events" : 20,
   "Password" : "bujoondatbeat",
   "Week" : {
-    "Name" : "Finals Week",
+    "Name" : "moms example",
     "Days" : [ {
       "Name" : "SUNDAY",
       "Tasks" : [ {
         "Name" : "laundry",
-        "Description" : "",
+        "Description" : "finish laundry",
         "Day of Week" : "SUNDAY",
         "Completed" : true
       }, {

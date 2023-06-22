@@ -80,10 +80,10 @@ public class ViewTaskController extends AbstractController {
 
           // if the day has been changed, remove the event from its current day
           // and add to the correct day.
-          if (t.day != d.getDayOfWeek()) {
+          if (t.getDay() != d.getDayOfWeek()) {
             d.getTasks().remove(t);
             for (Day newDay : this.week.getDays()) {
-              if (t.day == newDay.getDayOfWeek()) {
+              if (t.getDay() == newDay.getDayOfWeek()) {
                 newDay.getTasks().add(t);
               }
             }

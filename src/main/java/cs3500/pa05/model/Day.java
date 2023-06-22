@@ -1,8 +1,5 @@
 package cs3500.pa05.model;
 
-import cs3500.pa05.json.JsonDay;
-import cs3500.pa05.json.JsonEvent;
-import cs3500.pa05.json.JsonTask;
 import java.util.ArrayList;
 import java.util.List;
 

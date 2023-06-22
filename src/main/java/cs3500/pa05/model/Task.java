@@ -1,7 +1,5 @@
 package cs3500.pa05.model;
 
-import cs3500.pa05.json.JsonTask;
-
 /**
  * Represents a task that occurs on a day with a name and description of the task
  */

@@ -2,11 +2,6 @@ package cs3500.pa05.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cs3500.pa05.json.JsonBujoFile;
-import cs3500.pa05.json.JsonDay;
-import cs3500.pa05.json.JsonEvent;
-import cs3500.pa05.json.JsonTask;
-import cs3500.pa05.json.JsonWeek;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;

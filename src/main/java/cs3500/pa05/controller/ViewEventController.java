@@ -71,10 +71,10 @@ public class ViewEventController extends AbstractController {
 
           // if the day has been changed, remove the event from its current day
           // and add to the correct day.
-          if (e.day != d.getDayOfWeek()) {
+          if (e.getDay() != d.getDayOfWeek()) {
             d.getEvents().remove(e);
             for (Day newDay : this.week.getDays()) {
-              if (e.day == newDay.getDayOfWeek()) {
+              if (e.getDay() == newDay.getDayOfWeek()) {
                 newDay.getEvents().add(e);
               }
             }

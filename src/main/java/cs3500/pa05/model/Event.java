@@ -1,7 +1,5 @@
 package cs3500.pa05.model;
 
-import cs3500.pa05.json.JsonEvent;
-
 /**
  * Represents an event that can occur on a week day
  */

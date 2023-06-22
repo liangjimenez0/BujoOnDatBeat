@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 public abstract class AbstractController implements Controller {
 
   /**
+   * Swithces the scene being displayed.
+   *
    * @param control      is a node in the scene graph which can be used by the user to get the scene
    * @param controller   is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file

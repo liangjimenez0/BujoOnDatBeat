@@ -1,6 +1,7 @@
-package cs3500.pa05.json;
+package cs3500.pa05.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import cs3500.pa05.model.JsonDay;
 import java.util.List;
 
 /**
