@@ -28,7 +28,6 @@ public class Driver extends Application {
    *              the application scene can be set.
    *              Applications may create other stages, if needed, but they will not be
    *              primary stages.
-   * @throws Exception when this method is interrupted
    */
   @Override
   public void start(Stage stage) {
@@ -41,8 +40,6 @@ public class Driver extends Application {
       controller.run();
 
       stage.show();
-
-
 
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load GUI.");

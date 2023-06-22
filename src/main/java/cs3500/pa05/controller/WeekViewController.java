@@ -181,39 +181,34 @@ public class WeekViewController extends AbstractController {
     convertWeekTasksToGui();
     convertWeekEventsToGui();
     updateProgressBars();
-
     saveButton.setOnAction(e -> newFileCreation());
-
     openExistingButton.setOnAction(e -> {
       switchScene(this.menuBar,
           new OpenExistingFileController(), "openExistingFile.fxml");
       newFileCreation();
     });
-
     newTask.setOnAction(e -> newTask());
     newTaskButton.setOnAction(e -> newTask());
-
     newEvent.setOnAction(e -> newEvent());
     newEventButton.setOnAction(e -> newEvent());
-
     newWeek.setOnAction(
         e -> {
           switchScene(this.menuBar, new CreateNewFileController(), "createNewFile.fxml");
           newFileCreation();
         });
-
     renameWeekButton.setOnAction(e -> {
       switchScene(this.menuBar,
           new ChangeWeekNameController(this.week), "enterWeekName.fxml");
       mutateJournalName();
     });
-
     editMaxTasksAndEventsButton.setOnAction(e -> switchScene(this.menuBar,
         new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml"));
-
     openFileAsTemplateButton.setOnAction(
-        e -> switchScene(this.menuBar, new OpenFileAsTemplateController(),
-            "openFileAsTemplate.fxml"));
+        e -> {
+          switchScene(this.menuBar, new OpenFileAsTemplateController(),
+              "openFileAsTemplate.fxml");
+          newFileCreation();
+        });
   }
 
   /**
@@ -292,7 +287,6 @@ public class WeekViewController extends AbstractController {
       checkBox.setSelected(true);
     }
 
-
     checkBox.setText(taskName);
     checkBox.setFont(font);
     checkBox.setPrefWidth(234);
@@ -367,7 +361,6 @@ public class WeekViewController extends AbstractController {
             + "-fx-inner-border, -fx-body-color;";
     taskButton.setOnMouseEntered(e -> taskButton.setStyle(buttonWhenMouseHovers));
     taskButton.setOnMouseExited(e -> taskButton.setStyle(regularButton));
-
     return taskButton;
   }
 
@@ -376,7 +369,6 @@ public class WeekViewController extends AbstractController {
    */
   private void convertWeekEventsToGui() {
     for (Day d : this.week.getDays()) {
-
       for (Event e : d.getEvents()) {
         if (String.valueOf(e.getDay()).toLowerCase().equals(dayOneBox.getId())) {
           Button eventBox = createNewEvent(e);
@@ -518,6 +510,10 @@ public class WeekViewController extends AbstractController {
         .put(new KeyCodeCombination(KeyCode.L, KeyCombination.SHORTCUT_DOWN),
             Platform::exit);
     this.menuBar.getScene().getAccelerators()
+        .put(new KeyCodeCombination(KeyCode.P, KeyCombination.SHORTCUT_DOWN),
+            () -> switchScene(this.menuBar, new OpenFileAsTemplateController(),
+                "openFileAsTemplate.fxml"));
+    this.menuBar.getScene().getAccelerators()
         .put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), () -> {
           switchScene(this.menuBar,
               new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml");
@@ -530,6 +526,8 @@ public class WeekViewController extends AbstractController {
   private void setAccelerators() {
     renameWeekButton.setAccelerator(
         new KeyCodeCombination(KeyCode.W, KeyCombination.SHORTCUT_DOWN));
+    openFileAsTemplateButton.setAccelerator(
+        new KeyCodeCombination(KeyCode.P, KeyCombination.SHORTCUT_DOWN));
     newWeek.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.SHORTCUT_DOWN));
     editMaxTasksAndEventsButton.setAccelerator(
         new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN));

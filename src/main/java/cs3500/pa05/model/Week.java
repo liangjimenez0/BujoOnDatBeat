@@ -21,11 +21,10 @@ public class Week {
   private String password;
 
   /**
-   * Initializes a week object without a user-defined name.
-   *
    * @param maxTasks  is the maximum number of tasks a user can have in a week
    * @param maxEvents is the maximum number of events a user can have in a week
    * @param fileName  the name of the file this week is
+   * @param password  is the password to access this week's content
    */
   public Week(int maxTasks, int maxEvents, String fileName, String password) {
     this.allDays = new ArrayList<>();

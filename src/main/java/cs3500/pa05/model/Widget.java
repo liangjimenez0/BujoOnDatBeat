@@ -5,8 +5,19 @@ package cs3500.pa05.model;
  */
 public abstract class Widget {
 
+  /**
+   * Represents that week day that this widget occurs on
+   */
   public DayOfWeek day;
+
+  /**
+   * Represents the name of this widget
+   */
   public String name;
+
+  /**
+   * Represents the description of this widget detailing its specifics
+   */
   public String description;
 
   /**

@@ -1,16 +1,20 @@
 {
   "Max Tasks" : 20,
   "Max Events" : 20,
-  "Password" : "password",
+  "Password" : "bujoondatbeat",
   "Week" : {
-    "Name" : "final's week",
+    "Name" : "finals week",
     "Days" : [ {
+      "Name" : "MONDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
       "Name" : "TUESDAY",
       "Tasks" : [ {
         "Name" : "laundry",
-        "Description" : "finish laundry for the week",
+        "Description" : "finish laundry",
         "Day of Week" : "TUESDAY",
-        "Completed" : false
+        "Completed" : true
       } ],
       "Events" : [ ]
     }, {
@@ -20,27 +24,23 @@
     }, {
       "Name" : "THURSDAY",
       "Tasks" : [ ],
-      "Events" : [ {
-        "Name" : "birthday party",
-        "Description" : "annie's birthday party\t\t",
-        "Day of Week" : "THURSDAY",
-        "Start Time" : 1100,
-        "Duration" : 160
-      } ]
+      "Events" : [ ]
     }, {
       "Name" : "FRIDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "birthday",
+        "Description" : "logan's birthday party",
+        "Day of Week" : "FRIDAY",
+        "Start Time" : 1200,
+        "Duration" : 120
+      } ]
     }, {
       "Name" : "SATURDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     }, {
       "Name" : "SUNDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
-    }, {
-      "Name" : "MONDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     } ]
