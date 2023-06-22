@@ -31,7 +31,7 @@ import javafx.scene.text.TextAlignment;
  * Handles interaction with the week view between the user and the model representation
  */
 public class WeekViewController extends AbstractController {
-  private Week week;
+  private final Week week;
   @FXML
   private Label bujoTitle;
   @FXML
@@ -254,7 +254,7 @@ public class WeekViewController extends AbstractController {
   }
 
   /**
-   * Populates the task queue with all the weeks tasks.
+   * Populates the task queue with all the week tasks.
    */
   private void createTaskQueue() {
     List<Task> allTasks = this.week.getAllTasks();
@@ -301,7 +301,7 @@ public class WeekViewController extends AbstractController {
 
 
   /**
-   * Converts the weeks tasks to be displayable.
+   * Converts the week tasks to be displayable.
    */
   private void convertWeekTasksToGui() {
     for (Day d : this.week.getDays()) {
@@ -365,7 +365,7 @@ public class WeekViewController extends AbstractController {
   }
 
   /**
-   * Converts the weeks events to be displayable.
+   * Converts the week events to be displayable.
    */
   private void convertWeekEventsToGui() {
     for (Day d : this.week.getDays()) {
@@ -442,7 +442,7 @@ public class WeekViewController extends AbstractController {
 
 
   /**
-   * Updates all the progress bars to reflected complete vs incomplete tasks.
+   * Updates all the progress bars to reflect complete vs incomplete tasks.
    */
   private void updateProgressBars() {
     for (Day day : this.week.getDays()) {
@@ -514,10 +514,9 @@ public class WeekViewController extends AbstractController {
             () -> switchScene(this.menuBar, new OpenFileAsTemplateController(),
                 "openFileAsTemplate.fxml"));
     this.menuBar.getScene().getAccelerators()
-        .put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), () -> {
-          switchScene(this.menuBar,
-              new EditMaxTasksAndEventsController(this.week), "editMaxTasksAndEvents.fxml");
-        });
+        .put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), () ->
+            switchScene(this.menuBar, new EditMaxTasksAndEventsController(this.week),
+                "editMaxTasksAndEvents.fxml"));
   }
 
   /**
