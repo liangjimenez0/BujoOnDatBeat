@@ -15,18 +15,14 @@ import javafx.scene.control.TextField;
 public class CreateNewTaskController extends AbstractController {
   @FXML
   private TextField userTaskName;
-
   @FXML
   private TextField userTaskDay;
-
   @FXML
   private TextArea userTaskDescription;
   @FXML
   private Button newTaskDone;
-
   @FXML
   private Button backToWeekView;
-
   private Week currentWeek;
 
   /**
@@ -84,9 +80,7 @@ public class CreateNewTaskController extends AbstractController {
    * @param newTask the task to be added to the week.
    */
   private void addTaskToWeek(Task newTask) {
-
     for (Day d : this.currentWeek.getDays()) {
-
       if (newTask.getDay().equals(d.getDayOfWeek())) {
         d.getTasks().add(newTask);
       }

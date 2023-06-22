@@ -14,26 +14,19 @@ import javafx.scene.control.TextField;
 public class CreateNewFileController extends AbstractController {
   @FXML
   private TextField maxTasksInput;
-
   @FXML
   private TextField maxEventsInput;
   @FXML
   private TextField fileNameInput;
-
   @FXML
   private TextField startWeekday;
-
   @FXML
   private TextField passwordInput;
-
   @FXML
   private TextField newWeekNameInput;
-
   private Week currentWeek;
-
   @FXML
   private Button submitButton;
-
   @FXML
   private Button backButton;
 
@@ -45,7 +38,6 @@ public class CreateNewFileController extends AbstractController {
     this.backButton.getScene().getWindow().centerOnScreen();
     backButton.setOnAction(
         e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
-
     submitButton.setOnAction(e -> createNewFile());
   }
 
@@ -53,7 +45,6 @@ public class CreateNewFileController extends AbstractController {
    * Creates a new file from the user-entered information.
    */
   private void createNewFile() {
-
     try {
       int maxTasks = Integer.parseInt(maxTasksInput.getText());
       int maxEvents = Integer.parseInt(maxEventsInput.getText());

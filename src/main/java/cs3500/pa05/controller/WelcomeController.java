@@ -10,13 +10,10 @@ import javafx.scene.control.Button;
 public class WelcomeController extends AbstractController {
 
   private Week currentWeek;
-
   @FXML
   private Button createNewFile;
-
   @FXML
   private Button openExistingFile;
-
   @FXML
   private Button openFileAsTemplate;
 

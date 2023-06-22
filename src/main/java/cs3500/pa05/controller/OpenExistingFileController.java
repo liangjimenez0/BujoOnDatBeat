@@ -13,14 +13,12 @@ import javafx.scene.control.TextField;
 public class OpenExistingFileController extends AbstractController {
   @FXML
   private TextField fileNameInput;
-
   @FXML
   private TextField passwordInput;
   @FXML
   private Button submitButton;
   @FXML
   private Button backButton;
-
   private Week currentWeek;
 
   /**
@@ -30,7 +28,6 @@ public class OpenExistingFileController extends AbstractController {
     this.backButton.getScene().getWindow().centerOnScreen();
     backButton.setOnAction(
         e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
-
     submitButton.setOnAction(e -> processFile());
   }
 
@@ -40,7 +37,6 @@ public class OpenExistingFileController extends AbstractController {
   private void processFile() {
     String fileName = fileNameInput.getText();
     File file = new File(fileName);
-
     if (!fileName.endsWith("bujo") || new ReadFile(file).processFile() == null) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");

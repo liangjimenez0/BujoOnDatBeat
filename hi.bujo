@@ -5,17 +5,16 @@
   "Week" : {
     "Name" : "finals week",
     "Days" : [ {
+      "Name" : "SUNDAY",
+      "Tasks" : [ ],
+      "Events" : [ ]
+    }, {
       "Name" : "MONDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     }, {
       "Name" : "TUESDAY",
-      "Tasks" : [ {
-        "Name" : "laundry",
-        "Description" : "finish laundry",
-        "Day of Week" : "TUESDAY",
-        "Completed" : true
-      } ],
+      "Tasks" : [ ],
       "Events" : [ ]
     }, {
       "Name" : "WEDNESDAY",
@@ -28,19 +27,9 @@
     }, {
       "Name" : "FRIDAY",
       "Tasks" : [ ],
-      "Events" : [ {
-        "Name" : "birthday",
-        "Description" : "logan's birthday party",
-        "Day of Week" : "FRIDAY",
-        "Start Time" : 1200,
-        "Duration" : 120
-      } ]
-    }, {
-      "Name" : "SATURDAY",
-      "Tasks" : [ ],
       "Events" : [ ]
     }, {
-      "Name" : "SUNDAY",
+      "Name" : "SATURDAY",
       "Tasks" : [ ],
       "Events" : [ ]
     } ]

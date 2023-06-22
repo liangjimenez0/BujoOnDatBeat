@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
  * Handles the expanding of an event in the view.
  */
 public class ViewTaskController extends AbstractController {
-
   @FXML
   private TextField userTaskName;
   @FXML
@@ -51,14 +50,12 @@ public class ViewTaskController extends AbstractController {
     deleteTask.setOnAction(e -> deleteTask());
     doneViewing.setOnAction(
         e -> editTask());
-
   }
 
   /**
    * Shows the user the current information in the task.
    */
   private void setTextFields() {
-
     userTaskDay.setText(String.valueOf(currentTask.getDay()));
     userTaskName.setText(currentTask.getName());
     completedBox.setSelected(currentTask.getCompleted());
@@ -72,9 +69,7 @@ public class ViewTaskController extends AbstractController {
    * Updates a task to contain the new desired information.
    */
   private void editTask() {
-
     for (Day d : this.week.getDays()) {
-
       for (Task t : d.getTasks()) {
 
         if (t.equals(this.currentTask)) {
@@ -83,12 +78,10 @@ public class ViewTaskController extends AbstractController {
           t.changeDescription(userTaskDescription.getText());
           t.changeCompleted(completedBox.isSelected());
 
-
           // if the day has been changed, remove the event from its current day
           // and add to the correct day.
           if (t.day != d.getDayOfWeek()) {
             d.getTasks().remove(t);
-
             for (Day newDay : this.week.getDays()) {
               if (t.day == newDay.getDayOfWeek()) {
                 newDay.getTasks().add(t);
@@ -105,19 +98,15 @@ public class ViewTaskController extends AbstractController {
    * Deletes the task in this controller.
    */
   private void deleteTask() {
-
     for (Day d : this.week.getDays()) {
-
       for (Task t : d.getTasks()) {
 
         if (t.equals(this.currentTask)) {
           d.getTasks().remove(t);
           break;
         }
-
       }
     }
-
     switchScene(deleteTask, new WeekViewController(this.week), "weekView.fxml");
   }
 }

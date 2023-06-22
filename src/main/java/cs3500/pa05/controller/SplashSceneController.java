@@ -15,10 +15,8 @@ import javafx.stage.Stage;
 public class SplashSceneController extends AbstractController {
   @FXML
   ImageView bulletJournalLogo;
-
   @FXML
   Button hidden;
-
   Stage stage;
 
   /**
@@ -46,7 +44,6 @@ public class SplashSceneController extends AbstractController {
     bulletJournalLogo.setFitHeight(700.0);
     bulletJournalLogo.setFitWidth(900.0);
     bulletJournalLogo.setPreserveRatio(true);
-
     hidden.setOnAction(e -> switchScene(hidden,
         new WelcomeController(), "welcomePage.fxml"));
   }

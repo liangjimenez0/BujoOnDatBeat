@@ -1,6 +1,5 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.model.Week;
 import cs3500.pa05.view.GraphicalView;
 import cs3500.pa05.view.View;
 import javafx.scene.control.Control;
@@ -10,12 +9,9 @@ import javafx.stage.Stage;
  * Represents a controller that switches scenes on a JavaFX stage
  */
 public abstract class AbstractController implements Controller {
-  private Week currentWeek;
 
   /**
-   * Switches the scene on a given controls stage to a new view of the
-   * given FXML file (controlled by the given controller)
-   *
+   * @param control      is a node in the scene graph which can be used by the user to get the scene
    * @param controller   is the given Controller that handles the switching of scenes on a stage
    * @param fxmlFileName is the file name of the given JavaFX file
    */

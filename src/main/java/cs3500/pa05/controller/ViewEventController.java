@@ -17,22 +17,18 @@ public class ViewEventController extends AbstractController {
   private Event currentEvent;
   @FXML
   private TextField userEventName;
-
   @FXML
   private TextField userEventDay;
-
   @FXML
   private TextField userEventStartTime;
-
   @FXML
   private TextField userEventDuration;
-
   @FXML
   private TextArea userEventDescription;
   @FXML
-  Button deleteEvent;
+  private Button deleteEvent;
   @FXML
-  Button doneViewing;
+  private Button doneViewing;
   private Week week;
 
   /**
@@ -52,7 +48,6 @@ public class ViewEventController extends AbstractController {
   public void run() {
     this.deleteEvent.getScene().getWindow().centerOnScreen();
     setTextFields();
-
     deleteEvent.setOnAction(e -> deleteEvent());
     doneViewing.setOnAction(
         e -> editEvent());
@@ -63,24 +58,21 @@ public class ViewEventController extends AbstractController {
    * Updates an event to contain the new desired information.
    */
   private void editEvent() {
-
     for (Day d : this.week.getDays()) {
-
       for (Event e : d.getEvents()) {
+
         // updates the event to capture any changes made
         if (e.equals(this.currentEvent)) {
           e.changeName(userEventName.getText());
           e.changeStartTime(Long.parseLong(userEventStartTime.getText()));
           e.changeDuration(Integer.parseInt(userEventDuration.getText()));
           e.changeDescription(userEventDescription.getText());
-
           e.changeDay(DayOfWeek.valueOf(userEventDay.getText().toUpperCase()));
 
           // if the day has been changed, remove the event from its current day
           // and add to the correct day.
           if (e.day != d.getDayOfWeek()) {
             d.getEvents().remove(e);
-
             for (Day newDay : this.week.getDays()) {
               if (e.day == newDay.getDayOfWeek()) {
                 newDay.getEvents().add(e);
@@ -88,11 +80,8 @@ public class ViewEventController extends AbstractController {
             }
           }
         }
-
       }
-
     }
-
     switchScene(doneViewing, new WeekViewController(this.week), "weekView.fxml");
   }
 
@@ -100,7 +89,6 @@ public class ViewEventController extends AbstractController {
    * Shows the user the current information in the event.
    */
   private void setTextFields() {
-
     userEventDay.setText(String.valueOf(currentEvent.getDay()));
     userEventName.setText(currentEvent.getName());
     userEventStartTime.setText(String.valueOf(currentEvent.getStartTime()));
@@ -108,28 +96,21 @@ public class ViewEventController extends AbstractController {
     if (currentEvent.getDescription() != null) {
       userEventDescription.setText(currentEvent.getDescription());
     }
-
     userEventDuration.setText(String.valueOf(currentEvent.getDuration()));
   }
+
 
   /**
    * Deletes the event in this controller.
    */
   private void deleteEvent() {
-
     for (Day d : this.week.getDays()) {
-
       for (Event e : d.getEvents()) {
-
         if (e.equals(this.currentEvent)) {
           d.getEvents().remove(e);
         }
-
       }
     }
-
     switchScene(deleteEvent, new WeekViewController(this.week), "weekView.fxml");
   }
-
-
 }

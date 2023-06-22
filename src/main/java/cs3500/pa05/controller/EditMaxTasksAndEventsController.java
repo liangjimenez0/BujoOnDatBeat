@@ -12,16 +12,12 @@ public class EditMaxTasksAndEventsController extends AbstractController {
 
   @FXML
   private TextField maxTasksInput;
-
   @FXML
   private TextField maxEventsInput;
-
   @FXML
   private Button doneButton;
-
   @FXML
   private Button backButton;
-
   private Week week;
 
   /**
@@ -49,7 +45,6 @@ public class EditMaxTasksAndEventsController extends AbstractController {
   private void editMax() {
     this.week.changeMaxTasks(Integer.parseInt(maxTasksInput.getText()));
     this.week.changeMaxEvents(Integer.parseInt(maxEventsInput.getText()));
-
     switchScene(backButton, new WeekViewController(this.week), "weekView.fxml");
   }
 }

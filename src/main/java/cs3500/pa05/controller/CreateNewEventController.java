@@ -96,9 +96,7 @@ public class CreateNewEventController extends AbstractController {
    * @param newEvent the event to be added to the week.
    */
   private void addEventToWeek(Event newEvent) {
-
     for (Day d : this.currentWeek.getDays()) {
-
       if (newEvent.getDay().equals(d.getDayOfWeek())) {
         d.getEvents().add(newEvent);
       }

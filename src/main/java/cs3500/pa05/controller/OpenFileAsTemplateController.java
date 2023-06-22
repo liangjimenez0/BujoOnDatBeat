@@ -24,7 +24,6 @@ public class OpenFileAsTemplateController extends AbstractController {
   private Button submitButton;
   @FXML
   private Button backButton;
-
   private Week currentWeek;
 
   /**
@@ -32,10 +31,8 @@ public class OpenFileAsTemplateController extends AbstractController {
    */
   public void run() {
     this.backButton.getScene().getWindow().centerOnScreen();
-
     backButton.setOnAction(
         e -> switchScene(backButton, new WelcomeController(), "welcomePage.fxml"));
-
     submitButton.setOnAction(e -> processFile());
   }
 
@@ -45,28 +42,23 @@ public class OpenFileAsTemplateController extends AbstractController {
   private void processFile() {
     String fileName = fileNameInput.getText();
     File file = new File(fileName);
-
     String newFileName = newFileNameInput.getText();
     String newWeekName = newWeekNameInput.getText();
-
 
     if (!fileName.endsWith("bujo") || new ReadFile(file).processFile() == null) {
       switchScene(submitButton, new WarningController(this.currentWeek),
           "invalidFileWarning.fxml");
     } else {
       Week weekTemplate = new ReadFile(file).processFile();
-
       this.currentWeek =
           new Week(weekTemplate.getMaxTasks(), weekTemplate.getMaxEvents(), newFileName,
               String.valueOf(weekTemplate.getWeekdayStart()), weekTemplate.getPassword(),
               newWeekName);
-
       try {
         new CreateNewFile().createNewFile(this.currentWeek, newFileName);
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
-
       switchScene(submitButton, new WeekViewController(this.currentWeek), "weekView.fxml");
     }
   }
