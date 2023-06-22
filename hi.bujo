@@ -3,26 +3,85 @@
   "Max Events" : 20,
   "Password" : "bujoondatbeat",
   "Week" : {
-    "Name" : "finals week",
+    "Name" : "Finals Week",
     "Days" : [ {
       "Name" : "SUNDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
+      "Tasks" : [ {
+        "Name" : "laundry",
+        "Description" : "",
+        "Day of Week" : "SUNDAY",
+        "Completed" : true
+      }, {
+        "Name" : "study for calc",
+        "Description" : "",
+        "Day of Week" : "SUNDAY",
+        "Completed" : false
+      } ],
+      "Events" : [ {
+        "Name" : "dinner with friends",
+        "Description" : "",
+        "Day of Week" : "SUNDAY",
+        "Start Time" : 1200,
+        "Duration" : 60
+      } ]
     }, {
       "Name" : "MONDAY",
-      "Tasks" : [ ],
+      "Tasks" : [ {
+        "Name" : "study for OOD ",
+        "Description" : "",
+        "Day of Week" : "MONDAY",
+        "Completed" : false
+      } ],
       "Events" : [ ]
     }, {
       "Name" : "TUESDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "meeting w/ advisor",
+        "Description" : "",
+        "Day of Week" : "TUESDAY",
+        "Start Time" : 2300,
+        "Duration" : 90
+      } ]
     }, {
       "Name" : "WEDNESDAY",
-      "Tasks" : [ ],
-      "Events" : [ ]
+      "Tasks" : [ {
+        "Name" : "clean the apartment",
+        "Description" : "",
+        "Day of Week" : "WEDNESDAY",
+        "Completed" : false
+      }, {
+        "Name" : "walk the dog",
+        "Description" : "",
+        "Day of Week" : "WEDNESDAY",
+        "Completed" : true
+      }, {
+        "Name" : "read textbook",
+        "Description" : "",
+        "Day of Week" : "WEDNESDAY",
+        "Completed" : false
+      } ],
+      "Events" : [ {
+        "Name" : "study session",
+        "Description" : "",
+        "Day of Week" : "WEDNESDAY",
+        "Start Time" : 2000,
+        "Duration" : 90
+      }, {
+        "Name" : "zoom with family",
+        "Description" : "",
+        "Day of Week" : "WEDNESDAY",
+        "Start Time" : 1200,
+        "Duration" : 20
+      } ]
     }, {
       "Name" : "THURSDAY",
-      "Tasks" : [ ],
+      "Tasks" : [ {
+        "Name" : "take notes for bio",
+        "Description" : "",
+        "Day of Week" : "THURSDAY",
+        "Completed" : false
+      } ],
       "Events" : [ ]
     }, {
       "Name" : "FRIDAY",
@@ -31,7 +90,13 @@
     }, {
       "Name" : "SATURDAY",
       "Tasks" : [ ],
-      "Events" : [ ]
+      "Events" : [ {
+        "Name" : "birthday party",
+        "Description" : "",
+        "Day of Week" : "SATURDAY",
+        "Start Time" : 1200,
+        "Duration" : 90
+      } ]
     } ]
   }
 }
